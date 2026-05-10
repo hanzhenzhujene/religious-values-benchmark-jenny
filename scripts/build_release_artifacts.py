@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import csv
 import json
+import math
 import subprocess
 import sys
 import zipfile
@@ -94,6 +95,7 @@ def inspect_log_result(eval_path: Path) -> dict[str, object]:
     model_info = MODEL_BY_SLUG.get(slug, {})
     row: dict[str, object] = {
         "path": rel_path,
+        "slug": eval_path.parent.name,
         "status": "unreadable",
         "task": "",
         "model": model_info.get("model", ""),
@@ -168,6 +170,100 @@ def inspect_log_result(eval_path: Path) -> dict[str, object]:
     return row
 
 
+def sample_scores(eval_path: Path) -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    try:
+        with zipfile.ZipFile(eval_path) as archive:
+            for name in archive.namelist():
+                if not name.startswith("samples/") or not name.endswith(".json"):
+                    continue
+                sample = read_json_member(archive, name)
+                if not isinstance(sample, dict):
+                    continue
+                score = sample.get("scores", {}).get("exact_choice_scorer", {})
+                if "value" not in score:
+                    continue
+                rows.append(
+                    {
+                        "sample_id": str(sample.get("id", "")),
+                        "value": float(score.get("value", 0)),
+                        "parse_error": bool(score.get("metadata", {}).get("parse_error")),
+                        "log_path": str(eval_path.relative_to(ROOT)),
+                    }
+                )
+    except Exception:
+        return rows
+    return [row for row in rows if row["sample_id"]]
+
+
+def combined_result_rows(log_rows: list[dict[str, object]]) -> list[dict[str, object]]:
+    groups: dict[tuple[str, str], dict[str, object]] = {}
+    for row in sorted(log_rows, key=lambda item: str(item["path"])):
+        path = str(row["path"])
+        if "/logs/smoke/" in path:
+            continue
+        task = str(row.get("task") or "")
+        slug = str(row.get("slug") or "")
+        if not task or not slug:
+            continue
+        key = (slug, task)
+        group = groups.setdefault(
+            key,
+            {
+                "benchmark": "BibleQA" if task == "bibleqa_sentence_selection" else task,
+                "task": task,
+                "family": row["family"],
+                "size": row["size"],
+                "model": row["model"],
+                "provider": row["provider"],
+                "total_samples": 0,
+                "samples": {},
+                "logs": [],
+                "source_statuses": [],
+            },
+        )
+        total_samples = row.get("total_samples")
+        if total_samples not in {"", None}:
+            group["total_samples"] = max(int(group["total_samples"]), int(total_samples))
+        group["logs"].append(path)
+        group["source_statuses"].append(row["status"])
+        for sample in sample_scores(ROOT / path):
+            group["samples"][sample["sample_id"]] = sample
+
+    result_rows: list[dict[str, object]] = []
+    for group in groups.values():
+        samples: dict[str, dict[str, object]] = group["samples"]  # type: ignore[assignment]
+        total_samples = int(group["total_samples"]) or len(samples)
+        completed_samples = len(samples)
+        scored_values = [float(sample["value"]) for sample in samples.values()]
+        parse_failures = sum(1 for sample in samples.values() if sample["parse_error"])
+        if not scored_values:
+            continue
+        status = "success" if completed_samples >= total_samples else "partial"
+        accuracy_value = sum(scored_values) / len(scored_values)
+        result_rows.append(
+            {
+                "benchmark": group["benchmark"],
+                "task": group["task"],
+                "family": group["family"],
+                "size": group["size"],
+                "model": group["model"],
+                "provider": group["provider"],
+                "status": status,
+                "accuracy": accuracy_value,
+                "stderr": math.sqrt(accuracy_value * (1 - accuracy_value) / completed_samples),
+                "valid_response_rate": (completed_samples - parse_failures) / completed_samples,
+                "parse_failure_rate": parse_failures / completed_samples,
+                "completed_samples": completed_samples,
+                "total_samples": total_samples,
+                "contributing_logs": len(group["logs"]),
+                "source_statuses": ";".join(str(status) for status in group["source_statuses"]),
+                "log_path": ";".join(str(path) for path in group["logs"]),
+            }
+        )
+    return sorted(result_rows, key=lambda row: (str(row["family"]), SIZE_ORDER.get(str(row["size"]), 99)))
+
+
 def access_status() -> list[dict]:
     result = subprocess.run(
         [sys.executable, str(ROOT / "scripts" / "check_dataset_access.py"), "--json"],
@@ -217,7 +313,6 @@ def successful_result_rows(rows: list[dict[str, object]]) -> list[dict[str, obje
         if row.get("status") == "success"
         and row.get("accuracy") != ""
         and row.get("task")
-        and "/logs/smoke/" not in str(row.get("path", ""))
     ]
 
 
@@ -377,10 +472,15 @@ def main() -> int:
         ],
     )
 
+    combined_rows = combined_result_rows(log_rows)
+    result_rows = successful_result_rows(combined_rows)
+    completed_cells = {(row["model"], row["task"]) for row in result_rows}
     failed_rows = [
         row
         for row in log_rows
-        if row["status"] != "success" and "/logs/smoke/" not in str(row.get("path", ""))
+        if row["status"] != "success"
+        and "/logs/smoke/" not in str(row.get("path", ""))
+        and (row["model"], row["task"]) not in completed_cells
     ]
     write_csv(
         RELEASE_DIR / "failed-cells.csv",
@@ -402,7 +502,6 @@ def main() -> int:
         ],
     )
 
-    result_rows = successful_result_rows(log_rows)
     write_csv(
         RELEASE_DIR / "result-summary.csv",
         [
@@ -417,11 +516,14 @@ def main() -> int:
             "valid_response_rate",
             "parse_failure_rate",
             "completed_samples",
+            "total_samples",
+            "contributing_logs",
+            "source_statuses",
             "log_path",
         ],
         [
             (
-                "BibleQA" if row["task"] == "bibleqa_sentence_selection" else row["task"],
+                row["benchmark"],
                 row["task"],
                 row["family"],
                 row["size"],
@@ -432,7 +534,10 @@ def main() -> int:
                 row["valid_response_rate"],
                 row["parse_failure_rate"],
                 row["completed_samples"],
-                row["path"],
+                row["total_samples"],
+                row["contributing_logs"],
+                row["source_statuses"],
+                row["log_path"],
             )
             for row in result_rows
         ],
@@ -443,9 +548,9 @@ def main() -> int:
         build_access_plot(statuses)
         figure_paths.append("figures/release/jenny_religion_access_gate.svg")
     for figure_path in [
-        build_accuracy_heatmap(log_rows),
-        build_family_size_plot(log_rows),
-        build_benchmark_difficulty_plot(log_rows),
+        build_accuracy_heatmap(combined_rows),
+        build_family_size_plot(combined_rows),
+        build_benchmark_difficulty_plot(combined_rows),
     ]:
         if figure_path is not None:
             figure_paths.append(str(figure_path.relative_to(ROOT)))
@@ -455,7 +560,7 @@ def main() -> int:
         "release_dir": str(RELEASE_DIR.relative_to(ROOT)),
         "figures": figure_paths,
         "num_inspect_logs": len(log_rows),
-        "num_successful_result_logs": len(result_rows),
+        "num_successful_result_cells": len(result_rows),
     }
     (RELEASE_DIR / "release-manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
@@ -472,7 +577,7 @@ def main() -> int:
         lines.append(f"- {item['benchmark']}: {item['status']} - {item['note']}")
     lines.extend(["", "## Completed Results", ""])
     if result_rows:
-        lines.append(f"- Successful Inspect logs: {len(result_rows)}")
+        lines.append(f"- Complete result cells: {len(result_rows)}")
         lines.append("- Best current BibleQA cells:")
         for row in best_rows:
             lines.append(f"  - {short_model_label(row)}: accuracy {float(row['accuracy']):.3f}")

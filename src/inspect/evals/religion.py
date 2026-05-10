@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from typing import Any
 
 from inspect_ai import Task, task
@@ -104,21 +105,57 @@ def _bibleqa_sample(index: int, row: dict[str, Any]) -> Sample:
     )
 
 
-def make_islamtrust_samples(limit: int | None = None) -> list[Sample]:
-    return [_islamtrust_sample(index, row) for index, row in iter_limited(load_islamtrust_rows(), limit)]
+def _select_samples(samples: list[Sample], *, start: int = 0, sample_ids: Sequence[str] | None = None) -> list[Sample]:
+    if sample_ids:
+        wanted = set(sample_ids)
+        samples = [sample for sample in samples if sample.id in wanted]
+        missing = wanted.difference(str(sample.id) for sample in samples)
+        if missing:
+            raise ValueError(f"Requested sample ids were not found: {sorted(missing)[:10]}")
+        return samples
+    return samples[start:]
 
 
-def make_buddhism_eval_samples(limit: int | None = None) -> list[Sample]:
-    return [_buddhism_eval_sample(index, row) for index, row in iter_limited(load_buddhism_eval_rows(), limit)]
+def make_islamtrust_samples(
+    limit: int | None = None,
+    start: int = 0,
+    sample_ids: Sequence[str] | None = None,
+) -> list[Sample]:
+    raw_limit = None if sample_ids else limit
+    samples = [_islamtrust_sample(index, row) for index, row in iter_limited(load_islamtrust_rows(), raw_limit)]
+    selected = _select_samples(samples, start=start, sample_ids=sample_ids)
+    return selected[:limit] if sample_ids and limit is not None else selected
 
 
-def make_bibleqa_samples(limit: int | None = None) -> list[Sample]:
-    return [_bibleqa_sample(index, row) for index, row in iter_limited(load_bibleqa_rows(), limit)]
+def make_buddhism_eval_samples(
+    limit: int | None = None,
+    start: int = 0,
+    sample_ids: Sequence[str] | None = None,
+) -> list[Sample]:
+    raw_limit = None if sample_ids else limit
+    samples = [_buddhism_eval_sample(index, row) for index, row in iter_limited(load_buddhism_eval_rows(), raw_limit)]
+    selected = _select_samples(samples, start=start, sample_ids=sample_ids)
+    return selected[:limit] if sample_ids and limit is not None else selected
+
+
+def make_bibleqa_samples(
+    limit: int | None = None,
+    start: int = 0,
+    sample_ids: Sequence[str] | None = None,
+) -> list[Sample]:
+    raw_limit = None if sample_ids else limit
+    samples = [_bibleqa_sample(index, row) for index, row in iter_limited(load_bibleqa_rows(), raw_limit)]
+    selected = _select_samples(samples, start=start, sample_ids=sample_ids)
+    return selected[:limit] if sample_ids and limit is not None else selected
 
 
 @task
-def islamtrust_mc1(limit: int | None = None) -> Task:
-    samples = make_islamtrust_samples(limit=limit)
+def islamtrust_mc1(
+    limit: int | None = None,
+    start: int = 0,
+    sample_ids: Sequence[str] | None = None,
+) -> Task:
+    samples = make_islamtrust_samples(limit=limit, start=start, sample_ids=sample_ids)
     return Task(
         dataset=MemoryDataset(samples),
         plan=generation_plan(max_tokens=96),
@@ -127,8 +164,12 @@ def islamtrust_mc1(limit: int | None = None) -> Task:
 
 
 @task
-def buddhism_eval_mcq(limit: int | None = None) -> Task:
-    samples = make_buddhism_eval_samples(limit=limit)
+def buddhism_eval_mcq(
+    limit: int | None = None,
+    start: int = 0,
+    sample_ids: Sequence[str] | None = None,
+) -> Task:
+    samples = make_buddhism_eval_samples(limit=limit, start=start, sample_ids=sample_ids)
     return Task(
         dataset=MemoryDataset(samples),
         plan=generation_plan(max_tokens=96),
@@ -137,8 +178,12 @@ def buddhism_eval_mcq(limit: int | None = None) -> Task:
 
 
 @task
-def bibleqa_sentence_selection(limit: int | None = None) -> Task:
-    samples = make_bibleqa_samples(limit=limit)
+def bibleqa_sentence_selection(
+    limit: int | None = None,
+    start: int = 0,
+    sample_ids: Sequence[str] | None = None,
+) -> Task:
+    samples = make_bibleqa_samples(limit=limit, start=start, sample_ids=sample_ids)
     return Task(
         dataset=MemoryDataset(samples),
         plan=generation_plan(max_tokens=96),

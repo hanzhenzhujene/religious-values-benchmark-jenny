@@ -30,7 +30,17 @@ make smoke
 ```
 
 The model matrix is inherited from the moral-psychology benchmark. Qwen, DeepSeek, Llama, and Gemma use OpenRouter. MiniMax uses the direct MiniMax API.
-Use `--models` with 1-based model indices for failed-cell reruns.
+The runner defaults to three model streams at a time and caps fragile/model-specific streams lower, so failed cells do not fan out into a big spend.
+
+## Rebound Runs
+
+Plan targeted reruns without making model calls:
+
+```bash
+make rebound-plan RUN_ID=jenny-religion-20260510
+```
+
+This writes `results/inspect/rebounds/<run-id>/rebound-plan.csv`, sample-id files, and a `run-rebounds.sh` script. Rebound runs use exact sample ids so partial failures can continue from missing samples instead of rerunning the whole cell.
 
 ## Outputs
 

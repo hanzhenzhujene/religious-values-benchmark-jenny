@@ -87,3 +87,60 @@ def test_make_bibleqa_samples_from_local_official_artifact(tmp_path, monkeypatch
     assert len(samples) == 1
     assert samples[0].target == "3"
     assert samples[0].metadata["translation"] == "WEB"
+
+
+def test_make_bibleqa_samples_filters_exact_sample_ids(tmp_path, monkeypatch):
+    data_path = tmp_path / "bibleqa.json"
+    rows = []
+    for index in range(3):
+        rows.append(
+            {
+                "question": [f"Question {index + 1}?"] * 3,
+                "labels": [0, 0, 1],
+                "answers": [[f"Wrong {index}.1", f"Wrong {index}.2", f"Right {index}"]],
+            }
+        )
+    data_path.write_text(json.dumps(rows), encoding="utf-8")
+    monkeypatch.setenv("BIBLEQA_DATA_FILE", str(data_path))
+
+    samples = make_bibleqa_samples(sample_ids=["bibleqa-web-0002"])
+
+    assert [sample.id for sample in samples] == ["bibleqa-web-0002"]
+
+
+def test_make_bibleqa_sample_id_filter_runs_before_limit(tmp_path, monkeypatch):
+    data_path = tmp_path / "bibleqa.json"
+    rows = []
+    for index in range(4):
+        rows.append(
+            {
+                "question": [f"Question {index + 1}?"] * 3,
+                "labels": [0, 0, 1],
+                "answers": [[f"Wrong {index}.1", f"Wrong {index}.2", f"Right {index}"]],
+            }
+        )
+    data_path.write_text(json.dumps(rows), encoding="utf-8")
+    monkeypatch.setenv("BIBLEQA_DATA_FILE", str(data_path))
+
+    samples = make_bibleqa_samples(limit=1, sample_ids=["bibleqa-web-0004"])
+
+    assert [sample.id for sample in samples] == ["bibleqa-web-0004"]
+
+
+def test_make_bibleqa_samples_supports_start_offset(tmp_path, monkeypatch):
+    data_path = tmp_path / "bibleqa.json"
+    rows = []
+    for index in range(3):
+        rows.append(
+            {
+                "question": [f"Question {index + 1}?"] * 3,
+                "labels": [0, 0, 1],
+                "answers": [[f"Wrong {index}.1", f"Wrong {index}.2", f"Right {index}"]],
+            }
+        )
+    data_path.write_text(json.dumps(rows), encoding="utf-8")
+    monkeypatch.setenv("BIBLEQA_DATA_FILE", str(data_path))
+
+    samples = make_bibleqa_samples(start=1)
+
+    assert [sample.id for sample in samples] == ["bibleqa-web-0002", "bibleqa-web-0003"]

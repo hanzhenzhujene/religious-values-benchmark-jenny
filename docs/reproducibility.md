@@ -47,6 +47,15 @@ This runs a 2-sample smoke test on accessible official tasks only. In a fresh en
 
 Use `--models` with 1-based indices to run subsets. Raw logs are written under `results/inspect/full-runs/<run-id>/` and Inspect `.eval` archives under `results/inspect/logs/<run-id>/`.
 For failed-cell reruns, use the same command with `--models` and a fresh `--run-id` so provenance stays separate.
+The runner defaults to `--parallel-models 3`; use `--dry-run` to inspect selected models/tasks without model calls.
+
+## Rebound Plan
+
+```bash
+make rebound-plan RUN_ID=jenny-religion-20260510
+```
+
+The rebound planner reads failed and high-parse-failure `.eval` logs, writes exact sample-id files under `results/inspect/rebounds/<run-id>/`, and emits suggested low-concurrency commands. Release summaries combine original partial logs with rebound logs by sample id, so completed cells are reported once.
 
 ## Release Artifacts
 

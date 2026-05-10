@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/../../../.."
+./scripts/run_jenny_religion.sh --run-id jenny-religion-20260510-rebound-deepseek_deepseek-r1-missing_after_runtime_error --models 6 --tasks bibleqa_sentence_selection --sample-ids-file results/inspect/rebounds/jenny-religion-20260510/deepseek_deepseek-r1__bibleqa_sentence_selection__missing_after_runtime_error.ids --max-conn 1 --parallel-models 1
+./scripts/run_jenny_religion.sh --run-id jenny-religion-20260510-rebound-deepseek_deepseek-r1-distill-llama-70b-parse_failure_rerun --models 4 --tasks bibleqa_sentence_selection --sample-ids-file results/inspect/rebounds/jenny-religion-20260510/deepseek_deepseek-r1-distill-llama-70b__bibleqa_sentence_selection__parse_failure_rerun.ids --max-conn 2 --parallel-models 1
+./scripts/run_jenny_religion.sh --run-id jenny-religion-20260510-rebound-qwen_qwen3-32b-parse_failure_rerun --models 2 --tasks bibleqa_sentence_selection --sample-ids-file results/inspect/rebounds/jenny-religion-20260510/qwen_qwen3-32b__bibleqa_sentence_selection__parse_failure_rerun.ids --max-conn 2 --parallel-models 1
+./scripts/run_jenny_religion.sh --run-id jenny-religion-20260510-rebound-qwen_qwen3-8b-missing_after_runtime_error --models 1 --tasks bibleqa_sentence_selection --sample-ids-file results/inspect/rebounds/jenny-religion-20260510/qwen_qwen3-8b__bibleqa_sentence_selection__missing_after_runtime_error.ids --max-conn 1 --parallel-models 1

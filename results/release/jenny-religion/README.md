@@ -11,7 +11,7 @@ This package tracks Jenny's assigned religion benchmarks under the strict offici
 
 ## Completed Results
 
-- Successful Inspect logs: 13
+- Complete result cells: 13
 - Best current BibleQA cells:
   - Qwen L: accuracy 0.945
   - MiniMax S: accuracy 0.940

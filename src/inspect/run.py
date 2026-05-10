@@ -113,6 +113,22 @@ def parse_args():
         help="Limit number of samples per task (useful for smoke testing)",
     )
     parser.add_argument(
+        "--start",
+        type=int,
+        default=0,
+        help="Skip the first N samples after task construction (useful for contiguous tail reruns)",
+    )
+    parser.add_argument(
+        "--sample_ids",
+        default="",
+        help="Comma-separated sample ids to run. Prefer --sample_ids_file for long rebound plans.",
+    )
+    parser.add_argument(
+        "--sample_ids_file",
+        default="",
+        help="Newline-delimited sample ids to run. Used for failed-cell rebound runs.",
+    )
+    parser.add_argument(
         "--max_connections",
         type=int,
         default=1,
@@ -204,6 +220,27 @@ def parse_json_object(raw_json: str = "", *, flag_name: str) -> dict:
     if not isinstance(value, dict):
         raise ValueError(f"{flag_name} must decode to a JSON object.")
     return value
+
+
+def parse_sample_ids(raw_ids: str = "", ids_file: str = "") -> list[str] | None:
+    ids: list[str] = []
+    if raw_ids:
+        ids.extend(sample_id.strip() for sample_id in raw_ids.split(",") if sample_id.strip())
+    if ids_file:
+        path = Path(ids_file).expanduser()
+        if not path.exists():
+            raise FileNotFoundError(f"--sample_ids_file not found: {path}")
+        ids.extend(line.strip() for line in path.read_text(encoding="utf-8").splitlines() if line.strip())
+    if not ids:
+        return None
+    seen = set()
+    unique_ids: list[str] = []
+    for sample_id in ids:
+        if sample_id in seen:
+            continue
+        seen.add(sample_id)
+        unique_ids.append(sample_id)
+    return unique_ids
 
 
 def eval_log_status(log_location: str | Path) -> str:
@@ -310,8 +347,17 @@ def main():
     load_env_file(project_root / ".env.local")
 
     args = parse_args()
+    if args.start < 0:
+        print("--start must be non-negative", file=sys.stderr)
+        sys.exit(1)
     if args.temperature is not None:
         os.environ["CEI_TEMPERATURE"] = str(args.temperature)
+
+    try:
+        sample_ids = parse_sample_ids(args.sample_ids, args.sample_ids_file)
+    except FileNotFoundError as exc:
+        print(str(exc), file=sys.stderr)
+        sys.exit(1)
 
     from pathlib import Path as _Path
 
@@ -334,7 +380,17 @@ def main():
                 requested_set = set(requested_names)
                 task_factories = [factory for factory in task_factories if factory.__name__ in requested_set]
             for factory in task_factories:
-                task_obj = factory(limit=args.limit) if args.limit is not None else factory()
+                import inspect as _inspect
+
+                signature = _inspect.signature(factory)
+                factory_kwargs = {}
+                if "limit" in signature.parameters:
+                    factory_kwargs["limit"] = args.limit
+                if "start" in signature.parameters:
+                    factory_kwargs["start"] = args.start
+                if "sample_ids" in signature.parameters:
+                    factory_kwargs["sample_ids"] = sample_ids
+                task_obj = factory(**factory_kwargs)
                 all_tasks.append(task_obj)
             print(f"Loaded {len(task_factories)} task(s) from {task_file}")
         else:
@@ -348,6 +404,10 @@ def main():
     print(f"Running {len(all_tasks)} task(s) with model: {args.model}")
     if args.limit:
         print(f"Limit: {args.limit} samples per task")
+    if args.start:
+        print(f"Start offset: {args.start}")
+    if sample_ids:
+        print(f"Sample id filter: {len(sample_ids)} samples")
 
     try:
         model_args = parse_model_args(args.model_args, args.model_args_json)
