@@ -26,4 +26,4 @@ def test_benchmark_catalog_marks_catholicbench_blocked():
     module = load_release_module()
     catholic_rows = [row for row in module.BENCHMARK_ROWS if row[1] == "CatholicBench"]
     assert catholic_rows
-    assert "blocked" in catholic_rows[0][3]
+    assert "official export needed" in catholic_rows[0][3]

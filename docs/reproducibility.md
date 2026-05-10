@@ -21,7 +21,7 @@ Fill in:
 make access
 ```
 
-Blocked benchmarks are expected when official access is missing. CatholicBench is intentionally blocked until official scenarios and rubrics are available.
+Blocked benchmarks are expected when official access is missing. BuddhismEval uses only `Nethmi14/BuddhismEval`; do not use `vanloc1808/BuddhismEval-vi-augmented` as official data. CatholicBench is intentionally blocked until author access or an official export is available; do not scrape or reconstruct public dashboard content.
 
 ## Tests
 

@@ -4,10 +4,10 @@ This package tracks Jenny's assigned religion benchmarks under the strict offici
 
 ## Current Access Gate
 
-- IslamTrust: blocked - gated Hugging Face dataset; HF token not configured
-- BuddhismEval: blocked - official HF eval subset unavailable: Dataset 'Nethmi14/BuddhismEval' doesn't exist on the Hub or cannot be accessed.
+- IslamTrust: blocked - gated Hugging Face dataset; access requested, waiting for response; HF token not configured
+- BuddhismEval: blocked - official dataset inaccessible / permission required; Jenny will email the author to request access
 - BibleQA: accessible - official GitHub artifact reachable
-- CatholicBench: blocked - no official scenario/rubric file configured
+- CatholicBench: blocked - requires author access / official export needed; public dashboard is not scraped; Jenny will email the author
 
 ## Completed Results
 

@@ -38,9 +38,9 @@ MODEL_ROWS = [
 ]
 
 BENCHMARK_ROWS = [
-    ("#35", "IslamTrust", "islamtrust_mc1", "blocked until HF gated access is accepted"),
-    ("#47", "CatholicBench", "catholicbench_official", "blocked until official scenarios/rubrics are available"),
-    ("#26", "BuddhismEval", "buddhism_eval_mcq", "blocked unless official HF eval subset is reachable"),
+    ("#35", "IslamTrust", "islamtrust_mc1", "access requested; waiting for HF gated access response"),
+    ("#47", "CatholicBench", "catholicbench_official", "requires author access / official export needed"),
+    ("#26", "BuddhismEval", "buddhism_eval_mcq", "official dataset inaccessible / permission required"),
     ("#37", "BibleQA", "bibleqa_sentence_selection", "official GitHub candidate-selection artifact"),
 ]
 

@@ -1,5 +1,5 @@
 benchmark,task,status,note
-IslamTrust,islamtrust_mc1,blocked,gated Hugging Face dataset; HF token not configured
-BuddhismEval,buddhism_eval_mcq,blocked,official HF eval subset unavailable: Dataset 'Nethmi14/BuddhismEval' doesn't exist on the Hub or cannot be accessed.
+IslamTrust,islamtrust_mc1,blocked,"gated Hugging Face dataset; access requested, waiting for response; HF token not configured"
+BuddhismEval,buddhism_eval_mcq,blocked,official dataset inaccessible / permission required; Jenny will email the author to request access
 BibleQA,bibleqa_sentence_selection,accessible,official GitHub artifact reachable
-CatholicBench,catholicbench_official,blocked,no official scenario/rubric file configured
+CatholicBench,catholicbench_official,blocked,requires author access / official export needed; public dashboard is not scraped; Jenny will email the author

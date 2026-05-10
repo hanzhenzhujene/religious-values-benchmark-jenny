@@ -6,12 +6,13 @@ This repo is Jenny's personal public backup/workspace for the CEI religious-valu
 
 | ID | Benchmark | Task | Status |
 | --- | --- | --- | --- |
-| #35 | IslamTrust | `islamtrust_mc1` | Gated HF access required |
-| #47 | CatholicBench | `catholicbench_official` | Blocked until official scenarios/rubrics are available |
-| #26 | BuddhismEval | `buddhism_eval_mcq` | Official HF eval configs required |
+| #35 | IslamTrust | `islamtrust_mc1` | HF access requested; waiting for response |
+| #47 | CatholicBench | `catholicbench_official` | Requires author access / official export needed |
+| #26 | BuddhismEval | `buddhism_eval_mcq` | Official dataset inaccessible / permission required |
 | #37 | BibleQA | `bibleqa_sentence_selection` | Official GitHub artifact |
 
 Strict data policy: official test/eval data only. Blocked benchmarks stay blocked instead of being replaced with public examples or synthetic data.
+`vanloc1808/BuddhismEval-vi-augmented` is not accepted as the official BuddhismEval result. CatholicBench public dashboard content is not scraped or reconstructed for automated runs.
 
 ## Quick Start
 

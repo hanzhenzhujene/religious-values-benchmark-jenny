@@ -15,6 +15,8 @@ from dotenv import load_dotenv
 
 
 ROOT = Path(__file__).resolve().parents[1]
+OFFICIAL_BUDDHISM_EVAL_DATASET = "Nethmi14/BuddhismEval"
+DISALLOWED_BUDDHISM_EVAL_DATASETS = {"vanloc1808/BuddhismEval-vi-augmented"}
 
 
 def _load_env() -> None:
@@ -32,6 +34,11 @@ def _ok(name: str, task: str, note: str) -> dict:
 
 def _blocked(name: str, task: str, note: str) -> dict:
     return {"benchmark": name, "task": task, "status": "blocked", "note": note}
+
+
+def _looks_like_auth_error(exc: Exception) -> bool:
+    text = str(exc).lower()
+    return any(marker in text for marker in ["401", "unauthorized", "permission", "gated", "cannot be accessed"])
 
 
 def check_bibleqa() -> dict:
@@ -64,7 +71,11 @@ def check_islamtrust() -> dict:
 
     token = _hf_token()
     if not token:
-        return _blocked("IslamTrust", "islamtrust_mc1", "gated Hugging Face dataset; HF token not configured")
+        return _blocked(
+            "IslamTrust",
+            "islamtrust_mc1",
+            "gated Hugging Face dataset; access requested, waiting for response; HF token not configured",
+        )
 
     dataset = os.getenv("ISLAMTRUST_DATASET", "Abderraouf000/IslamTrust-benchmark")
     try:
@@ -81,19 +92,39 @@ def check_buddhism_eval() -> dict:
             return _ok("BuddhismEval", "buddhism_eval_mcq", f"local official mirror: {path}")
         return _blocked("BuddhismEval", "buddhism_eval_mcq", f"missing local mirror: {path}")
 
-    dataset = os.getenv("BUDDHISM_EVAL_DATASET", "Nethmi14/BuddhismEval")
+    dataset = os.getenv("BUDDHISM_EVAL_DATASET", OFFICIAL_BUDDHISM_EVAL_DATASET)
+    if dataset in DISALLOWED_BUDDHISM_EVAL_DATASETS or dataset != OFFICIAL_BUDDHISM_EVAL_DATASET:
+        return _blocked(
+            "BuddhismEval",
+            "buddhism_eval_mcq",
+            f"{dataset} is not accepted as the official BuddhismEval result; use {OFFICIAL_BUDDHISM_EVAL_DATASET}",
+        )
     token = _hf_token()
     try:
         load_dataset(dataset, name="english_eval", split="train[:1]", token=token)
     except Exception as exc:
-        return _blocked("BuddhismEval", "buddhism_eval_mcq", f"official HF eval subset unavailable: {exc}")
+        if _looks_like_auth_error(exc):
+            return _blocked(
+                "BuddhismEval",
+                "buddhism_eval_mcq",
+                "official dataset inaccessible / permission required; Jenny will email the author to request access",
+            )
+        return _blocked(
+            "BuddhismEval",
+            "buddhism_eval_mcq",
+            f"official dataset inaccessible / permission required; Jenny will email the author to request access; raw error: {exc}",
+        )
     return _ok("BuddhismEval", "buddhism_eval_mcq", "official HF eval subset reachable")
 
 
 def check_catholicbench() -> dict:
     path_value = os.getenv("CATHOLICBENCH_DATA_FILE", "").strip()
     if not path_value:
-        return _blocked("CatholicBench", "catholicbench_official", "no official scenario/rubric file configured")
+        return _blocked(
+            "CatholicBench",
+            "catholicbench_official",
+            "requires author access / official export needed; public dashboard is not scraped; Jenny will email the author",
+        )
     path = Path(path_value).expanduser()
     if path.exists():
         return _ok("CatholicBench", "catholicbench_official", f"official scenario/rubric file configured: {path}")

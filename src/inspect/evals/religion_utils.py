@@ -25,6 +25,10 @@ from evals._benchmark_utils import (
 )
 
 
+OFFICIAL_BUDDHISM_EVAL_DATASET = "Nethmi14/BuddhismEval"
+DISALLOWED_BUDDHISM_EVAL_DATASETS = {"vanloc1808/BuddhismEval-vi-augmented"}
+
+
 class BlockedBenchmarkError(RuntimeError):
     """Raised when an official benchmark cannot be run under the data policy."""
 
@@ -163,7 +167,11 @@ def load_buddhism_eval_rows() -> list[dict[str, Any]]:
     if local_file:
         return load_jsonl_or_csv(local_file)
 
-    dataset_name = env_str("BUDDHISM_EVAL_DATASET", "Nethmi14/BuddhismEval")
+    dataset_name = env_str("BUDDHISM_EVAL_DATASET", OFFICIAL_BUDDHISM_EVAL_DATASET)
+    if dataset_name in DISALLOWED_BUDDHISM_EVAL_DATASETS or dataset_name != OFFICIAL_BUDDHISM_EVAL_DATASET:
+        raise BlockedBenchmarkError(
+            f"{dataset_name} is not accepted as the official BuddhismEval result; use {OFFICIAL_BUDDHISM_EVAL_DATASET}."
+        )
     split = env_str("BUDDHISM_EVAL_SPLIT", "train")
     token = hf_token()
     rows: list[dict[str, Any]] = []

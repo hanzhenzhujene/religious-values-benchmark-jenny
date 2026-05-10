@@ -194,8 +194,9 @@ def bibleqa_sentence_selection(
 @task
 def catholicbench_official(limit: int | None = None) -> Task:
     raise BlockedBenchmarkError(
-        "CatholicBench is blocked under Jenny's official-data policy: no official scenario/rubric file is configured. "
-        "Set CATHOLICBENCH_DATA_FILE after obtaining official access."
+        "CatholicBench is blocked under Jenny's official-data policy: requires author access / official export needed. "
+        "Do not scrape the public dashboard or reconstruct benchmark scenarios. "
+        "Set CATHOLICBENCH_DATA_FILE only after obtaining an official export."
     )
 
 

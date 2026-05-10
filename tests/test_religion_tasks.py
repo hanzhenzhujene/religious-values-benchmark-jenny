@@ -4,6 +4,8 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src" / "inspect"))
@@ -13,6 +15,7 @@ from evals.religion import (  # noqa: E402
     make_buddhism_eval_samples,
     make_islamtrust_samples,
 )
+from evals.religion_utils import BlockedBenchmarkError  # noqa: E402
 
 
 def test_make_islamtrust_samples_from_local_official_mirror(tmp_path, monkeypatch):
@@ -64,6 +67,14 @@ def test_make_buddhism_eval_samples_from_local_official_mirror(tmp_path, monkeyp
     assert len(samples) == 1
     assert samples[0].target == "2"
     assert samples[0].metadata["config"] == "english_eval"
+
+
+def test_buddhism_eval_rejects_augmented_substitute(monkeypatch):
+    monkeypatch.delenv("BUDDHISM_EVAL_DATA_FILE", raising=False)
+    monkeypatch.setenv("BUDDHISM_EVAL_DATASET", "vanloc1808/BuddhismEval-vi-augmented")
+
+    with pytest.raises(BlockedBenchmarkError):
+        make_buddhism_eval_samples()
 
 
 def test_make_bibleqa_samples_from_local_official_artifact(tmp_path, monkeypatch):
