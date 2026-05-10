@@ -37,17 +37,19 @@ setup_model_provider() {
         local provider="${entry%%|*}"
         local provider_model="${entry#*|}"
         local key_var
+        local provider_key
         key_var=$(provider_key_var "$provider")
+        eval "provider_key=\"\${$key_var-}\""
 
         EFFECTIVE_MODEL="$provider_model"
         export OPENAI_BASE_URL
         OPENAI_BASE_URL=$(provider_url "$provider")
-        eval "export OPENAI_API_KEY=\"\${$key_var-}\""
+        export OPENAI_API_KEY="$provider_key"
 
         echo "  [provider] $model -> $provider ($provider_model)" >&2
     else
         EFFECTIVE_MODEL="$model"
-        export OPENAI_API_KEY="${OPENROUTER_API_KEY:-}"
+        export OPENAI_API_KEY="${OPENROUTER_API_KEY:-${OPENAI_API_KEY:-}}"
         export OPENAI_BASE_URL="https://openrouter.ai/api/v1"
 
         echo "  [provider] $model -> openrouter" >&2
