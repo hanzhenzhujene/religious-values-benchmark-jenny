@@ -26,10 +26,11 @@ make smoke
 ## Full Matrix
 
 ```bash
-./scripts/run_jenny_religion.sh --max-conn 8
+./scripts/run_jenny_religion.sh --max-conn 3
 ```
 
 The model matrix is inherited from the moral-psychology benchmark. Qwen, DeepSeek, Llama, and Gemma use OpenRouter. MiniMax uses the direct MiniMax API.
+Use `--models` with 1-based model indices for failed-cell reruns.
 
 ## Outputs
 

@@ -122,7 +122,10 @@ run_model() {
 
     setup_model_provider "$model"
     export CEI_TEMPERATURE="${CEI_TEMPERATURE:-0}"
-    export CEI_MIN_MAX_TOKENS="${CEI_MIN_MAX_TOKENS:-2048}"
+    case "$model" in
+        minimax/*) export CEI_MIN_MAX_TOKENS="${CEI_MINIMAX_MAX_TOKENS:-${CEI_MIN_MAX_TOKENS:-2048}}" ;;
+        *) unset CEI_MIN_MAX_TOKENS ;;
+    esac
 
     echo "=== $model started: $(date) ===" | tee "$log"
     (

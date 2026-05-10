@@ -1,8 +1,12 @@
 {
-  "generated_at": "2026-05-10T15:35:15.772377+00:00",
+  "generated_at": "2026-05-10T16:26:31.737162+00:00",
   "release_dir": "results/release/jenny-religion",
   "figures": [
-    "figures/release/jenny_religion_access_gate.svg"
+    "figures/release/jenny_religion_access_gate.svg",
+    "figures/release/jenny_religion_accuracy_heatmap.svg",
+    "figures/release/jenny_religion_family_size.svg",
+    "figures/release/jenny_religion_benchmark_difficulty.svg"
   ],
-  "num_inspect_logs": 1
+  "num_inspect_logs": 16,
+  "num_successful_result_logs": 13
 }

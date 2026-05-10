@@ -42,10 +42,11 @@ This runs a 2-sample smoke test on accessible official tasks only. In a fresh en
 ## Full Run
 
 ```bash
-./scripts/run_jenny_religion.sh --max-conn 8
+./scripts/run_jenny_religion.sh --max-conn 3
 ```
 
 Use `--models` with 1-based indices to run subsets. Raw logs are written under `results/inspect/full-runs/<run-id>/` and Inspect `.eval` archives under `results/inspect/logs/<run-id>/`.
+For failed-cell reruns, use the same command with `--models` and a fresh `--run-id` so provenance stays separate.
 
 ## Release Artifacts
 
