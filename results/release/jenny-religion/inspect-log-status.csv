@@ -1,0 +1,2 @@
+path,status,model,task
+results/inspect/logs/smoke/qwen_qwen3-8b/2026-05-10T15-33-44-00-00_bibleqa-sentence-selection_ebAEyFjj6aWBiC35257vEN.eval,success,openai/qwen/qwen3-8b,bibleqa_sentence_selection

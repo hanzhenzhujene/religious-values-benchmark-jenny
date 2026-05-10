@@ -1,0 +1,16 @@
+family,size,model,provider
+Qwen,S,qwen/qwen3-8b,OpenRouter
+Qwen,M,qwen/qwen3-32b,OpenRouter
+Qwen,L,qwen/qwen3-235b-a22b,OpenRouter
+DeepSeek,S,deepseek/deepseek-r1-distill-llama-70b,OpenRouter
+DeepSeek,M,deepseek/deepseek-chat-v3.1,OpenRouter
+DeepSeek,L,deepseek/deepseek-r1,OpenRouter
+Llama,S,meta-llama/llama-3.2-3b-instruct,OpenRouter
+Llama,M,meta-llama/llama-3.1-8b-instruct,OpenRouter
+Llama,L,meta-llama/llama-3.3-70b-instruct,OpenRouter
+Gemma,S,google/gemma-3-4b-it,OpenRouter
+Gemma,M,google/gemma-3-12b-it,OpenRouter
+Gemma,L,google/gemma-3-27b-it,OpenRouter
+MiniMax,S,minimax/minimax-01,MiniMax direct API
+MiniMax,M,minimax/minimax-m1,MiniMax direct API
+MiniMax,L,minimax/minimax-m2.5,MiniMax direct API
