@@ -164,6 +164,35 @@ if [[ "$DRY_RUN" == "1" ]]; then
     echo "Dry run only; no model calls made."
     exit 0
 fi
+
+require_provider_credentials() {
+    local needs_openrouter=0
+    local needs_minimax=0
+    local model
+
+    for model in "${MODELS[@]}"; do
+        case "$model" in
+            minimax/*) needs_minimax=1 ;;
+            *) needs_openrouter=1 ;;
+        esac
+    done
+
+    if [[ "$needs_openrouter" == "1" ]]; then
+        if [[ -z "${OPENROUTER_API_KEY:-}" && "${OPENAI_API_KEY:-}" != sk-or-* ]]; then
+            echo "Missing OpenRouter credentials." >&2
+            echo "Set OPENROUTER_API_KEY in .env/.env.local, or set OPENAI_API_KEY to an OpenRouter token that starts with sk-or-." >&2
+            return 1
+        fi
+    fi
+
+    if [[ "$needs_minimax" == "1" && -z "${MINIMAX_API_KEY:-}" ]]; then
+        echo "Missing MiniMax credentials." >&2
+        echo "Set MINIMAX_API_KEY in .env/.env.local before running MiniMax models." >&2
+        return 1
+    fi
+}
+
+require_provider_credentials || exit 1
 write_run_metadata
 
 min_int() {
