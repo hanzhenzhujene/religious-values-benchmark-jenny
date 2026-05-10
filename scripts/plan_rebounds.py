@@ -224,8 +224,29 @@ def main() -> int:
         writer.writeheader()
         writer.writerows(rows)
 
-    script_lines = ["#!/usr/bin/env bash", "set -euo pipefail", "cd \"$(dirname \"$0\")/../../../..\""]
-    script_lines.extend(row["command"] for row in rows)
+    script_lines = [
+        "#!/usr/bin/env bash",
+        "set -uo pipefail",
+        "cd \"$(dirname \"$0\")/../../../..\"",
+        "",
+        "FAILURES=0",
+        "run_rebound() {",
+        "    local label=\"$1\"",
+        "    shift",
+        "    echo \"=== Rebound started: $label :: $(date) ===\"",
+        "    \"$@\"",
+        "    local rc=$?",
+        "    echo \"=== Rebound finished: $label rc=$rc :: $(date) ===\"",
+        "    if [[ \"$rc\" -ne 0 ]]; then",
+        "        FAILURES=$((FAILURES + 1))",
+        "    fi",
+        "}",
+        "",
+    ]
+    for row in rows:
+        label = f"{row['model']} {row['task']} {row['reason']} ({row['planned_samples']} samples)"
+        script_lines.append(f"run_rebound {shlex.quote(label)} {row['command']}")
+    script_lines.extend(["", "echo \"=== Rebound batch complete; failures=$FAILURES :: $(date) ===\"", "exit \"$FAILURES\""])
     plan_sh.write_text("\n".join(script_lines) + "\n", encoding="utf-8")
     plan_sh.chmod(0o755)
 

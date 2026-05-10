@@ -57,7 +57,11 @@ while [[ $# -gt 0 ]]; do
             shift 2
             ;;
         --sample-ids-file)
-            SAMPLE_IDS_ARGS=("--sample_ids_file" "$2")
+            SAMPLE_IDS_FILE="$2"
+            if [[ "$SAMPLE_IDS_FILE" != /* ]]; then
+                SAMPLE_IDS_FILE="$ROOT/$SAMPLE_IDS_FILE"
+            fi
+            SAMPLE_IDS_ARGS=("--sample_ids_file" "$SAMPLE_IDS_FILE")
             shift 2
             ;;
         --max-conn)
