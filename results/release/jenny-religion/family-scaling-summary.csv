@@ -1,7 +1,7 @@
 family,benchmark,size_slot,value
-DeepSeek,BibleQA,L,0.9443
+DeepSeek,BibleQA,L,0.9515
 DeepSeek,BibleQA,M,0.9029
-DeepSeek,BibleQA,S,0.0
+DeepSeek,BibleQA,S,0.921
 DeepSeek,BuddhismEval,L,
 DeepSeek,BuddhismEval,M,
 DeepSeek,BuddhismEval,S,
@@ -11,7 +11,7 @@ DeepSeek,CatholicBench,S,
 DeepSeek,IslamTrust,L,
 DeepSeek,IslamTrust,M,
 DeepSeek,IslamTrust,S,
-Gemma,BibleQA,L,0.8849
+Gemma,BibleQA,L,0.886
 Gemma,BibleQA,M,0.8995
 Gemma,BibleQA,S,0.8172
 Gemma,BuddhismEval,L,
@@ -23,7 +23,7 @@ Gemma,CatholicBench,S,
 Gemma,IslamTrust,L,
 Gemma,IslamTrust,M,
 Gemma,IslamTrust,S,
-Llama,BibleQA,L,0.9063
+Llama,BibleQA,L,0.9289
 Llama,BibleQA,M,0.9244
 Llama,BibleQA,S,0.7935
 Llama,BuddhismEval,L,
@@ -47,9 +47,9 @@ MiniMax,CatholicBench,S,
 MiniMax,IslamTrust,L,
 MiniMax,IslamTrust,M,
 MiniMax,IslamTrust,S,
-Qwen,BibleQA,L,0.9447
+Qwen,BibleQA,L,0.9458
 Qwen,BibleQA,M,0.9266
-Qwen,BibleQA,S,0.9287
+Qwen,BibleQA,S,0.9278
 Qwen,BuddhismEval,L,
 Qwen,BuddhismEval,M,
 Qwen,BuddhismEval,S,

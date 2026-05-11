@@ -42,6 +42,9 @@ def test_resolve_correct_choice_raises_for_unmatched_answer():
 def test_prompt_for_mcq_uses_strict_numbered_output_contract():
     prompt = prompt_for_mcq("Question?", ["A", "B"])
     assert "SELECTED OPTION: <number>" in prompt
+    assert "neutral academic benchmark" in prompt
+    assert "from 1 to 2" in prompt
+    assert "do not refuse" in prompt
     assert "Answer first" in prompt
     assert "1. A" in prompt
     assert "2. B" in prompt

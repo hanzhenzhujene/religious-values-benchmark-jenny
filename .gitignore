@@ -214,4 +214,6 @@ __marimo__/
 results/cache/
 results/inspect/logs/
 results/inspect/full-runs/
+results/inspect/rebounds/
+results/inspect/reruns/
 results/inspect/smoke-batch/

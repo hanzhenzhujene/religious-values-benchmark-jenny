@@ -2,7 +2,7 @@ line,benchmark,metric,value,status,note
 Qwen-S,IslamTrust,n/a,,Blocked,HF access requested; no response yet
 Qwen-S,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Qwen-S,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
-Qwen-S,BibleQA,sentence_selection_accuracy,0.9287,Done,rebound run jenny-religion-20260510; 883 samples
+Qwen-S,BibleQA,sentence_selection_accuracy,0.9278,Done,rebound + targeted reruns jenny-religion-20260510; 886 samples
 Qwen-M,IslamTrust,n/a,,Blocked,HF access requested; no response yet
 Qwen-M,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Qwen-M,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
@@ -10,7 +10,7 @@ Qwen-M,BibleQA,sentence_selection_accuracy,0.9266,Done,rebound run jenny-religio
 Qwen-L,IslamTrust,n/a,,Blocked,HF access requested; no response yet
 Qwen-L,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Qwen-L,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
-Qwen-L,BibleQA,sentence_selection_accuracy,0.9447,Done,rebound run jenny-religion-20260510; 886 samples
+Qwen-L,BibleQA,sentence_selection_accuracy,0.9458,Done,rebound + targeted reruns jenny-religion-20260510; 886 samples
 MiniMax-S,IslamTrust,n/a,,Blocked,HF access requested; no response yet
 MiniMax-S,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 MiniMax-S,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
@@ -26,7 +26,7 @@ MiniMax-L,BibleQA,sentence_selection_accuracy,0.9345,Done,rebound run jenny-reli
 DeepSeek-S,IslamTrust,n/a,,Blocked,HF access requested; no response yet
 DeepSeek-S,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 DeepSeek-S,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
-DeepSeek-S,BibleQA,sentence_selection_accuracy,0.0000,Done,rebound run jenny-religion-20260510; 886 samples
+DeepSeek-S,BibleQA,sentence_selection_accuracy,0.9210,Done,2048 full rerun + targeted reruns jenny-religion-20260511; 886 samples; 1 persistent max-token empty counted incorrect
 DeepSeek-M,IslamTrust,n/a,,Blocked,HF access requested; no response yet
 DeepSeek-M,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 DeepSeek-M,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
@@ -34,7 +34,7 @@ DeepSeek-M,BibleQA,sentence_selection_accuracy,0.9029,Done,rebound run jenny-rel
 DeepSeek-L,IslamTrust,n/a,,Blocked,HF access requested; no response yet
 DeepSeek-L,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 DeepSeek-L,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
-DeepSeek-L,BibleQA,sentence_selection_accuracy,0.9443,Done,rebound run jenny-religion-20260510; 880 samples
+DeepSeek-L,BibleQA,sentence_selection_accuracy,0.9515,Done,rebound + targeted reruns jenny-religion-20260510; 886 samples
 Llama-S,IslamTrust,n/a,,Blocked,HF access requested; no response yet
 Llama-S,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Llama-S,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
@@ -42,11 +42,11 @@ Llama-S,BibleQA,sentence_selection_accuracy,0.7935,Done,rebound run jenny-religi
 Llama-M,IslamTrust,n/a,,Blocked,HF access requested; no response yet
 Llama-M,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Llama-M,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
-Llama-M,BibleQA,sentence_selection_accuracy,0.9244,Done,rebound run jenny-religion-20260510; 886 samples
+Llama-M,BibleQA,sentence_selection_accuracy,0.9244,Done,rebound + targeted reruns jenny-religion-20260510; 886 samples; 1 persistent refusal counted incorrect
 Llama-L,IslamTrust,n/a,,Blocked,HF access requested; no response yet
 Llama-L,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Llama-L,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
-Llama-L,BibleQA,sentence_selection_accuracy,0.9063,Done,rebound run jenny-religion-20260510; 886 samples
+Llama-L,BibleQA,sentence_selection_accuracy,0.9289,Done,rebound + targeted reruns jenny-religion-20260510; 886 samples
 Gemma-S,IslamTrust,n/a,,Blocked,HF access requested; no response yet
 Gemma-S,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Gemma-S,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
@@ -58,4 +58,4 @@ Gemma-M,BibleQA,sentence_selection_accuracy,0.8995,Done,rebound run jenny-religi
 Gemma-L,IslamTrust,n/a,,Blocked,HF access requested; no response yet
 Gemma-L,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Gemma-L,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
-Gemma-L,BibleQA,sentence_selection_accuracy,0.8849,Done,rebound run jenny-religion-20260510; 886 samples
+Gemma-L,BibleQA,sentence_selection_accuracy,0.8860,Done,rebound + targeted reruns jenny-religion-20260510; 886 samples

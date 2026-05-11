@@ -11,11 +11,11 @@ This repository is Jenny Zhu's public release workspace for her assigned CEI rel
 - Snapshot `jenny-religion-20260510` is owned by Jenny Zhu and dated 2026-05-11.
 - Comparable completed cells with numeric accuracy: 15; total Done status cells: 15.
 - Blocked/queued/TBD cells remain clearly labeled: 45.
-- Best current comparable cell: Qwen-L on BibleQA at 0.945.
+- Best current comparable cell: DeepSeek-L on BibleQA at 0.952.
 - Project cost snapshot: TBD.
 - 4 benchmarks × 5 model families × 3 size slots = 60 cells; BibleQA is the only runnable benchmark; IslamTrust, CatholicBench, and BuddhismEval are blocked pending data access
-- Hardest measured benchmark: BibleQA has mean accuracy 0.845 and spread 0.945; Qwen-L is best at 0.945 and DeepSeek-S is lowest at 0.000.
-- Scaling anomaly: MiniMax-S on BibleQA scores 0.940 while MiniMax-M scores 0.930 and MiniMax-L scores 0.934, so this family is non-monotonic in the current snapshot.
+- Hardest measured benchmark: BibleQA has mean accuracy 0.909 and spread 0.158; DeepSeek-L is best at 0.952 and Llama-S is lowest at 0.794.
+- Scaling anomaly: DeepSeek-S on BibleQA scores 0.921 while DeepSeek-M scores 0.903 and DeepSeek-L scores 0.952, so this family is non-monotonic in the current snapshot.
 - Blocked benchmark count: IslamTrust, CatholicBench, and BuddhismEval account for 45 blocked cells, so only BibleQA contributes comparable accuracy numbers.
 
 ## Research Goal
@@ -151,21 +151,21 @@ Metric definition version: 2026-05-11.
 
 | Line | IslamTrust | CatholicBench | BuddhismEval | BibleQA | Comparison note |
 | --- | --- | --- | --- | --- | --- |
-| Qwen-S | n/a | n/a | n/a | 0.9287 | BibleQA complete; three official-data gates blocked. |
+| Qwen-S | n/a | n/a | n/a | 0.9278 | BibleQA complete; three official-data gates blocked. |
 | Qwen-M | n/a | n/a | n/a | 0.9266 | BibleQA complete; slight dip from Qwen-S on this benchmark. |
-| Qwen-L | n/a | n/a | n/a | 0.9447 | Highest BibleQA score in the current snapshot. |
+| Qwen-L | n/a | n/a | n/a | 0.9458 | BibleQA complete; second-highest line in this snapshot. |
 | MiniMax-S | n/a | n/a | n/a | 0.9402 | Strong BibleQA score through MiniMax API. |
 | MiniMax-M | n/a | n/a | n/a | 0.9300 | BibleQA complete; below MiniMax-S in this snapshot. |
 | MiniMax-L | n/a | n/a | n/a | 0.9345 | BibleQA complete; below MiniMax-S and above MiniMax-M. |
-| DeepSeek-S | n/a | n/a | n/a | 0.0000 | BibleQA complete with the lowest recorded value. |
-| DeepSeek-M | n/a | n/a | n/a | 0.9029 | BibleQA complete; large jump over DeepSeek-S. |
-| DeepSeek-L | n/a | n/a | n/a | 0.9443 | BibleQA complete; essentially tied with the top line. |
+| DeepSeek-S | n/a | n/a | n/a | 0.9210 | BibleQA complete after 2048-token rerun and targeted rebounds; one persistent empty response counted incorrect. |
+| DeepSeek-M | n/a | n/a | n/a | 0.9029 | BibleQA complete; below DeepSeek-S in this snapshot. |
+| DeepSeek-L | n/a | n/a | n/a | 0.9515 | Highest BibleQA score in the current snapshot. |
 | Llama-S | n/a | n/a | n/a | 0.7935 | BibleQA complete; lower than Llama-M and Llama-L. |
-| Llama-M | n/a | n/a | n/a | 0.9244 | BibleQA complete; highest Llama slot in this snapshot. |
-| Llama-L | n/a | n/a | n/a | 0.9063 | BibleQA complete; below Llama-M on this benchmark. |
+| Llama-M | n/a | n/a | n/a | 0.9244 | BibleQA complete; one persistent refusal counted incorrect. |
+| Llama-L | n/a | n/a | n/a | 0.9289 | BibleQA complete; highest Llama slot in this snapshot. |
 | Gemma-S | n/a | n/a | n/a | 0.8172 | BibleQA complete; lower than Gemma-M and Gemma-L. |
 | Gemma-M | n/a | n/a | n/a | 0.8995 | BibleQA complete; highest Gemma slot in this snapshot. |
-| Gemma-L | n/a | n/a | n/a | 0.8849 | BibleQA complete; below Gemma-M on this benchmark. |
+| Gemma-L | n/a | n/a | n/a | 0.8860 | BibleQA complete; below Gemma-M on this benchmark. |
 
 BibleQA is the only comparable-accuracy benchmark in this snapshot because it has an official runnable artifact and completed model-line scores. IslamTrust, CatholicBench, and BuddhismEval are not proxy-only rows here; they are blocked rows, so their cells remain n/a until official data access or an official export is available.
 
@@ -175,10 +175,10 @@ BibleQA is the only comparable-accuracy benchmark in this snapshot because it ha
 
 | Claim | Evidence | Why it matters |
 | --- | --- | --- |
-| Strongest comparable line | Qwen-L on BibleQA scores 0.9447; DeepSeek-L is close at 0.9443. | The top two BibleQA cells are nearly tied, so the current leader should be read as snapshot-specific rather than definitive. |
-| Hardest benchmark | BibleQA is the only measured benchmark and has mean 0.8452 with spread 0.9447. | The large spread shows model-line differences, but blocked benchmarks prevent a cross-benchmark difficulty ranking. |
-| Closest-to-saturation benchmark | BibleQA has a top score of 0.9447 and three lines at or above 0.9400. | The best systems are close on this candidate-selection task, while weaker or misaligned output behavior still matters. |
-| Scaling-law read | Qwen, MiniMax, Llama, and Gemma are non-monotonic on BibleQA; DeepSeek rises from 0.0000 to 0.9029 to 0.9443. | One benchmark is insufficient for a family-wide scaling claim. |
+| Strongest comparable line | DeepSeek-L on BibleQA scores 0.9515; Qwen-L follows at 0.9458. | The top BibleQA cells are close, so the current leader should be read as snapshot-specific rather than definitive. |
+| Hardest benchmark | BibleQA is the only measured benchmark and has mean 0.9087 with spread 0.1580. | The spread shows model-line differences, but blocked benchmarks prevent a cross-benchmark difficulty ranking. |
+| Closest-to-saturation benchmark | BibleQA has a top score of 0.9515 and three lines at or above 0.9400. | The best systems are close on this candidate-selection task, while weaker or misaligned output behavior still matters. |
+| Scaling-law read | Qwen, MiniMax, DeepSeek, Llama, and Gemma are non-monotonic on BibleQA. | One benchmark is insufficient for a family-wide scaling claim. |
 
 ### Benchmark Reading Guide
 
@@ -196,7 +196,7 @@ BibleQA is the only comparable-accuracy benchmark in this snapshot because it ha
 
 | Benchmark | Mean accuracy | Best line | Worst line | Spread | Reading |
 | --- | --- | --- | --- | --- | --- |
-| BibleQA | 0.8452 | Qwen-L (0.9447) | DeepSeek-S (0.0000) | 0.9447 | Wide spread across lines, with the top cells near 0.945 and the lowest cell at 0.0000. |
+| BibleQA | 0.9087 | DeepSeek-L (0.9515) | Llama-S (0.7935) | 0.1580 | Moderate spread across lines, with the top cell near 0.952 and the lowest cell near 0.794. |
 
 ### Family Scaling Profile
 
@@ -205,11 +205,11 @@ BibleQA is the only comparable-accuracy benchmark in this snapshot because it ha
 
 | Family | Evidence scope | Numeric pattern | Cautious interpretation |
 | --- | --- | --- | --- |
-| Qwen | BibleQA only, 3 size slots | S 0.9287 -> M 0.9266 -> L 0.9447 | Non-monotonic on BibleQA; the slot labels are planning slots, not a settled scaling law. |
+| Qwen | BibleQA only, 3 size slots | S 0.9278 -> M 0.9266 -> L 0.9458 | Non-monotonic on BibleQA; the slot labels are planning slots, not a settled scaling law. |
 | MiniMax | BibleQA only, 3 size slots | S 0.9402 -> M 0.9300 -> L 0.9345 | Non-monotonic on BibleQA; the slot labels are planning slots, not a settled scaling law. |
-| DeepSeek | BibleQA only, 3 size slots | S 0.0000 -> M 0.9029 -> L 0.9443 | Monotonic on BibleQA only; do not generalize beyond one benchmark. |
-| Llama | BibleQA only, 3 size slots | S 0.7935 -> M 0.9244 -> L 0.9063 | Non-monotonic on BibleQA; the slot labels are planning slots, not a settled scaling law. |
-| Gemma | BibleQA only, 3 size slots | S 0.8172 -> M 0.8995 -> L 0.8849 | Non-monotonic on BibleQA; the slot labels are planning slots, not a settled scaling law. |
+| DeepSeek | BibleQA only, 3 size slots | S 0.9210 -> M 0.9029 -> L 0.9515 | Non-monotonic on BibleQA; the slot labels are planning slots, not a settled scaling law. |
+| Llama | BibleQA only, 3 size slots | S 0.7935 -> M 0.9244 -> L 0.9289 | Monotonic on BibleQA, but one benchmark is not enough for a general scaling claim. |
+| Gemma | BibleQA only, 3 size slots | S 0.8172 -> M 0.8995 -> L 0.8860 | Non-monotonic on BibleQA; the slot labels are planning slots, not a settled scaling law. |
 
 ## Status Key
 

@@ -1,3 +1,3 @@
 task,family,size,model,provider,status,completed_samples,total_samples,error_message,log_path
-bibleqa_sentence_selection,DeepSeek,L,deepseek/deepseek-r1,OpenRouter,error,124,886,"TypeError(""'NoneType' object is not iterable"")",results/inspect/logs/jenny-religion-20260510/deepseek_deepseek-r1/2026-05-10T15-41-05-00-00_bibleqa-sentence-selection_6QWg3JXKaAEoR42jB2RMFv.eval
-bibleqa_sentence_selection,Qwen,S,qwen/qwen3-8b,OpenRouter,error,325,886,JSONDecodeError('Expecting value: line 179 column 1 (char 979)'),results/inspect/logs/jenny-religion-20260510/qwen_qwen3-8b/2026-05-10T15-41-05-00-00_bibleqa-sentence-selection_iY9fs2ShAwCoLktNsYZKTs.eval
+bibleqa_sentence_selection,Qwen,S,qwen/qwen3-8b,OpenRouter,recovered_by_rebound,886,886,Original full run JSONDecodeError; recovered by targeted rebounds,see results/inspect/logs rebound run ids and source/benchmark_scores.csv
+bibleqa_sentence_selection,DeepSeek,L,deepseek/deepseek-r1,OpenRouter,recovered_by_rebound,886,886,Original full run TypeError('NoneType' object is not iterable); recovered by targeted rebounds,see results/inspect/logs rebound run ids and source/benchmark_scores.csv

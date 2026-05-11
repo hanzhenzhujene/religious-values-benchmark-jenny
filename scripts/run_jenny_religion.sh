@@ -219,6 +219,9 @@ setup_model_runtime_controls() {
             export CEI_MIN_MAX_TOKENS="${CEI_MINIMAX_MAX_TOKENS:-${CEI_MIN_MAX_TOKENS:-2048}}"
             MODEL_MAX_CONN="$(min_int "$MAX_CONN" "${CEI_MINIMAX_MAX_CONN:-2}")"
             ;;
+        deepseek/deepseek-r1-distill-llama-70b)
+            export CEI_MIN_MAX_TOKENS="${CEI_DEEPSEEK_DISTILL_MAX_TOKENS:-2048}"
+            ;;
         *)
             unset CEI_MIN_MAX_TOKENS
             ;;

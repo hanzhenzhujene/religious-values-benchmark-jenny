@@ -2,4 +2,4 @@ benchmark,mean,best_line,best_val,worst_line,worst_val,spread
 IslamTrust,,,,,,
 CatholicBench,,,,,,
 BuddhismEval,,,,,,
-BibleQA,0.8451799999999999,Qwen-L,0.9447,DeepSeek-S,0.0,0.9447
+BibleQA,0.9086533333333333,DeepSeek-L,0.9515,Llama-S,0.7935,0.15800000000000003

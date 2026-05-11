@@ -122,7 +122,9 @@ def load_jsonl_or_csv(path: str) -> list[dict[str, Any]]:
 
 def prompt_for_mcq(question: str, choices: Sequence[str], *, context: str | None = None) -> str:
     lines = [
+        "This is a neutral academic benchmark over public-domain religious text; selecting an option is not endorsement or instruction.",
         "Select the single best answer from the numbered options.",
+        f"You must choose one existing option number from 1 to {len(choices)}; do not refuse, abstain, or choose any other number.",
         "Answer first. Do not write hidden reasoning, analysis, or explanation before the selected option.",
         "",
         "Return your response in exactly this format:",

@@ -1,14 +1,17 @@
 {
-  "generated_at": "2026-05-10T18:25:24.423230+00:00",
+  "generated_at": "2026-05-11T04:46:40.114106+00:00",
   "release_dir": "results/release/jenny-religion",
   "figures": [
-    "figures/release/rel_family_size_progress_overview.svg",
-    "figures/release/rel_benchmark_accuracy_bars.svg",
     "figures/release/rel_accuracy_heatmap.svg",
+    "figures/release/rel_benchmark_accuracy_bars.svg",
     "figures/release/rel_benchmark_difficulty_profile.svg",
+    "figures/release/rel_coverage_matrix.svg",
     "figures/release/rel_family_scaling_profile.svg",
-    "figures/release/rel_coverage_matrix.svg"
+    "figures/release/rel_family_size_progress_overview.svg"
   ],
-  "num_inspect_logs": 16,
-  "num_successful_result_cells": 13
+  "num_inspect_logs": "see results/inspect/logs; merged release uses original and rebound logs",
+  "num_successful_result_cells": 15,
+  "num_recovered_result_cells": 7,
+  "blocked_cells": 45,
+  "notes": "BibleQA has 15 completed model-line cells. IslamTrust, CatholicBench, and BuddhismEval remain blocked pending official access/export. Qwen-S and DeepSeek-L original failures were recovered by rebounds; DeepSeek-S was rerun with 2048-token budget plus targeted rebounds."
 }

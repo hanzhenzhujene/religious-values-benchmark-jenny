@@ -11,17 +11,23 @@ This package tracks Jenny's assigned religion benchmarks under the strict offici
 
 ## Completed Results
 
-- Complete result cells: 13
+- Complete BibleQA result cells: 15/15 model lines
+- Blocked official-data cells: 45/60 matrix cells
 - Best current BibleQA cells:
-  - Qwen L: accuracy 0.945
+  - DeepSeek L: accuracy 0.952
+  - Qwen L: accuracy 0.946
   - MiniMax S: accuracy 0.940
-  - MiniMax L: accuracy 0.935
-- Non-success full-run cells:
-  - DeepSeek L: error, 124/886 samples logged
-  - Qwen S: error, 325/886 samples logged
+- Recovered cells:
+  - Qwen S: original partial/error run recovered to 886/886 samples
+  - DeepSeek L: original runtime-error run recovered to 886/886 samples
+  - DeepSeek S: old empty-output run replaced by 2048-token rerun and targeted rebounds; one persistent max-token empty response counted incorrect
 
 ## Files
 
+- `benchmark-comparison.csv`
+- `family-size-progress.csv`
+- `benchmark-difficulty-summary.csv`
+- `family-scaling-summary.csv`
 - `benchmark-catalog.csv`
 - `model-roster.csv`
 - `data-access-status.csv`
@@ -29,3 +35,4 @@ This package tracks Jenny's assigned religion benchmarks under the strict offici
 - `failed-cells.csv`
 - `result-summary.csv`
 - `release-manifest.json`
+- `readme-data-blocks.md`

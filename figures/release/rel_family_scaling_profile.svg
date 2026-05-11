@@ -37,26 +37,26 @@
 <text x="512.0" y="384.0" class="axis" text-anchor="middle" >L</text>
 <text x="341.0" y="412.0" class="axis" text-anchor="middle" >Size slot</text>
 <text x="38.0" y="194.0" class="axis" text-anchor="middle" transform="rotate(-90 38 194)">Accuracy</text>
-<path d="M172.0,94.4 L342.0,95.0 L512.0,89.8" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="172.0" cy="94.4" r="5.0" fill="#2563EB" stroke="#ffffff" stroke-width="1.5" />
+<path d="M172.0,94.6 L342.0,95.0 L512.0,89.5" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="172.0" cy="94.6" r="5.0" fill="#2563EB" stroke="#ffffff" stroke-width="1.5" />
 <circle cx="342.0" cy="95.0" r="5.0" fill="#2563EB" stroke="#ffffff" stroke-width="1.5" />
-<circle cx="512.0" cy="89.8" r="5.0" fill="#2563EB" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="512.0" cy="89.5" r="5.0" fill="#2563EB" stroke="#ffffff" stroke-width="1.5" />
 <path d="M172.0,91.1 L342.0,94.0 L512.0,92.7" fill="none" stroke="#F97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 <circle cx="172.0" cy="91.1" r="5.0" fill="#F97316" stroke="#ffffff" stroke-width="1.5" />
 <circle cx="342.0" cy="94.0" r="5.0" fill="#F97316" stroke="#ffffff" stroke-width="1.5" />
 <circle cx="512.0" cy="92.7" r="5.0" fill="#F97316" stroke="#ffffff" stroke-width="1.5" />
-<path d="M172.0,360.0 L342.0,101.8 L512.0,89.9" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="172.0" cy="360.0" r="5.0" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<path d="M172.0,96.6 L342.0,101.8 L512.0,87.9" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="172.0" cy="96.6" r="5.0" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
 <circle cx="342.0" cy="101.8" r="5.0" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
-<circle cx="512.0" cy="89.9" r="5.0" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
-<path d="M172.0,133.1 L342.0,95.6 L512.0,100.8" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="512.0" cy="87.9" r="5.0" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<path d="M172.0,133.1 L342.0,95.6 L512.0,94.3" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 <circle cx="172.0" cy="133.1" r="5.0" fill="#DC2626" stroke="#ffffff" stroke-width="1.5" />
 <circle cx="342.0" cy="95.6" r="5.0" fill="#DC2626" stroke="#ffffff" stroke-width="1.5" />
-<circle cx="512.0" cy="100.8" r="5.0" fill="#DC2626" stroke="#ffffff" stroke-width="1.5" />
-<path d="M172.0,126.3 L342.0,102.7 L512.0,106.9" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="512.0" cy="94.3" r="5.0" fill="#DC2626" stroke="#ffffff" stroke-width="1.5" />
+<path d="M172.0,126.3 L342.0,102.7 L512.0,106.6" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 <circle cx="172.0" cy="126.3" r="5.0" fill="#7C3AED" stroke="#ffffff" stroke-width="1.5" />
 <circle cx="342.0" cy="102.7" r="5.0" fill="#7C3AED" stroke="#ffffff" stroke-width="1.5" />
-<circle cx="512.0" cy="106.9" r="5.0" fill="#7C3AED" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="512.0" cy="106.6" r="5.0" fill="#7C3AED" stroke="#ffffff" stroke-width="1.5" />
 <rect x="635.0" y="75.0" width="15.0" height="15.0" fill="#2563EB" />
 <text x="660.0" y="88.0" class="small" text-anchor="start" >Qwen</text>
 <rect x="635.0" y="99.0" width="15.0" height="15.0" fill="#F97316" />
