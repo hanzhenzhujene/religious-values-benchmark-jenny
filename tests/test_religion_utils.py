@@ -14,6 +14,7 @@ from evals.religion_utils import (  # noqa: E402
     prompt_for_mcq,
     resolve_correct_choice_index,
 )
+from evals._benchmark_utils import extract_structured_choice_int  # noqa: E402
 
 
 def test_parse_choices_accepts_python_list_string():
@@ -41,5 +42,14 @@ def test_resolve_correct_choice_raises_for_unmatched_answer():
 def test_prompt_for_mcq_uses_strict_numbered_output_contract():
     prompt = prompt_for_mcq("Question?", ["A", "B"])
     assert "SELECTED OPTION: <number>" in prompt
+    assert "Answer first" in prompt
     assert "1. A" in prompt
     assert "2. B" in prompt
+
+
+def test_choice_parser_accepts_answer_is_option_format():
+    assert extract_structured_choice_int("The answer is option 3.", minimum=1, maximum=3) == 3
+
+
+def test_choice_parser_accepts_i_choose_format():
+    assert extract_structured_choice_int("I choose option 2 because it matches.", minimum=1, maximum=3) == 2

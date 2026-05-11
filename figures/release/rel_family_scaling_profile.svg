@@ -1,138 +1,75 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img">
 <title>Family Scaling Profile</title>
 <style>
-        text { font-family: system-ui, sans-serif; fill: #222; }
-        .title { font-size: 14px; font-weight: 700; }
+        text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+        .title { font-size: 16px; font-weight: 750; }
+        .subtitle { font-size: 11px; fill: #6B7280; }
         .axis { font-size: 11px; }
-        .small { font-size: 9px; }
-        .tiny { font-size: 8px; }
-        .grid { stroke: #dddddd; stroke-width: 1; }
-        .axis-line { stroke: #333333; stroke-width: 1; }
+        .small { font-size: 10px; }
+        .tiny { font-size: 8.5px; }
+        .value { font-size: 10px; font-weight: 650; }
+        .cell-label { font-size: 10px; font-weight: 750; fill: #ffffff; }
+        .muted { font-size: 10px; fill: #6B7280; }
+        .grid { stroke: #E5E7EB; stroke-width: 1; }
+        .axis-line { stroke: #374151; stroke-width: 1; }
         .outline { stroke: #ffffff; stroke-width: 1; }
+        .panel { stroke: #E5E7EB; stroke-width: 1; }
     </style>
 
+<rect x="0" y="0" width="900" height="480" fill="#F8FAFC"/>
+<rect x="28.0" y="40.0" width="844.0" height="380.0" fill="#FFFFFF" class="panel" />
 <text x="450.0" y="24.0" class="title" text-anchor="middle" >Family Scaling Profile</text>
-<text x="20.0" y="84.0" class="axis" text-anchor="start" >IslamTrust</text>
-<line x1="82.0" y1="110.0" x2="740.0" y2="110.0" class="grid" />
-<line x1="82.0" y1="54.0" x2="82.0" y2="110.0" class="axis-line" />
-<line x1="79.0" y1="110.0" x2="740.0" y2="110.0" class="grid" />
-<text x="74.0" y="113.0" class="tiny" text-anchor="end" >0.0</text>
-<line x1="79.0" y1="82.0" x2="740.0" y2="82.0" class="grid" />
-<text x="74.0" y="85.0" class="tiny" text-anchor="end" >0.5</text>
-<line x1="79.0" y1="54.0" x2="740.0" y2="54.0" class="grid" />
-<text x="74.0" y="57.0" class="tiny" text-anchor="end" >1.0</text>
-<text x="162.0" y="124.0" class="small" text-anchor="middle" >S</text>
-<text x="272.0" y="124.0" class="small" text-anchor="middle" >M</text>
-<text x="382.0" y="124.0" class="small" text-anchor="middle" >L</text>
-<circle cx="162.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#4C72B0" stroke-width="1.5" />
-<circle cx="272.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#4C72B0" stroke-width="1.5" />
-<circle cx="382.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#4C72B0" stroke-width="1.5" />
-<circle cx="162.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#DD8452" stroke-width="1.5" />
-<circle cx="272.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#DD8452" stroke-width="1.5" />
-<circle cx="382.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#DD8452" stroke-width="1.5" />
-<circle cx="162.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#55A868" stroke-width="1.5" />
-<circle cx="272.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#55A868" stroke-width="1.5" />
-<circle cx="382.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#55A868" stroke-width="1.5" />
-<circle cx="162.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#C44E52" stroke-width="1.5" />
-<circle cx="272.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#C44E52" stroke-width="1.5" />
-<circle cx="382.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#C44E52" stroke-width="1.5" />
-<circle cx="162.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#8172B2" stroke-width="1.5" />
-<circle cx="272.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#8172B2" stroke-width="1.5" />
-<circle cx="382.0" cy="107.0" r="3.0" fill="#ffffff" stroke="#8172B2" stroke-width="1.5" />
-<text x="20.0" y="166.0" class="axis" text-anchor="start" >CatholicBench</text>
-<line x1="82.0" y1="192.0" x2="740.0" y2="192.0" class="grid" />
-<line x1="82.0" y1="136.0" x2="82.0" y2="192.0" class="axis-line" />
-<line x1="79.0" y1="192.0" x2="740.0" y2="192.0" class="grid" />
-<text x="74.0" y="195.0" class="tiny" text-anchor="end" >0.0</text>
-<line x1="79.0" y1="164.0" x2="740.0" y2="164.0" class="grid" />
-<text x="74.0" y="167.0" class="tiny" text-anchor="end" >0.5</text>
-<line x1="79.0" y1="136.0" x2="740.0" y2="136.0" class="grid" />
-<text x="74.0" y="139.0" class="tiny" text-anchor="end" >1.0</text>
-<text x="162.0" y="206.0" class="small" text-anchor="middle" >S</text>
-<text x="272.0" y="206.0" class="small" text-anchor="middle" >M</text>
-<text x="382.0" y="206.0" class="small" text-anchor="middle" >L</text>
-<circle cx="162.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#4C72B0" stroke-width="1.5" />
-<circle cx="272.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#4C72B0" stroke-width="1.5" />
-<circle cx="382.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#4C72B0" stroke-width="1.5" />
-<circle cx="162.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#DD8452" stroke-width="1.5" />
-<circle cx="272.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#DD8452" stroke-width="1.5" />
-<circle cx="382.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#DD8452" stroke-width="1.5" />
-<circle cx="162.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#55A868" stroke-width="1.5" />
-<circle cx="272.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#55A868" stroke-width="1.5" />
-<circle cx="382.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#55A868" stroke-width="1.5" />
-<circle cx="162.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#C44E52" stroke-width="1.5" />
-<circle cx="272.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#C44E52" stroke-width="1.5" />
-<circle cx="382.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#C44E52" stroke-width="1.5" />
-<circle cx="162.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#8172B2" stroke-width="1.5" />
-<circle cx="272.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#8172B2" stroke-width="1.5" />
-<circle cx="382.0" cy="189.0" r="3.0" fill="#ffffff" stroke="#8172B2" stroke-width="1.5" />
-<text x="20.0" y="248.0" class="axis" text-anchor="start" >BuddhismEval</text>
-<line x1="82.0" y1="274.0" x2="740.0" y2="274.0" class="grid" />
-<line x1="82.0" y1="218.0" x2="82.0" y2="274.0" class="axis-line" />
-<line x1="79.0" y1="274.0" x2="740.0" y2="274.0" class="grid" />
-<text x="74.0" y="277.0" class="tiny" text-anchor="end" >0.0</text>
-<line x1="79.0" y1="246.0" x2="740.0" y2="246.0" class="grid" />
-<text x="74.0" y="249.0" class="tiny" text-anchor="end" >0.5</text>
-<line x1="79.0" y1="218.0" x2="740.0" y2="218.0" class="grid" />
-<text x="74.0" y="221.0" class="tiny" text-anchor="end" >1.0</text>
-<text x="162.0" y="288.0" class="small" text-anchor="middle" >S</text>
-<text x="272.0" y="288.0" class="small" text-anchor="middle" >M</text>
-<text x="382.0" y="288.0" class="small" text-anchor="middle" >L</text>
-<circle cx="162.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#4C72B0" stroke-width="1.5" />
-<circle cx="272.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#4C72B0" stroke-width="1.5" />
-<circle cx="382.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#4C72B0" stroke-width="1.5" />
-<circle cx="162.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#DD8452" stroke-width="1.5" />
-<circle cx="272.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#DD8452" stroke-width="1.5" />
-<circle cx="382.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#DD8452" stroke-width="1.5" />
-<circle cx="162.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#55A868" stroke-width="1.5" />
-<circle cx="272.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#55A868" stroke-width="1.5" />
-<circle cx="382.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#55A868" stroke-width="1.5" />
-<circle cx="162.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#C44E52" stroke-width="1.5" />
-<circle cx="272.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#C44E52" stroke-width="1.5" />
-<circle cx="382.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#C44E52" stroke-width="1.5" />
-<circle cx="162.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#8172B2" stroke-width="1.5" />
-<circle cx="272.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#8172B2" stroke-width="1.5" />
-<circle cx="382.0" cy="271.0" r="3.0" fill="#ffffff" stroke="#8172B2" stroke-width="1.5" />
-<text x="20.0" y="330.0" class="axis" text-anchor="start" >BibleQA</text>
-<line x1="82.0" y1="356.0" x2="740.0" y2="356.0" class="grid" />
-<line x1="82.0" y1="300.0" x2="82.0" y2="356.0" class="axis-line" />
-<line x1="79.0" y1="356.0" x2="740.0" y2="356.0" class="grid" />
-<text x="74.0" y="359.0" class="tiny" text-anchor="end" >0.0</text>
-<line x1="79.0" y1="328.0" x2="740.0" y2="328.0" class="grid" />
-<text x="74.0" y="331.0" class="tiny" text-anchor="end" >0.5</text>
-<line x1="79.0" y1="300.0" x2="740.0" y2="300.0" class="grid" />
-<text x="74.0" y="303.0" class="tiny" text-anchor="end" >1.0</text>
-<text x="162.0" y="370.0" class="small" text-anchor="middle" >S</text>
-<text x="272.0" y="370.0" class="small" text-anchor="middle" >M</text>
-<text x="382.0" y="370.0" class="small" text-anchor="middle" >L</text>
-<circle cx="162.0" cy="304.0" r="3.5" fill="#4C72B0" stroke="#4C72B0" stroke-width="1.5" />
-<circle cx="272.0" cy="304.1" r="3.5" fill="#4C72B0" stroke="#4C72B0" stroke-width="1.5" />
-<circle cx="382.0" cy="303.1" r="3.5" fill="#4C72B0" stroke="#4C72B0" stroke-width="1.5" />
-<path d="M162.0,304.0 L272.0,304.1 L382.0,303.1" fill="none" stroke="#4C72B0" stroke-width="1.6"/>
-<circle cx="162.0" cy="303.3" r="3.5" fill="#DD8452" stroke="#DD8452" stroke-width="1.5" />
-<circle cx="272.0" cy="303.9" r="3.5" fill="#DD8452" stroke="#DD8452" stroke-width="1.5" />
-<circle cx="382.0" cy="303.7" r="3.5" fill="#DD8452" stroke="#DD8452" stroke-width="1.5" />
-<path d="M162.0,303.3 L272.0,303.9 L382.0,303.7" fill="none" stroke="#DD8452" stroke-width="1.6"/>
-<circle cx="162.0" cy="356.0" r="3.5" fill="#55A868" stroke="#55A868" stroke-width="1.5" />
-<circle cx="272.0" cy="305.4" r="3.5" fill="#55A868" stroke="#55A868" stroke-width="1.5" />
-<circle cx="382.0" cy="303.1" r="3.5" fill="#55A868" stroke="#55A868" stroke-width="1.5" />
-<path d="M162.0,356.0 L272.0,305.4 L382.0,303.1" fill="none" stroke="#55A868" stroke-width="1.6"/>
-<circle cx="162.0" cy="311.6" r="3.5" fill="#C44E52" stroke="#C44E52" stroke-width="1.5" />
-<circle cx="272.0" cy="304.2" r="3.5" fill="#C44E52" stroke="#C44E52" stroke-width="1.5" />
-<circle cx="382.0" cy="305.2" r="3.5" fill="#C44E52" stroke="#C44E52" stroke-width="1.5" />
-<path d="M162.0,311.6 L272.0,304.2 L382.0,305.2" fill="none" stroke="#C44E52" stroke-width="1.6"/>
-<circle cx="162.0" cy="310.2" r="3.5" fill="#8172B2" stroke="#8172B2" stroke-width="1.5" />
-<circle cx="272.0" cy="305.6" r="3.5" fill="#8172B2" stroke="#8172B2" stroke-width="1.5" />
-<circle cx="382.0" cy="306.4" r="3.5" fill="#8172B2" stroke="#8172B2" stroke-width="1.5" />
-<path d="M162.0,310.2 L272.0,305.6 L382.0,306.4" fill="none" stroke="#8172B2" stroke-width="1.6"/>
-<line x1="470.0" y1="58.0" x2="488.0" y2="58.0" class="axis-line" stroke="#4C72B0" stroke-width="2"/>
-<text x="494.0" y="62.0" class="small" text-anchor="start" >Qwen</text>
-<line x1="470.0" y1="76.0" x2="488.0" y2="76.0" class="axis-line" stroke="#DD8452" stroke-width="2"/>
-<text x="494.0" y="80.0" class="small" text-anchor="start" >MiniMax</text>
-<line x1="470.0" y1="94.0" x2="488.0" y2="94.0" class="axis-line" stroke="#55A868" stroke-width="2"/>
-<text x="494.0" y="98.0" class="small" text-anchor="start" >DeepSeek</text>
-<line x1="470.0" y1="112.0" x2="488.0" y2="112.0" class="axis-line" stroke="#C44E52" stroke-width="2"/>
-<text x="494.0" y="116.0" class="small" text-anchor="start" >Llama</text>
-<line x1="470.0" y1="130.0" x2="488.0" y2="130.0" class="axis-line" stroke="#8172B2" stroke-width="2"/>
-<text x="494.0" y="134.0" class="small" text-anchor="start" >Gemma</text>
+<text x="450.0" y="44.0" class="subtitle" text-anchor="middle" >Size-slot pattern on BibleQA; blocked benchmarks are not used for scaling claims.</text>
+<line x1="92.0" y1="360.0" x2="590.0" y2="360.0" class="grid" />
+<text x="82.0" y="364.0" class="small" text-anchor="end" >0.00</text>
+<line x1="92.0" y1="288.5" x2="590.0" y2="288.5" class="grid" />
+<text x="82.0" y="292.5" class="small" text-anchor="end" >0.25</text>
+<line x1="92.0" y1="217.0" x2="590.0" y2="217.0" class="grid" />
+<text x="82.0" y="221.0" class="small" text-anchor="end" >0.50</text>
+<line x1="92.0" y1="145.5" x2="590.0" y2="145.5" class="grid" />
+<text x="82.0" y="149.5" class="small" text-anchor="end" >0.75</text>
+<line x1="92.0" y1="74.0" x2="590.0" y2="74.0" class="grid" />
+<text x="82.0" y="78.0" class="small" text-anchor="end" >1.00</text>
+<line x1="92.0" y1="74.0" x2="92.0" y2="360.0" class="axis-line" />
+<line x1="92.0" y1="360.0" x2="590.0" y2="360.0" class="axis-line" />
+<text x="172.0" y="384.0" class="axis" text-anchor="middle" >S</text>
+<text x="342.0" y="384.0" class="axis" text-anchor="middle" >M</text>
+<text x="512.0" y="384.0" class="axis" text-anchor="middle" >L</text>
+<text x="341.0" y="412.0" class="axis" text-anchor="middle" >Size slot</text>
+<text x="38.0" y="194.0" class="axis" text-anchor="middle" transform="rotate(-90 38 194)">Accuracy</text>
+<path d="M172.0,94.4 L342.0,95.0 L512.0,89.8" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="172.0" cy="94.4" r="5.0" fill="#2563EB" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="342.0" cy="95.0" r="5.0" fill="#2563EB" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="512.0" cy="89.8" r="5.0" fill="#2563EB" stroke="#ffffff" stroke-width="1.5" />
+<path d="M172.0,91.1 L342.0,94.0 L512.0,92.7" fill="none" stroke="#F97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="172.0" cy="91.1" r="5.0" fill="#F97316" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="342.0" cy="94.0" r="5.0" fill="#F97316" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="512.0" cy="92.7" r="5.0" fill="#F97316" stroke="#ffffff" stroke-width="1.5" />
+<path d="M172.0,360.0 L342.0,101.8 L512.0,89.9" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="172.0" cy="360.0" r="5.0" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="342.0" cy="101.8" r="5.0" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="512.0" cy="89.9" r="5.0" fill="#059669" stroke="#ffffff" stroke-width="1.5" />
+<path d="M172.0,133.1 L342.0,95.6 L512.0,100.8" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="172.0" cy="133.1" r="5.0" fill="#DC2626" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="342.0" cy="95.6" r="5.0" fill="#DC2626" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="512.0" cy="100.8" r="5.0" fill="#DC2626" stroke="#ffffff" stroke-width="1.5" />
+<path d="M172.0,126.3 L342.0,102.7 L512.0,106.9" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="172.0" cy="126.3" r="5.0" fill="#7C3AED" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="342.0" cy="102.7" r="5.0" fill="#7C3AED" stroke="#ffffff" stroke-width="1.5" />
+<circle cx="512.0" cy="106.9" r="5.0" fill="#7C3AED" stroke="#ffffff" stroke-width="1.5" />
+<rect x="635.0" y="75.0" width="15.0" height="15.0" fill="#2563EB" />
+<text x="660.0" y="88.0" class="small" text-anchor="start" >Qwen</text>
+<rect x="635.0" y="99.0" width="15.0" height="15.0" fill="#F97316" />
+<text x="660.0" y="112.0" class="small" text-anchor="start" >MiniMax</text>
+<rect x="635.0" y="123.0" width="15.0" height="15.0" fill="#059669" />
+<text x="660.0" y="136.0" class="small" text-anchor="start" >DeepSeek</text>
+<rect x="635.0" y="147.0" width="15.0" height="15.0" fill="#DC2626" />
+<text x="660.0" y="160.0" class="small" text-anchor="start" >Llama</text>
+<rect x="635.0" y="171.0" width="15.0" height="15.0" fill="#7C3AED" />
+<text x="660.0" y="184.0" class="small" text-anchor="start" >Gemma</text>
+<rect x="620.0" y="232.0" width="222.0" height="88.0" fill="#F9FAFB" class="panel" />
+<text x="636.0" y="256.0" class="value" text-anchor="start" >Blocked benchmarks</text>
+<text x="636.0" y="278.0" class="small" text-anchor="start" >IslamTrust: n/a</text>
+<text x="636.0" y="295.0" class="small" text-anchor="start" >CatholicBench: n/a</text>
+<text x="636.0" y="312.0" class="small" text-anchor="start" >BuddhismEval: n/a</text>
 </svg>

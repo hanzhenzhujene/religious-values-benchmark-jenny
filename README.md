@@ -63,18 +63,6 @@ The release is visual-first: each figure separates what was actually scored from
 [![Coverage matrix](figures/release/rel_coverage_matrix.svg)](figures/release/rel_coverage_matrix.svg)
 *[Caption: The coverage grid separates completed BibleQA cells from official-data blocks for IslamTrust, CatholicBench, and BuddhismEval.]*
 
-[![Legacy release figure: jenny_religion_access_gate.svg](figures/release/jenny_religion_access_gate.svg)](figures/release/jenny_religion_access_gate.svg)
-*[Caption: Earlier access-gate view retained with the release artifacts; use the current coverage matrix for the authoritative status grid.]*
-
-[![Legacy release figure: jenny_religion_accuracy_heatmap.svg](figures/release/jenny_religion_accuracy_heatmap.svg)](figures/release/jenny_religion_accuracy_heatmap.svg)
-*[Caption: Earlier heatmap view retained with the release artifacts; use the current rel_accuracy_heatmap.svg for this snapshot.]*
-
-[![Legacy release figure: jenny_religion_benchmark_difficulty.svg](figures/release/jenny_religion_benchmark_difficulty.svg)](figures/release/jenny_religion_benchmark_difficulty.svg)
-*[Caption: Earlier benchmark-difficulty view retained with the release artifacts; use the current difficulty profile for this snapshot.]*
-
-[![Legacy release figure: jenny_religion_family_size.svg](figures/release/jenny_religion_family_size.svg)](figures/release/jenny_religion_family_size.svg)
-*[Caption: Earlier family-size view retained with the release artifacts; use the current progress overview for this snapshot.]*
-
 ## Public Quickstart
 
 | Goal | Command | Requires secrets? |
@@ -269,10 +257,6 @@ The same matrix is saved as [family-size-progress.csv](results/release/jenny-rel
 
 | Figure | Why it matters | File |
 | --- | --- | --- |
-| jenny_religion_access_gate.svg | Legacy access-gate figure retained from the earlier release package. | [jenny_religion_access_gate.svg](figures/release/jenny_religion_access_gate.svg) |
-| jenny_religion_accuracy_heatmap.svg | Legacy heatmap retained from the earlier release package. | [jenny_religion_accuracy_heatmap.svg](figures/release/jenny_religion_accuracy_heatmap.svg) |
-| jenny_religion_benchmark_difficulty.svg | Legacy difficulty figure retained from the earlier release package. | [jenny_religion_benchmark_difficulty.svg](figures/release/jenny_religion_benchmark_difficulty.svg) |
-| jenny_religion_family_size.svg | Legacy family-size figure retained from the earlier release package. | [jenny_religion_family_size.svg](figures/release/jenny_religion_family_size.svg) |
 | rel_accuracy_heatmap.svg | Makes the BibleQA-only numeric coverage visible at a glance. | [rel_accuracy_heatmap.svg](figures/release/rel_accuracy_heatmap.svg) |
 | rel_benchmark_accuracy_bars.svg | Shows comparable accuracy where it exists and n/a where official data is blocked. | [rel_benchmark_accuracy_bars.svg](figures/release/rel_benchmark_accuracy_bars.svg) |
 | rel_benchmark_difficulty_profile.svg | Summarizes benchmark-level mean, best, worst, and spread for runnable benchmarks. | [rel_benchmark_difficulty_profile.svg](figures/release/rel_benchmark_difficulty_profile.svg) |

@@ -1,39 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img">
 <title>Benchmark Difficulty Profile</title>
 <style>
-        text { font-family: system-ui, sans-serif; fill: #222; }
-        .title { font-size: 14px; font-weight: 700; }
+        text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+        .title { font-size: 16px; font-weight: 750; }
+        .subtitle { font-size: 11px; fill: #6B7280; }
         .axis { font-size: 11px; }
-        .small { font-size: 9px; }
-        .tiny { font-size: 8px; }
-        .grid { stroke: #dddddd; stroke-width: 1; }
-        .axis-line { stroke: #333333; stroke-width: 1; }
+        .small { font-size: 10px; }
+        .tiny { font-size: 8.5px; }
+        .value { font-size: 10px; font-weight: 650; }
+        .cell-label { font-size: 10px; font-weight: 750; fill: #ffffff; }
+        .muted { font-size: 10px; fill: #6B7280; }
+        .grid { stroke: #E5E7EB; stroke-width: 1; }
+        .axis-line { stroke: #374151; stroke-width: 1; }
         .outline { stroke: #ffffff; stroke-width: 1; }
+        .panel { stroke: #E5E7EB; stroke-width: 1; }
     </style>
 
+<rect x="0" y="0" width="900" height="480" fill="#F8FAFC"/>
+<rect x="28.0" y="40.0" width="844.0" height="380.0" fill="#FFFFFF" class="panel" />
 <text x="450.0" y="24.0" class="title" text-anchor="middle" >Benchmark Difficulty Profile</text>
-<line x1="250.0" y1="52.0" x2="250.0" y2="390.0" class="grid" />
-<text x="250.0" y="414.0" class="small" text-anchor="middle" >0.00</text>
-<line x1="377.5" y1="52.0" x2="377.5" y2="390.0" class="grid" />
-<text x="377.5" y="414.0" class="small" text-anchor="middle" >0.25</text>
-<line x1="505.0" y1="52.0" x2="505.0" y2="390.0" class="grid" />
-<text x="505.0" y="414.0" class="small" text-anchor="middle" >0.50</text>
-<line x1="632.5" y1="52.0" x2="632.5" y2="390.0" class="grid" />
-<text x="632.5" y="414.0" class="small" text-anchor="middle" >0.75</text>
-<line x1="760.0" y1="52.0" x2="760.0" y2="390.0" class="grid" />
-<text x="760.0" y="414.0" class="small" text-anchor="middle" >1.00</text>
-<text x="505.0" y="450.0" class="axis" text-anchor="middle" >Accuracy</text>
-<text x="190.0" y="84.0" class="axis" text-anchor="end" >IslamTrust</text>
-<text x="250.0" y="84.0" class="axis" text-anchor="start" >n/a</text>
-<text x="190.0" y="156.0" class="axis" text-anchor="end" >CatholicBench</text>
-<text x="250.0" y="156.0" class="axis" text-anchor="start" >n/a</text>
-<text x="190.0" y="228.0" class="axis" text-anchor="end" >BuddhismEval</text>
-<text x="250.0" y="228.0" class="axis" text-anchor="start" >n/a</text>
-<text x="190.0" y="300.0" class="axis" text-anchor="end" >BibleQA</text>
-<line x1="250.0" y1="296.0" x2="731.8" y2="296.0" class="axis-line" stroke-width="3"/>
-<line x1="250.0" y1="288.0" x2="250.0" y2="304.0" class="axis-line" />
-<line x1="731.8" y1="288.0" x2="731.8" y2="304.0" class="axis-line" />
-<circle cx="681.0" cy="296.0" r="5.0" fill="#4C72B0" stroke="#333333" stroke-width="1.5" />
-<text x="691.0" y="300.0" class="small" text-anchor="start" >mean 0.845</text>
-<text x="250.0" y="318.0" class="tiny" text-anchor="start" >best Qwen-L 0.945; worst DeepSeek-S 0.000</text>
+<text x="450.0" y="44.0" class="subtitle" text-anchor="middle" >Mean dot plus min-max range for measured benchmarks; blocked rows stay visible.</text>
+<line x1="250.0" y1="68.0" x2="250.0" y2="390.0" class="grid" />
+<text x="250.0" y="412.0" class="small" text-anchor="middle" >0.00</text>
+<line x1="377.5" y1="68.0" x2="377.5" y2="390.0" class="grid" />
+<text x="377.5" y="412.0" class="small" text-anchor="middle" >0.25</text>
+<line x1="505.0" y1="68.0" x2="505.0" y2="390.0" class="grid" />
+<text x="505.0" y="412.0" class="small" text-anchor="middle" >0.50</text>
+<line x1="632.5" y1="68.0" x2="632.5" y2="390.0" class="grid" />
+<text x="632.5" y="412.0" class="small" text-anchor="middle" >0.75</text>
+<line x1="760.0" y1="68.0" x2="760.0" y2="390.0" class="grid" />
+<text x="760.0" y="412.0" class="small" text-anchor="middle" >1.00</text>
+<text x="505.0" y="445.0" class="axis" text-anchor="middle" >Accuracy</text>
+<rect x="48.0" y="66.0" width="780.0" height="48.0" fill="#FFFFFF" />
+<text x="164.0" y="94.0" class="axis" text-anchor="end" >IslamTrust</text>
+<rect x="250.0" y="80.0" width="250.0" height="20.0" fill="#FEE2E2" class="panel" />
+<text x="260.0" y="94.0" class="small" text-anchor="start" >Blocked: official access/export needed</text>
+<rect x="48.0" y="140.0" width="780.0" height="48.0" fill="#F3F4F6" />
+<text x="164.0" y="168.0" class="axis" text-anchor="end" >CatholicBench</text>
+<rect x="250.0" y="154.0" width="250.0" height="20.0" fill="#FEE2E2" class="panel" />
+<text x="260.0" y="168.0" class="small" text-anchor="start" >Blocked: official access/export needed</text>
+<rect x="48.0" y="214.0" width="780.0" height="48.0" fill="#FFFFFF" />
+<text x="164.0" y="242.0" class="axis" text-anchor="end" >BuddhismEval</text>
+<rect x="250.0" y="228.0" width="250.0" height="20.0" fill="#FEE2E2" class="panel" />
+<text x="260.0" y="242.0" class="small" text-anchor="start" >Blocked: official access/export needed</text>
+<rect x="48.0" y="288.0" width="780.0" height="48.0" fill="#F3F4F6" />
+<text x="164.0" y="316.0" class="axis" text-anchor="end" >BibleQA</text>
+<line x1="250.0" y1="312.0" x2="731.8" y2="312.0" class="axis-line" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+<line x1="250.0" y1="304.0" x2="250.0" y2="320.0" class="axis-line" />
+<line x1="731.8" y1="304.0" x2="731.8" y2="320.0" class="axis-line" />
+<circle cx="681.0" cy="312.0" r="5.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5" />
+<text x="691.0" y="316.0" class="value" text-anchor="start" >mean 0.845</text>
+<text x="250.0" y="334.0" class="small" text-anchor="start" >best Qwen-L 0.945; worst DeepSeek-S 0.000</text>
 </svg>

@@ -233,7 +233,7 @@ setup_model_runtime_controls() {
     fi
 
     case "$model" in
-        qwen/qwen3-8b|deepseek/deepseek-r1)
+        qwen/qwen3-*|deepseek/deepseek-r1|deepseek/deepseek-r1-distill-llama-70b)
             MODEL_MAX_CONN="$(min_int "$MODEL_MAX_CONN" 1)"
             ;;
     esac

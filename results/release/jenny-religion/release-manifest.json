@@ -2,10 +2,12 @@
   "generated_at": "2026-05-10T18:25:24.423230+00:00",
   "release_dir": "results/release/jenny-religion",
   "figures": [
-    "figures/release/jenny_religion_access_gate.svg",
-    "figures/release/jenny_religion_accuracy_heatmap.svg",
-    "figures/release/jenny_religion_family_size.svg",
-    "figures/release/jenny_religion_benchmark_difficulty.svg"
+    "figures/release/rel_family_size_progress_overview.svg",
+    "figures/release/rel_benchmark_accuracy_bars.svg",
+    "figures/release/rel_accuracy_heatmap.svg",
+    "figures/release/rel_benchmark_difficulty_profile.svg",
+    "figures/release/rel_family_scaling_profile.svg",
+    "figures/release/rel_coverage_matrix.svg"
   ],
   "num_inspect_logs": 16,
   "num_successful_result_cells": 13

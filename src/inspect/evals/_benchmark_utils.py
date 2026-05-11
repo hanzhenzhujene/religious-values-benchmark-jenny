@@ -182,7 +182,7 @@ def extract_labeled_int(
     maximum: int | None = None,
 ) -> int | None:
     for label in labels:
-        pattern = rf"(?:{label})\s*[:=\-]?\s*(\d+)\b"
+        pattern = rf"(?:{label})\s*(?:is|=|:|\-)?\s*(?:option|choice|number|#)?\s*(\d+)\b"
         match = re.search(pattern, text, flags=re.IGNORECASE)
         if not match:
             continue
@@ -214,6 +214,18 @@ def extract_structured_choice_int(text: str, *, minimum: int, maximum: int) -> i
     normalized = normalize_whitespace(text)
     if not normalized:
         return None
+    explicit_patterns = [
+        r"\b(?:i\s+)?(?:choose|select|pick)\s+(?:option|choice|number|#)?\s*(\d+)\b",
+        r"\b(?:the\s+)?(?:correct\s+)?(?:answer|option|choice)\s+is\s+(?:option|choice|number|#)?\s*(\d+)\b",
+        r"\b(?:final\s+answer|final\s+choice)\s*(?:is|=|:)?\s*(?:option|choice|number|#)?\s*(\d+)\b",
+    ]
+    for pattern in explicit_patterns:
+        matches = list(re.finditer(pattern, normalized, flags=re.IGNORECASE))
+        if not matches:
+            continue
+        value = int(matches[-1].group(1))
+        if minimum <= value <= maximum:
+            return value
     labeled = extract_labeled_int(
         normalized,
         labels=[

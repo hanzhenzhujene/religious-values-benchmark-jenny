@@ -62,16 +62,16 @@ SIZE_ORDER = {"S": 0, "M": 1, "L": 2}
 SIZE_SLOTS = ["S", "M", "L"]
 VALID_STATUSES = {"Done", "Blocked", "Partial", "Error", "Queue", "TBD", "Proxy"}
 
-FAMILY_PALETTE = ["#4C72B0", "#DD8452", "#55A868", "#C44E52", "#8172B2"]
+FAMILY_PALETTE = ["#2563EB", "#F97316", "#059669", "#DC2626", "#7C3AED"]
 STATUS_COLORS = {
-    "Done": "#55A868",
-    "Partial": "#4C72B0",
-    "Blocked": "#C44E52",
-    "Error": "#C44E52",
-    "Queue": "#8172B2",
-    "TBD": "#999999",
-    "Proxy": "#DD8452",
-    "n/a": "#eeeeee",
+    "Done": "#15803D",
+    "Partial": "#2563EB",
+    "Blocked": "#B42318",
+    "Error": "#7F1D1D",
+    "Queue": "#7C3AED",
+    "TBD": "#6B7280",
+    "Proxy": "#B45309",
+    "n/a": "#E5E7EB",
 }
 STATUS_ABBREVIATIONS = {
     "Done": "D",
@@ -83,6 +83,13 @@ STATUS_ABBREVIATIONS = {
     "Proxy": "X",
     "n/a": "-",
 }
+
+INK = "#111827"
+MUTED = "#6B7280"
+GRID = "#E5E7EB"
+SURFACE = "#FFFFFF"
+BACKGROUND = "#F8FAFC"
+HATCH = "#9CA3AF"
 
 # Compatibility constants for existing repo tests. Runtime generation is driven
 # by source/model_registry.csv, not by these lists.
@@ -413,14 +420,19 @@ def svg_title(title: str) -> str:
 
 def svg_style() -> str:
     return """<style>
-        text { font-family: system-ui, sans-serif; fill: #222; }
-        .title { font-size: 14px; font-weight: 700; }
+        text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+        .title { font-size: 16px; font-weight: 750; }
+        .subtitle { font-size: 11px; fill: #6B7280; }
         .axis { font-size: 11px; }
-        .small { font-size: 9px; }
-        .tiny { font-size: 8px; }
-        .grid { stroke: #dddddd; stroke-width: 1; }
-        .axis-line { stroke: #333333; stroke-width: 1; }
+        .small { font-size: 10px; }
+        .tiny { font-size: 8.5px; }
+        .value { font-size: 10px; font-weight: 650; }
+        .cell-label { font-size: 10px; font-weight: 750; fill: #ffffff; }
+        .muted { font-size: 10px; fill: #6B7280; }
+        .grid { stroke: #E5E7EB; stroke-width: 1; }
+        .axis-line { stroke: #374151; stroke-width: 1; }
         .outline { stroke: #ffffff; stroke-width: 1; }
+        .panel { stroke: #E5E7EB; stroke-width: 1; }
     </style>"""
 
 
@@ -431,6 +443,7 @@ def svg_doc(title: str, body: str, defs: str = "") -> str:
         f"{svg_title(title)}\n"
         f"{svg_style()}\n"
         f"{defs_block}\n"
+        f'<rect x="0" y="0" width="900" height="480" fill="{BACKGROUND}"/>\n'
         f"{body}\n"
         "</svg>\n"
     )
@@ -464,10 +477,23 @@ def heat_color(value: float) -> str:
 def render_status_legend(x: float, y: float, statuses: list[str]) -> str:
     parts = []
     for idx, status in enumerate(statuses):
-        sx = x + idx * 92
-        parts.append(rect(sx, y - 11, 12, 12, STATUS_COLORS.get(status, "#999999")))
-        parts.append(txt(sx + 17, y, status, "small"))
+        sx = x + idx * 94
+        parts.append(rect(sx, y - 12, 14, 14, STATUS_COLORS.get(status, "#999999")))
+        parts.append(txt(sx + 19, y, status, "small"))
     return "\n".join(parts)
+
+
+def render_family_legend(family_colors: dict[str, str], x: float, y: float, step: float = 98) -> str:
+    parts = []
+    for idx, (family, color) in enumerate(family_colors.items()):
+        sx = x + idx * step
+        parts.append(rect(sx, y - 12, 14, 14, color))
+        parts.append(txt(sx + 19, y, family, "small"))
+    return "\n".join(parts)
+
+
+def row_fill(index: int) -> str:
+    return "#FFFFFF" if index % 2 == 0 else "#F3F4F6"
 
 
 def generate_family_size_progress_overview(df: pd.DataFrame, path: Path = SVG_OUTPUTS[0], dry_run: bool = False) -> str:
@@ -475,26 +501,42 @@ def generate_family_size_progress_overview(df: pd.DataFrame, path: Path = SVG_OU
     lines = ordered_lines(df)
     benchmarks = ordered_benchmarks(df)
     status_map = {(row.line, row.benchmark): row.status for row in df.itertuples(index=False)}
+    done_cells = sum(1 for status in status_map.values() if status == "Done")
+    blocked_cells = sum(1 for status in status_map.values() if status == "Blocked")
 
-    left = 128
-    bar_x = 220
-    bar_w = 540
-    top = 52
-    row_h = min(23, max(13, 345 / max(len(lines), 1)))
-    bar_h = min(16, row_h - 3)
-    seg_w = bar_w / max(len(benchmarks), 1)
-    parts = [txt(450, 24, title, "title", "middle")]
-    parts.append(txt(left, 42, "Model line", "axis", "end"))
+    label_x = 138
+    grid_x = 170
+    grid_y = 72
+    grid_w = 540
+    row_h = 20
+    cell_h = 15
+    cell_w = grid_w / max(len(benchmarks), 1)
+    parts = [
+        rect(28, 40, 844, 378, SURFACE, "panel"),
+        txt(450, 24, title, "title", "middle"),
+        txt(450, 44, "One row per model line; each segment is one assigned benchmark.", "subtitle", "middle"),
+        txt(label_x, 62, "Line", "axis", "end"),
+    ]
     for idx, benchmark in enumerate(benchmarks):
-        parts.append(txt(bar_x + idx * seg_w + seg_w / 2, 42, benchmark[:12], "tiny", "middle"))
+        parts.append(txt(grid_x + idx * cell_w + cell_w / 2, 62, benchmark, "axis", "middle"))
+
     for row_idx, model_line in enumerate(lines):
-        y = top + row_idx * row_h
-        parts.append(txt(left, y + bar_h - 3, model_line, "axis", "end"))
+        y = grid_y + row_idx * row_h
+        parts.append(rect(40, y - 3, 760, row_h, row_fill(row_idx)))
+        parts.append(txt(label_x, y + 10, model_line, "axis", "end"))
         for idx, benchmark in enumerate(benchmarks):
             status = status_map.get((model_line, benchmark), "TBD")
-            color = STATUS_COLORS.get(status, "#999999")
-            parts.append(rect(bar_x + idx * seg_w, y, seg_w - 1, bar_h, color, "outline"))
-    parts.append(render_status_legend(160, 445, ["Done", "Partial", "Blocked", "Error", "Queue", "TBD"]))
+            color = STATUS_COLORS.get(status, STATUS_COLORS["TBD"])
+            x = grid_x + idx * cell_w
+            parts.append(rect(x, y, cell_w - 3, cell_h, color, "outline"))
+            parts.append(txt(x + cell_w / 2, y + 11, STATUS_ABBREVIATIONS.get(status, "?"), "cell-label", "middle"))
+
+    summary_x = 735
+    parts.append(rect(summary_x, 80, 112, 84, "#F9FAFB", "panel"))
+    parts.append(txt(summary_x + 12, 104, f"{done_cells} Done", "value"))
+    parts.append(txt(summary_x + 12, 126, f"{blocked_cells} Blocked", "value"))
+    parts.append(txt(summary_x + 12, 148, "0 Proxy", "muted"))
+    parts.append(render_status_legend(95, 445, ["Done", "Blocked", "Partial", "Error", "Queue", "TBD"]))
     svg = svg_doc(title, "\n".join(parts))
     if not dry_run:
         atomic_write_text(path, svg)
@@ -509,35 +551,51 @@ def generate_benchmark_accuracy_bars(df: pd.DataFrame, path: Path = SVG_OUTPUTS[
     lookup = {(row.line, row.benchmark): row for row in df.itertuples(index=False)}
     line_family = df.drop_duplicates("line").set_index("line")["family"].to_dict()
 
-    x0 = 238
-    x1 = 760
-    top = 50
-    available_h = 370
-    row_h = max(4.2, min(7.2, available_h / max(len(lines) * len(benchmarks) + len(benchmarks), 1)))
-    bar_h = max(2.8, row_h - 1.0)
-    parts = [txt(450, 24, title, "title", "middle")]
-    for tick in [0, 0.25, 0.5, 0.75, 1.0]:
-        x = x0 + tick * (x1 - x0)
-        parts.append(line(x, 42, x, 430, "grid"))
-        parts.append(txt(x, 444, f"{tick:.2f}", "small", "middle"))
-    parts.append(txt((x0 + x1) / 2, 465, "Accuracy", "axis", "middle"))
-
-    y = top
+    comparable: list[tuple[str, str, float]] = []
+    blocked_by_benchmark: dict[str, int] = {}
     for benchmark in benchmarks:
-        parts.append(txt(20, y + 8, benchmark, "axis"))
+        blocked_by_benchmark[benchmark] = 0
         for model_line in lines:
             row = lookup.get((model_line, benchmark))
-            value = float(row.comparable_value) if row is not None and not pd.isna(row.comparable_value) else math.nan
-            family = line_family.get(model_line, "")
-            color = family_colors.get(family, "#4C72B0")
-            label = "n/a" if pd.isna(value) else f"{value:.2f}"
-            width = 9 if pd.isna(value) else max(2, value * (x1 - x0))
-            fill = "#dddddd" if pd.isna(value) else color
-            parts.append(txt(150, y + bar_h, model_line, "tiny", "end"))
-            parts.append(rect(x0, y, width, bar_h, fill))
-            parts.append(txt(x0 + width + 4, y + bar_h, label, "tiny"))
-            y += row_h
-        y += row_h * 0.7
+            if row is None or pd.isna(row.comparable_value):
+                blocked_by_benchmark[benchmark] += 1
+                continue
+            comparable.append((model_line, benchmark, float(row.comparable_value)))
+    comparable.sort(key=lambda item: item[2], reverse=True)
+
+    x0 = 210
+    x1 = 760
+    top = 62
+    row_h = 20
+    bar_h = 13
+    parts = [
+        rect(28, 40, 844, 380, SURFACE, "panel"),
+        txt(450, 24, title, "title", "middle"),
+        txt(450, 44, "Comparable accuracy bars only; blocked benchmarks are summarized as n/a.", "subtitle", "middle"),
+    ]
+    for tick in [0, 0.25, 0.5, 0.75, 1.0]:
+        x = x0 + tick * (x1 - x0)
+        parts.append(line(x, 58, x, 370, "grid"))
+        parts.append(txt(x, 389, f"{tick:.2f}", "small", "middle"))
+    parts.append(txt((x0 + x1) / 2, 414, "BibleQA sentence-selection accuracy", "axis", "middle"))
+
+    for row_idx, (model_line, benchmark, value) in enumerate(comparable):
+        y = top + row_idx * row_h
+        family = line_family.get(model_line, "")
+        color = family_colors.get(family, FAMILY_PALETTE[0])
+        parts.append(rect(40, y - 3, 780, row_h, row_fill(row_idx)))
+        parts.append(txt(148, y + 10, model_line, "axis", "end"))
+        parts.append(txt(155, y + 10, benchmark, "tiny"))
+        width = max(2, value * (x1 - x0))
+        parts.append(rect(x0, y, width, bar_h, color))
+        parts.append(txt(x0 + width + 6, y + 10, f"{value:.3f}", "value"))
+
+    summary_y = 72
+    parts.append(rect(780, summary_y - 14, 72, 86, "#F9FAFB", "panel"))
+    parts.append(txt(816, summary_y + 4, "n/a", "value", "middle"))
+    for idx, benchmark in enumerate([bench for bench in benchmarks if blocked_by_benchmark.get(bench)]):
+        parts.append(txt(816, summary_y + 25 + idx * 16, benchmark, "tiny", "middle"))
+    parts.append(render_family_legend(family_colors, 170, 455, step=105))
     svg = svg_doc(title, "\n".join(parts))
     if not dry_run:
         atomic_write_text(path, svg)
@@ -549,27 +607,36 @@ def generate_accuracy_heatmap(df: pd.DataFrame, path: Path = SVG_OUTPUTS[2], dry
     lines = ordered_lines(df)
     benchmarks = ordered_benchmarks(df)
     lookup = {(row.line, row.benchmark): row for row in df.itertuples(index=False)}
-    left = 160
-    top = 62
+    line_family = df.drop_duplicates("line").set_index("line")["family"].to_dict()
+    family_colors = family_color_map(df)
+    left = 172
+    top = 76
     grid_w = 560
-    grid_h = 310
+    grid_h = 300
     cell_w = grid_w / max(len(benchmarks), 1)
     cell_h = grid_h / max(len(lines), 1)
     defs = """
         <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="8" height="8">
-            <path d="M-2,2 l4,-4 M0,8 l8,-8 M6,10 l4,-4" stroke="#bbbbbb" stroke-width="1"/>
+            <path d="M-2,2 l4,-4 M0,8 l8,-8 M6,10 l4,-4" stroke="#9CA3AF" stroke-width="1"/>
         </pattern>
         <linearGradient id="heatLegend" x1="0%" x2="100%" y1="0%" y2="0%">
             <stop offset="0%" stop-color="#f7fbff"/>
             <stop offset="100%" stop-color="#08519c"/>
         </linearGradient>
     """
-    parts = [txt(450, 24, title, "title", "middle")]
+    parts = [
+        rect(28, 40, 844, 380, SURFACE, "panel"),
+        txt(450, 24, title, "title", "middle"),
+        txt(450, 44, "Color encodes comparable accuracy; hatched cells mean official data is blocked.", "subtitle", "middle"),
+    ]
     for idx, benchmark in enumerate(benchmarks):
-        parts.append(txt(left + idx * cell_w + cell_w / 2, 50, benchmark, "axis", "middle"))
+        parts.append(txt(left + idx * cell_w + cell_w / 2, 64, benchmark, "axis", "middle"))
     for row_idx, model_line in enumerate(lines):
         y = top + row_idx * cell_h
-        parts.append(txt(left - 8, y + cell_h * 0.68, model_line, "axis", "end"))
+        family = line_family.get(model_line, "")
+        family_color = family_colors.get(family, MUTED)
+        parts.append(rect(42, y, 8, cell_h - 1, family_color))
+        parts.append(txt(left - 12, y + cell_h * 0.68, model_line, "axis", "end"))
         for col_idx, benchmark in enumerate(benchmarks):
             row = lookup.get((model_line, benchmark))
             value = float(row.comparable_value) if row is not None and not pd.isna(row.comparable_value) else math.nan
@@ -578,14 +645,17 @@ def generate_accuracy_heatmap(df: pd.DataFrame, path: Path = SVG_OUTPUTS[2], dry
                 parts.append(rect(x, y, cell_w - 1, cell_h - 1, "#eeeeee"))
                 parts.append(rect(x, y, cell_w - 1, cell_h - 1, "url(#diagonalHatch)"))
                 label = "n/a"
+                label_cls = "tiny"
             else:
                 parts.append(rect(x, y, cell_w - 1, cell_h - 1, heat_color(value)))
                 label = f"{value:.2f}"
-            parts.append(txt(x + cell_w / 2, y + cell_h * 0.68, label, "tiny", "middle"))
-    parts.append(rect(750, 100, 24, 180, "url(#heatLegend)", extra='transform="rotate(90 762 190)"'))
-    parts.append(txt(790, 104, "1.0", "small"))
-    parts.append(txt(790, 282, "0.0", "small"))
-    parts.append(txt(762, 315, "Accuracy", "axis", "middle"))
+                label_cls = "cell-label" if value > 0.58 else "value"
+            parts.append(txt(x + cell_w / 2, y + cell_h * 0.68, label, label_cls, "middle"))
+    parts.append(rect(770, 112, 22, 170, "url(#heatLegend)", extra='transform="rotate(90 781 197)"'))
+    parts.append(txt(812, 118, "1.0", "small"))
+    parts.append(txt(812, 284, "0.0", "small"))
+    parts.append(txt(781, 318, "Accuracy", "axis", "middle"))
+    parts.append(render_family_legend(family_colors, 170, 455, step=105))
     svg = svg_doc(title, "\n".join(parts), defs=defs)
     if not dry_run:
         atomic_write_text(path, svg)
@@ -596,23 +666,29 @@ def generate_benchmark_difficulty_profile(df: pd.DataFrame, path: Path = SVG_OUT
     title = "Benchmark Difficulty Profile"
     benchmarks = ordered_benchmarks(df)
     valid = df[df["comparable_value"].notna()]
-    left = 190
+    left = 164
     x0 = 250
     x1 = 760
-    top = 80
-    row_h = 72
-    parts = [txt(450, 24, title, "title", "middle")]
+    top = 90
+    row_h = 74
+    parts = [
+        rect(28, 40, 844, 380, SURFACE, "panel"),
+        txt(450, 24, title, "title", "middle"),
+        txt(450, 44, "Mean dot plus min-max range for measured benchmarks; blocked rows stay visible.", "subtitle", "middle"),
+    ]
     for tick in [0, 0.25, 0.5, 0.75, 1.0]:
         x = x0 + tick * (x1 - x0)
-        parts.append(line(x, 52, x, 390, "grid"))
-        parts.append(txt(x, 414, f"{tick:.2f}", "small", "middle"))
-    parts.append(txt((x0 + x1) / 2, 450, "Accuracy", "axis", "middle"))
+        parts.append(line(x, 68, x, 390, "grid"))
+        parts.append(txt(x, 412, f"{tick:.2f}", "small", "middle"))
+    parts.append(txt((x0 + x1) / 2, 445, "Accuracy", "axis", "middle"))
     for idx, benchmark in enumerate(benchmarks):
         y = top + idx * row_h
+        parts.append(rect(48, y - 24, 780, 48, row_fill(idx)))
         subset = valid[valid["benchmark"] == benchmark]
         parts.append(txt(left, y + 4, benchmark, "axis", "end"))
         if subset.empty:
-            parts.append(txt(x0, y + 4, "n/a", "axis"))
+            parts.append(rect(x0, y - 10, 250, 20, "#FEE2E2", "panel"))
+            parts.append(txt(x0 + 10, y + 4, "Blocked: official access/export needed", "small"))
             continue
         values = subset["comparable_value"].astype(float)
         mean = float(values.mean())
@@ -623,12 +699,12 @@ def generate_benchmark_difficulty_profile(df: pd.DataFrame, path: Path = SVG_OUT
         min_x = x0 + min_val * (x1 - x0)
         max_x = x0 + max_val * (x1 - x0)
         mean_x = x0 + mean * (x1 - x0)
-        parts.append(line(min_x, y, max_x, y, "axis-line", 'stroke-width="3"'))
+        parts.append(line(min_x, y, max_x, y, "axis-line", 'stroke="#2563EB" stroke-width="4" stroke-linecap="round"'))
         parts.append(line(min_x, y - 8, min_x, y + 8, "axis-line"))
         parts.append(line(max_x, y - 8, max_x, y + 8, "axis-line"))
-        parts.append(circle(mean_x, y, 5, "#4C72B0", "#333333"))
-        parts.append(txt(mean_x + 10, y + 4, f"mean {mean:.3f}", "small"))
-        parts.append(txt(x0, y + 22, f"best {best.line} {max_val:.3f}; worst {worst.line} {min_val:.3f}", "tiny"))
+        parts.append(circle(mean_x, y, 5, "#FFFFFF", "#2563EB"))
+        parts.append(txt(mean_x + 10, y + 4, f"mean {mean:.3f}", "value"))
+        parts.append(txt(x0, y + 22, f"best {best.line} {max_val:.3f}; worst {worst.line} {min_val:.3f}", "small"))
     svg = svg_doc(title, "\n".join(parts))
     if not dry_run:
         atomic_write_text(path, svg)
@@ -640,49 +716,68 @@ def generate_family_scaling_profile(df: pd.DataFrame, path: Path = SVG_OUTPUTS[4
     benchmarks = ordered_benchmarks(df)
     family_colors = family_color_map(df)
     families = list(family_colors)
-    left = 82
-    right = 740
-    top = 54
-    subplot_h = 82
-    x_positions = {"S": left + 80, "M": left + 190, "L": left + 300}
-    parts = [txt(450, 24, title, "title", "middle")]
-    for row_idx, benchmark in enumerate(benchmarks):
-        y0 = top + row_idx * subplot_h
-        y1 = y0 + 56
-        parts.append(txt(20, y0 + 30, benchmark, "axis"))
-        parts.append(line(left, y1, right, y1, "grid"))
-        parts.append(line(left, y0, left, y1, "axis-line"))
-        for tick in [0, 0.5, 1.0]:
-            y = y1 - tick * (y1 - y0)
-            parts.append(line(left - 3, y, right, y, "grid"))
-            parts.append(txt(left - 8, y + 3, f"{tick:.1f}", "tiny", "end"))
-        for size, x in x_positions.items():
-            parts.append(txt(x, y1 + 14, size, "small", "middle"))
+    measured_benchmarks = [
+        benchmark
+        for benchmark in benchmarks
+        if df[(df["benchmark"] == benchmark) & df["comparable_value"].notna()].shape[0] > 0
+    ]
+    benchmark = measured_benchmarks[0] if measured_benchmarks else benchmarks[-1]
+    left = 92
+    right = 590
+    top = 74
+    bottom = 360
+    x_positions = {"S": left + 80, "M": left + 250, "L": left + 420}
+    parts = [
+        rect(28, 40, 844, 380, SURFACE, "panel"),
+        txt(450, 24, title, "title", "middle"),
+        txt(450, 44, f"Size-slot pattern on {benchmark}; blocked benchmarks are not used for scaling claims.", "subtitle", "middle"),
+    ]
+    for tick in [0, 0.25, 0.5, 0.75, 1.0]:
+        y = bottom - tick * (bottom - top)
+        parts.append(line(left, y, right, y, "grid"))
+        parts.append(txt(left - 10, y + 4, f"{tick:.2f}", "small", "end"))
+    parts.append(line(left, top, left, bottom, "axis-line"))
+    parts.append(line(left, bottom, right, bottom, "axis-line"))
+    for size, x in x_positions.items():
+        parts.append(txt(x, bottom + 24, size, "axis", "middle"))
+    parts.append(txt((left + right) / 2, bottom + 52, "Size slot", "axis", "middle"))
+    parts.append(txt(left - 54, top + 120, "Accuracy", "axis", "middle", 'transform="rotate(-90 38 194)"'))
 
-        for family in families:
-            fam_df = df[(df["family"] == family) & (df["benchmark"] == benchmark)]
-            point_coords: list[tuple[float, float]] = []
-            color = family_colors[family]
-            for size in SIZE_SLOTS:
-                row = fam_df[fam_df["size_slot"] == size]
-                x = x_positions[size]
-                if row.empty or pd.isna(row.iloc[0]["comparable_value"]):
-                    parts.append(circle(x, y1 - 3, 3, "#ffffff", color))
-                    continue
-                value = float(row.iloc[0]["comparable_value"])
-                y = y1 - value * (y1 - y0)
-                point_coords.append((x, y))
-                parts.append(circle(x, y, 3.5, color, color))
-            if len(point_coords) >= 2:
-                path_d = " ".join(("M" if idx == 0 else "L") + f"{x:.1f},{y:.1f}" for idx, (x, y) in enumerate(point_coords))
-                parts.append(f'<path d="{path_d}" fill="none" stroke="{color}" stroke-width="1.6"/>')
+    for family in families:
+        fam_df = df[(df["family"] == family) & (df["benchmark"] == benchmark)]
+        point_coords: list[tuple[float, float]] = []
+        color = family_colors[family]
+        for size in SIZE_SLOTS:
+            row = fam_df[fam_df["size_slot"] == size]
+            x = x_positions[size]
+            if row.empty or pd.isna(row.iloc[0]["comparable_value"]):
+                parts.append(circle(x, bottom - 2, 5, "#ffffff", color))
+                continue
+            value = float(row.iloc[0]["comparable_value"])
+            y = bottom - value * (bottom - top)
+            point_coords.append((x, y))
+        if len(point_coords) >= 2:
+            path_d = " ".join(("M" if idx == 0 else "L") + f"{x:.1f},{y:.1f}" for idx, (x, y) in enumerate(point_coords))
+            parts.append(f'<path d="{path_d}" fill="none" stroke="{color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>')
+        for size in SIZE_SLOTS:
+            row = fam_df[fam_df["size_slot"] == size]
+            x = x_positions[size]
+            if row.empty or pd.isna(row.iloc[0]["comparable_value"]):
+                parts.append(circle(x, bottom - 2, 5, "#ffffff", color))
+                continue
+            value = float(row.iloc[0]["comparable_value"])
+            y = bottom - value * (bottom - top)
+            parts.append(circle(x, y, 5, color, "#ffffff"))
 
-    legend_x = 470
-    legend_y = 62
+    legend_y = 88
     for idx, family in enumerate(families):
-        y = legend_y + idx * 18
-        parts.append(line(legend_x, y - 4, legend_x + 18, y - 4, extra=f'stroke="{family_colors[family]}" stroke-width="2"'))
-        parts.append(txt(legend_x + 24, y, family, "small"))
+        y = legend_y + idx * 24
+        parts.append(rect(635, y - 13, 15, 15, family_colors[family]))
+        parts.append(txt(660, y, family, "small"))
+    parts.append(rect(620, 232, 222, 88, "#F9FAFB", "panel"))
+    parts.append(txt(636, 256, "Blocked benchmarks", "value"))
+    for idx, blocked in enumerate([b for b in benchmarks if b != benchmark]):
+        parts.append(txt(636, 278 + idx * 17, f"{blocked}: n/a", "small"))
     svg = svg_doc(title, "\n".join(parts))
     if not dry_run:
         atomic_write_text(path, svg)
@@ -694,25 +789,35 @@ def generate_coverage_matrix(df: pd.DataFrame, path: Path = SVG_OUTPUTS[5], dry_
     lines = ordered_lines(df)
     benchmarks = ordered_benchmarks(df)
     lookup = {(row.line, row.benchmark): row.status for row in df.itertuples(index=False)}
-    left = 135
-    top = 80
-    cell_w = min(45, 700 / max(len(lines), 1))
-    cell_h = 42
-    parts = [txt(450, 24, title, "title", "middle")]
+    family_colors = family_color_map(df)
+    line_family = df.drop_duplicates("line").set_index("line")["family"].to_dict()
+    left = 134
+    top = 94
+    cell_w = min(44, 690 / max(len(lines), 1))
+    cell_h = 46
+    parts = [
+        rect(28, 40, 844, 380, SURFACE, "panel"),
+        txt(450, 24, title, "title", "middle"),
+        txt(450, 44, "Status by benchmark and model line; abbreviations are defined in the legend.", "subtitle", "middle"),
+    ]
     for col, model_line in enumerate(lines):
         x = left + col * cell_w + cell_w / 2
-        parts.append(txt(x, 68, model_line, "tiny", "middle", 'transform="rotate(-45 {0:.1f} 68)"'.format(x)))
+        family = line_family.get(model_line, "")
+        parts.append(rect(left + col * cell_w, 65, cell_w - 2, 8, family_colors.get(family, MUTED)))
+        parts.append(txt(x, 84, model_line, "tiny", "middle", 'transform="rotate(-42 {0:.1f} 84)"'.format(x)))
     for row_idx, benchmark in enumerate(benchmarks):
         y = top + row_idx * cell_h
-        parts.append(txt(left - 8, y + 25, benchmark, "axis", "end"))
+        parts.append(rect(42, y - 3, 780, cell_h, row_fill(row_idx)))
+        parts.append(txt(left - 8, y + 27, benchmark, "axis", "end"))
         for col, model_line in enumerate(lines):
             status = lookup.get((model_line, benchmark), "TBD")
             color = STATUS_COLORS.get(status, "#999999")
             x = left + col * cell_w
-            parts.append(rect(x, y, cell_w - 2, cell_h - 3, color))
-            parts.append(txt(x + cell_w / 2 - 1, y + 24, STATUS_ABBREVIATIONS.get(status, "?"), "axis", "middle"))
+            parts.append(rect(x, y, cell_w - 3, cell_h - 7, color, "outline"))
+            parts.append(txt(x + cell_w / 2 - 1, y + 24, STATUS_ABBREVIATIONS.get(status, "?"), "cell-label", "middle"))
     key_statuses = ["Done", "Partial", "Blocked", "Error", "Queue", "TBD", "Proxy"]
-    parts.append(render_status_legend(95, 435, key_statuses))
+    parts.append(render_status_legend(95, 437, key_statuses))
+    parts.append(render_family_legend(family_colors, 490, 465, step=80))
     svg = svg_doc(title, "\n".join(parts))
     if not dry_run:
         atomic_write_text(path, svg)
