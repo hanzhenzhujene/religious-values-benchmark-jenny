@@ -61,10 +61,10 @@ Small, Medium, and Large are planning slots inherited from the shared moral-psyc
 | Family | Small slot | Medium slot | Large slot | Route |
 | --- | --- | --- | --- | --- |
 | Qwen | `qwen/qwen3-8b` | `qwen/qwen3-32b` | `qwen/qwen3-235b-a22b` | OpenRouter |
-| DeepSeek | `deepseek-r1-distill-llama-70b` | `deepseek-chat-v3.1` | `deepseek-r1` | OpenRouter |
-| Llama | `llama-3.2-3b` | `llama-3.1-8b` | `llama-3.3-70b` | OpenRouter |
-| Gemma | `gemma-3-4b-it` | `gemma-3-12b-it` | `gemma-3-27b-it` | OpenRouter |
-| MiniMax | `minimax-01` | `minimax-m1` | `minimax-m2.5` | MiniMax API |
+| DeepSeek | `deepseek/deepseek-r1-distill-llama-70b` | `deepseek/deepseek-chat-v3.1` | `deepseek/deepseek-r1` | OpenRouter |
+| Llama | `meta-llama/llama-3.2-3b-instruct` | `meta-llama/llama-3.1-8b-instruct` | `meta-llama/llama-3.3-70b-instruct` | OpenRouter |
+| Gemma | `google/gemma-3-4b-it` | `google/gemma-3-12b-it` | `google/gemma-3-27b-it` | OpenRouter |
+| MiniMax | `minimax/minimax-01` | `minimax/minimax-m1` | `minimax/minimax-m2.5` | MiniMax API |
 
 ## Benchmark Status
 
