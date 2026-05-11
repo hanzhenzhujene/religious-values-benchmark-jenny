@@ -619,7 +619,7 @@ def generate_accuracy_heatmap(df: pd.DataFrame, path: Path = SVG_OUTPUTS[2], dry
         <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="8" height="8">
             <path d="M-2,2 l4,-4 M0,8 l8,-8 M6,10 l4,-4" stroke="#9CA3AF" stroke-width="1"/>
         </pattern>
-        <linearGradient id="heatLegend" x1="0%" x2="100%" y1="0%" y2="0%">
+        <linearGradient id="heatLegend" x1="0%" x2="0%" y1="100%" y2="0%">
             <stop offset="0%" stop-color="#f7fbff"/>
             <stop offset="100%" stop-color="#08519c"/>
         </linearGradient>
@@ -651,10 +651,15 @@ def generate_accuracy_heatmap(df: pd.DataFrame, path: Path = SVG_OUTPUTS[2], dry
                 label = f"{value:.2f}"
                 label_cls = "cell-label" if value > 0.58 else "value"
             parts.append(txt(x + cell_w / 2, y + cell_h * 0.68, label, label_cls, "middle"))
-    parts.append(rect(770, 112, 22, 170, "url(#heatLegend)", extra='transform="rotate(90 781 197)"'))
-    parts.append(txt(812, 118, "1.0", "small"))
-    parts.append(txt(812, 284, "0.0", "small"))
-    parts.append(txt(781, 318, "Accuracy", "axis", "middle"))
+    legend_x = 770
+    legend_y = 112
+    legend_h = 170
+    parts.append(rect(legend_x, legend_y, 22, legend_h, "url(#heatLegend)", "panel"))
+    for tick, label in [(1.0, "1.0"), (0.5, "0.5"), (0.0, "0.0")]:
+        y = legend_y + (1.0 - tick) * legend_h
+        parts.append(line(legend_x + 24, y, legend_x + 32, y, "axis-line"))
+        parts.append(txt(legend_x + 38, y + 4, label, "small"))
+    parts.append(txt(legend_x + 11, legend_y + legend_h + 28, "Accuracy", "axis", "middle"))
     parts.append(render_family_legend(family_colors, 170, 455, step=105))
     svg = svg_doc(title, "\n".join(parts), defs=defs)
     if not dry_run:
@@ -666,30 +671,34 @@ def generate_benchmark_difficulty_profile(df: pd.DataFrame, path: Path = SVG_OUT
     title = "Benchmark Difficulty Profile"
     benchmarks = ordered_benchmarks(df)
     valid = df[df["comparable_value"].notna()]
+    measured_benchmarks = [
+        benchmark
+        for benchmark in benchmarks
+        if valid[valid["benchmark"] == benchmark].shape[0] > 0
+    ]
     left = 164
     x0 = 250
     x1 = 760
-    top = 90
-    row_h = 74
+    row_count = max(len(measured_benchmarks), 1)
+    top = 148 if row_count == 1 else 90
+    row_h = 74 if row_count > 1 else 88
     parts = [
         rect(28, 40, 844, 380, SURFACE, "panel"),
         txt(450, 24, title, "title", "middle"),
-        txt(450, 44, "Mean dot plus min-max range for measured benchmarks; blocked rows stay visible.", "subtitle", "middle"),
+        txt(450, 44, "Mean dot plus min-max range for benchmarks with official comparable scores.", "subtitle", "middle"),
     ]
     for tick in [0, 0.25, 0.5, 0.75, 1.0]:
         x = x0 + tick * (x1 - x0)
         parts.append(line(x, 68, x, 390, "grid"))
         parts.append(txt(x, 412, f"{tick:.2f}", "small", "middle"))
     parts.append(txt((x0 + x1) / 2, 445, "Accuracy", "axis", "middle"))
-    for idx, benchmark in enumerate(benchmarks):
+    if not measured_benchmarks:
+        parts.append(txt(450, 226, "No comparable benchmark scores available in this snapshot.", "value", "middle"))
+    for idx, benchmark in enumerate(measured_benchmarks):
         y = top + idx * row_h
         parts.append(rect(48, y - 24, 780, 48, row_fill(idx)))
         subset = valid[valid["benchmark"] == benchmark]
         parts.append(txt(left, y + 4, benchmark, "axis", "end"))
-        if subset.empty:
-            parts.append(rect(x0, y - 10, 250, 20, "#FEE2E2", "panel"))
-            parts.append(txt(x0 + 10, y + 4, "Blocked: official access/export needed", "small"))
-            continue
         values = subset["comparable_value"].astype(float)
         mean = float(values.mean())
         min_val = float(values.min())
@@ -705,6 +714,9 @@ def generate_benchmark_difficulty_profile(df: pd.DataFrame, path: Path = SVG_OUT
         parts.append(circle(mean_x, y, 5, "#FFFFFF", "#2563EB"))
         parts.append(txt(mean_x + 10, y + 4, f"mean {mean:.3f}", "value"))
         parts.append(txt(x0, y + 22, f"best {best.line} {max_val:.3f}; worst {worst.line} {min_val:.3f}", "small"))
+    blocked_benchmarks = [benchmark for benchmark in benchmarks if benchmark not in measured_benchmarks]
+    if blocked_benchmarks:
+        parts.append(txt(450, 388, f"Blocked benchmarks omitted: {', '.join(blocked_benchmarks)}", "muted", "middle"))
     svg = svg_doc(title, "\n".join(parts))
     if not dry_run:
         atomic_write_text(path, svg)
@@ -774,10 +786,9 @@ def generate_family_scaling_profile(df: pd.DataFrame, path: Path = SVG_OUTPUTS[4
         y = legend_y + idx * 24
         parts.append(rect(635, y - 13, 15, 15, family_colors[family]))
         parts.append(txt(660, y, family, "small"))
-    parts.append(rect(620, 232, 222, 88, "#F9FAFB", "panel"))
-    parts.append(txt(636, 256, "Blocked benchmarks", "value"))
-    for idx, blocked in enumerate([b for b in benchmarks if b != benchmark]):
-        parts.append(txt(636, 278 + idx * 17, f"{blocked}: n/a", "small"))
+    parts.append(rect(620, 232, 222, 48, "#F9FAFB", "panel"))
+    parts.append(txt(636, 256, f"Benchmark: {benchmark}", "value"))
+    parts.append(txt(636, 274, "Other benchmarks are blocked.", "small"))
     svg = svg_doc(title, "\n".join(parts))
     if not dry_run:
         atomic_write_text(path, svg)
@@ -791,30 +802,42 @@ def generate_coverage_matrix(df: pd.DataFrame, path: Path = SVG_OUTPUTS[5], dry_
     lookup = {(row.line, row.benchmark): row.status for row in df.itertuples(index=False)}
     family_colors = family_color_map(df)
     line_family = df.drop_duplicates("line").set_index("line")["family"].to_dict()
+    line_size = df.drop_duplicates("line").set_index("line")["size_slot"].to_dict()
     left = 134
-    top = 94
+    top = 108
     cell_w = min(44, 690 / max(len(lines), 1))
-    cell_h = 46
+    cell_h = 42
     parts = [
         rect(28, 40, 844, 380, SURFACE, "panel"),
         txt(450, 24, title, "title", "middle"),
-        txt(450, 44, "Status by benchmark and model line; abbreviations are defined in the legend.", "subtitle", "middle"),
+        txt(450, 44, "Status by benchmark and model line; columns are grouped by family and S/M/L slot.", "subtitle", "middle"),
     ]
+
+    col_lookup = {model_line: col for col, model_line in enumerate(lines)}
+    for family, color in family_colors.items():
+        family_lines = [model_line for model_line in lines if line_family.get(model_line) == family]
+        if not family_lines:
+            continue
+        start_col = col_lookup[family_lines[0]]
+        group_x = left + start_col * cell_w
+        group_w = len(family_lines) * cell_w - 3
+        parts.append(rect(group_x, 64, group_w, 9, color))
+        parts.append(txt(group_x + group_w / 2, 58, family, "small", "middle"))
+
     for col, model_line in enumerate(lines):
         x = left + col * cell_w + cell_w / 2
-        family = line_family.get(model_line, "")
-        parts.append(rect(left + col * cell_w, 65, cell_w - 2, 8, family_colors.get(family, MUTED)))
-        parts.append(txt(x, 84, model_line, "tiny", "middle", 'transform="rotate(-42 {0:.1f} 84)"'.format(x)))
+        parts.append(txt(x, 92, line_size.get(model_line, ""), "axis", "middle"))
+
     for row_idx, benchmark in enumerate(benchmarks):
         y = top + row_idx * cell_h
         parts.append(rect(42, y - 3, 780, cell_h, row_fill(row_idx)))
-        parts.append(txt(left - 8, y + 27, benchmark, "axis", "end"))
+        parts.append(txt(left - 8, y + 25, benchmark, "axis", "end"))
         for col, model_line in enumerate(lines):
             status = lookup.get((model_line, benchmark), "TBD")
             color = STATUS_COLORS.get(status, "#999999")
             x = left + col * cell_w
-            parts.append(rect(x, y, cell_w - 3, cell_h - 7, color, "outline"))
-            parts.append(txt(x + cell_w / 2 - 1, y + 24, STATUS_ABBREVIATIONS.get(status, "?"), "cell-label", "middle"))
+            parts.append(rect(x, y, cell_w - 3, cell_h - 6, color, "outline"))
+            parts.append(txt(x + cell_w / 2 - 1, y + 23, STATUS_ABBREVIATIONS.get(status, "?"), "cell-label", "middle"))
     key_statuses = ["Done", "Partial", "Blocked", "Error", "Queue", "TBD", "Proxy"]
     parts.append(render_status_legend(95, 437, key_statuses))
     parts.append(render_family_legend(family_colors, 490, 465, step=80))

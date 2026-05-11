@@ -19,7 +19,7 @@
         <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="8" height="8">
             <path d="M-2,2 l4,-4 M0,8 l8,-8 M6,10 l4,-4" stroke="#9CA3AF" stroke-width="1"/>
         </pattern>
-        <linearGradient id="heatLegend" x1="0%" x2="100%" y1="0%" y2="0%">
+        <linearGradient id="heatLegend" x1="0%" x2="0%" y1="100%" y2="0%">
             <stop offset="0%" stop-color="#f7fbff"/>
             <stop offset="100%" stop-color="#08519c"/>
         </linearGradient>
@@ -227,10 +227,14 @@
 <text x="522.0" y="369.6" class="tiny" text-anchor="middle" >n/a</text>
 <rect x="592.0" y="356.0" width="139.0" height="19.0" fill="#2364a7" />
 <text x="662.0" y="369.6" class="cell-label" text-anchor="middle" >0.89</text>
-<rect x="770.0" y="112.0" width="22.0" height="170.0" fill="url(#heatLegend)" transform="rotate(90 781 197)"/>
-<text x="812.0" y="118.0" class="small" text-anchor="start" >1.0</text>
-<text x="812.0" y="284.0" class="small" text-anchor="start" >0.0</text>
-<text x="781.0" y="318.0" class="axis" text-anchor="middle" >Accuracy</text>
+<rect x="770.0" y="112.0" width="22.0" height="170.0" fill="url(#heatLegend)" class="panel" />
+<line x1="794.0" y1="112.0" x2="802.0" y2="112.0" class="axis-line" />
+<text x="808.0" y="116.0" class="small" text-anchor="start" >1.0</text>
+<line x1="794.0" y1="197.0" x2="802.0" y2="197.0" class="axis-line" />
+<text x="808.0" y="201.0" class="small" text-anchor="start" >0.5</text>
+<line x1="794.0" y1="282.0" x2="802.0" y2="282.0" class="axis-line" />
+<text x="808.0" y="286.0" class="small" text-anchor="start" >0.0</text>
+<text x="781.0" y="310.0" class="axis" text-anchor="middle" >Accuracy</text>
 <rect x="170.0" y="443.0" width="14.0" height="14.0" fill="#2563EB" />
 <text x="189.0" y="455.0" class="small" text-anchor="start" >Qwen</text>
 <rect x="275.0" y="443.0" width="14.0" height="14.0" fill="#F97316" />

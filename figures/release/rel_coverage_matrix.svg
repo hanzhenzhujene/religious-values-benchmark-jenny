@@ -19,165 +19,160 @@
 <rect x="0" y="0" width="900" height="480" fill="#F8FAFC"/>
 <rect x="28.0" y="40.0" width="844.0" height="380.0" fill="#FFFFFF" class="panel" />
 <text x="450.0" y="24.0" class="title" text-anchor="middle" >Coverage Matrix</text>
-<text x="450.0" y="44.0" class="subtitle" text-anchor="middle" >Status by benchmark and model line; abbreviations are defined in the legend.</text>
-<rect x="134.0" y="65.0" width="42.0" height="8.0" fill="#2563EB" />
-<text x="156.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 156.0 84)">Qwen-S</text>
-<rect x="178.0" y="65.0" width="42.0" height="8.0" fill="#2563EB" />
-<text x="200.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 200.0 84)">Qwen-M</text>
-<rect x="222.0" y="65.0" width="42.0" height="8.0" fill="#2563EB" />
-<text x="244.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 244.0 84)">Qwen-L</text>
-<rect x="266.0" y="65.0" width="42.0" height="8.0" fill="#F97316" />
-<text x="288.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 288.0 84)">MiniMax-S</text>
-<rect x="310.0" y="65.0" width="42.0" height="8.0" fill="#F97316" />
-<text x="332.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 332.0 84)">MiniMax-M</text>
-<rect x="354.0" y="65.0" width="42.0" height="8.0" fill="#F97316" />
-<text x="376.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 376.0 84)">MiniMax-L</text>
-<rect x="398.0" y="65.0" width="42.0" height="8.0" fill="#059669" />
-<text x="420.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 420.0 84)">DeepSeek-S</text>
-<rect x="442.0" y="65.0" width="42.0" height="8.0" fill="#059669" />
-<text x="464.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 464.0 84)">DeepSeek-M</text>
-<rect x="486.0" y="65.0" width="42.0" height="8.0" fill="#059669" />
-<text x="508.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 508.0 84)">DeepSeek-L</text>
-<rect x="530.0" y="65.0" width="42.0" height="8.0" fill="#DC2626" />
-<text x="552.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 552.0 84)">Llama-S</text>
-<rect x="574.0" y="65.0" width="42.0" height="8.0" fill="#DC2626" />
-<text x="596.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 596.0 84)">Llama-M</text>
-<rect x="618.0" y="65.0" width="42.0" height="8.0" fill="#DC2626" />
-<text x="640.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 640.0 84)">Llama-L</text>
-<rect x="662.0" y="65.0" width="42.0" height="8.0" fill="#7C3AED" />
-<text x="684.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 684.0 84)">Gemma-S</text>
-<rect x="706.0" y="65.0" width="42.0" height="8.0" fill="#7C3AED" />
-<text x="728.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 728.0 84)">Gemma-M</text>
-<rect x="750.0" y="65.0" width="42.0" height="8.0" fill="#7C3AED" />
-<text x="772.0" y="84.0" class="tiny" text-anchor="middle" transform="rotate(-42 772.0 84)">Gemma-L</text>
-<rect x="42.0" y="91.0" width="780.0" height="46.0" fill="#FFFFFF" />
-<text x="126.0" y="121.0" class="axis" text-anchor="end" >IslamTrust</text>
-<rect x="134.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="155.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="178.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="199.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="222.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="243.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="266.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="287.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="310.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="331.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="354.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="375.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="398.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="419.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="442.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="463.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="486.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="507.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="530.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="551.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="574.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="595.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="618.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="639.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="662.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="683.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="706.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="727.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="750.0" y="94.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="771.0" y="118.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="42.0" y="137.0" width="780.0" height="46.0" fill="#F3F4F6" />
-<text x="126.0" y="167.0" class="axis" text-anchor="end" >CatholicBench</text>
-<rect x="134.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="155.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="178.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="199.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="222.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="243.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="266.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="287.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="310.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="331.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="354.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="375.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="398.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="419.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="442.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="463.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="486.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="507.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="530.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="551.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="574.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="595.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="618.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="639.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="662.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="683.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="706.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="727.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="750.0" y="140.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="771.0" y="164.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="42.0" y="183.0" width="780.0" height="46.0" fill="#FFFFFF" />
-<text x="126.0" y="213.0" class="axis" text-anchor="end" >BuddhismEval</text>
-<rect x="134.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="155.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="178.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="199.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="222.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="243.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="266.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="287.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="310.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="331.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="354.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="375.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="398.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="419.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="442.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="463.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="486.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="507.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="530.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="551.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="574.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="595.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="618.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="639.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="662.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="683.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="706.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="727.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="750.0" y="186.0" width="41.0" height="39.0" fill="#B42318" class="outline" />
-<text x="771.0" y="210.0" class="cell-label" text-anchor="middle" >B</text>
-<rect x="42.0" y="229.0" width="780.0" height="46.0" fill="#F3F4F6" />
+<text x="450.0" y="44.0" class="subtitle" text-anchor="middle" >Status by benchmark and model line; columns are grouped by family and S/M/L slot.</text>
+<rect x="134.0" y="64.0" width="129.0" height="9.0" fill="#2563EB" />
+<text x="198.5" y="58.0" class="small" text-anchor="middle" >Qwen</text>
+<rect x="266.0" y="64.0" width="129.0" height="9.0" fill="#F97316" />
+<text x="330.5" y="58.0" class="small" text-anchor="middle" >MiniMax</text>
+<rect x="398.0" y="64.0" width="129.0" height="9.0" fill="#059669" />
+<text x="462.5" y="58.0" class="small" text-anchor="middle" >DeepSeek</text>
+<rect x="530.0" y="64.0" width="129.0" height="9.0" fill="#DC2626" />
+<text x="594.5" y="58.0" class="small" text-anchor="middle" >Llama</text>
+<rect x="662.0" y="64.0" width="129.0" height="9.0" fill="#7C3AED" />
+<text x="726.5" y="58.0" class="small" text-anchor="middle" >Gemma</text>
+<text x="156.0" y="92.0" class="axis" text-anchor="middle" >S</text>
+<text x="200.0" y="92.0" class="axis" text-anchor="middle" >M</text>
+<text x="244.0" y="92.0" class="axis" text-anchor="middle" >L</text>
+<text x="288.0" y="92.0" class="axis" text-anchor="middle" >S</text>
+<text x="332.0" y="92.0" class="axis" text-anchor="middle" >M</text>
+<text x="376.0" y="92.0" class="axis" text-anchor="middle" >L</text>
+<text x="420.0" y="92.0" class="axis" text-anchor="middle" >S</text>
+<text x="464.0" y="92.0" class="axis" text-anchor="middle" >M</text>
+<text x="508.0" y="92.0" class="axis" text-anchor="middle" >L</text>
+<text x="552.0" y="92.0" class="axis" text-anchor="middle" >S</text>
+<text x="596.0" y="92.0" class="axis" text-anchor="middle" >M</text>
+<text x="640.0" y="92.0" class="axis" text-anchor="middle" >L</text>
+<text x="684.0" y="92.0" class="axis" text-anchor="middle" >S</text>
+<text x="728.0" y="92.0" class="axis" text-anchor="middle" >M</text>
+<text x="772.0" y="92.0" class="axis" text-anchor="middle" >L</text>
+<rect x="42.0" y="105.0" width="780.0" height="42.0" fill="#FFFFFF" />
+<text x="126.0" y="133.0" class="axis" text-anchor="end" >IslamTrust</text>
+<rect x="134.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="155.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="178.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="199.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="222.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="243.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="266.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="287.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="310.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="331.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="354.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="375.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="398.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="419.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="442.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="463.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="486.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="507.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="530.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="551.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="574.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="595.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="618.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="639.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="662.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="683.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="706.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="727.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="750.0" y="108.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="771.0" y="131.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="42.0" y="147.0" width="780.0" height="42.0" fill="#F3F4F6" />
+<text x="126.0" y="175.0" class="axis" text-anchor="end" >CatholicBench</text>
+<rect x="134.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="155.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="178.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="199.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="222.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="243.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="266.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="287.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="310.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="331.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="354.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="375.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="398.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="419.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="442.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="463.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="486.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="507.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="530.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="551.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="574.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="595.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="618.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="639.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="662.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="683.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="706.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="727.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="750.0" y="150.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="771.0" y="173.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="42.0" y="189.0" width="780.0" height="42.0" fill="#FFFFFF" />
+<text x="126.0" y="217.0" class="axis" text-anchor="end" >BuddhismEval</text>
+<rect x="134.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="155.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="178.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="199.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="222.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="243.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="266.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="287.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="310.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="331.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="354.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="375.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="398.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="419.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="442.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="463.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="486.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="507.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="530.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="551.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="574.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="595.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="618.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="639.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="662.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="683.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="706.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="727.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="750.0" y="192.0" width="41.0" height="36.0" fill="#B42318" class="outline" />
+<text x="771.0" y="215.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="42.0" y="231.0" width="780.0" height="42.0" fill="#F3F4F6" />
 <text x="126.0" y="259.0" class="axis" text-anchor="end" >BibleQA</text>
-<rect x="134.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="155.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="178.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="199.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="222.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="243.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="266.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="287.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="310.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="331.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="354.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="375.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="398.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="419.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="442.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="463.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="486.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="507.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="530.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="551.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="574.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="595.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="618.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="639.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="662.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="683.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="706.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="727.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
-<rect x="750.0" y="232.0" width="41.0" height="39.0" fill="#15803D" class="outline" />
-<text x="771.0" y="256.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="134.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="155.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="178.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="199.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="222.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="243.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="266.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="287.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="310.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="331.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="354.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="375.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="398.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="419.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="442.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="463.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="486.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="507.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="530.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="551.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="574.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="595.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="618.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="639.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="662.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="683.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="706.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="727.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
+<rect x="750.0" y="234.0" width="41.0" height="36.0" fill="#15803D" class="outline" />
+<text x="771.0" y="257.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="95.0" y="425.0" width="14.0" height="14.0" fill="#15803D" />
 <text x="114.0" y="437.0" class="small" text-anchor="start" >Done</text>
 <rect x="189.0" y="425.0" width="14.0" height="14.0" fill="#2563EB" />

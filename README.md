@@ -2,303 +2,145 @@
 
 [![CI](https://github.com/hanzhenzhujene/religious-values-benchmark-jenny/actions/workflows/ci.yml/badge.svg)](https://github.com/hanzhenzhujene/religious-values-benchmark-jenny/actions/workflows/ci.yml)
 
-This repository is Jenny Zhu's public release workspace for her assigned CEI religious-values benchmark harness runs.
+Jenny Zhu's public release workspace for her assigned CEI religious-values benchmark harness runs.
 
 > Project cost: TBD. Cost breakdown: TBD.
 
 ## TL;DR
 
-- Snapshot `jenny-religion-20260510` is owned by Jenny Zhu and dated 2026-05-11.
-- Comparable completed cells with numeric accuracy: 15; total Done status cells: 15.
-- Blocked/queued/TBD cells remain clearly labeled: 45.
-- Best current comparable cell: DeepSeek-L on BibleQA at 0.952.
-- Project cost snapshot: TBD.
-- 4 benchmarks × 5 model families × 3 size slots = 60 cells; BibleQA is the only runnable benchmark; IslamTrust, CatholicBench, and BuddhismEval are blocked pending data access
-- Hardest measured benchmark: BibleQA has mean accuracy 0.909 and spread 0.158; DeepSeek-L is best at 0.952 and Llama-S is lowest at 0.794.
-- Scaling anomaly: DeepSeek-S on BibleQA scores 0.921 while DeepSeek-M scores 0.903 and DeepSeek-L scores 0.952, so this family is non-monotonic in the current snapshot.
-- Blocked benchmark count: IslamTrust, CatholicBench, and BuddhismEval account for 45 blocked cells, so only BibleQA contributes comparable accuracy numbers.
+- BibleQA is complete across all 15 model lines; IslamTrust, CatholicBench, and BuddhismEval remain blocked pending official data access or author export.
+- Best current comparable cell: DeepSeek-L on BibleQA at 0.9515.
+- BibleQA mean accuracy is 0.9087, with spread 0.1580 from Llama-S at 0.7935 to DeepSeek-L at 0.9515.
+- DeepSeek-S was recovered from the earlier empty-output failure to 0.9210 using a 2048-token full rerun plus targeted rebounds; one persistent max-token empty response is counted incorrect.
+- Current matrix status: 15 Done cells and 45 Blocked cells. No proxy, scrape, synthetic, or train-split scores are reported as official results.
 
-## Research Goal
+## Results
 
-This repo asks how the shared CEI model matrix behaves on Jenny's assigned religious-values benchmark suite when the scoring source is official test or evaluation data. The release contract is deliberately conservative: benchmark-faithful accuracy is reported only where the official artifact is runnable, while blocked or unavailable benchmarks remain labeled as blocked instead of being filled with proxies.
+Metric definition version: 2026-05-11. BibleQA is scored as exact candidate sentence selection accuracy on the official `bible_qa_list_3_web.json` artifact.
 
-## Benchmark Assignment
+| Line | IslamTrust | CatholicBench | BuddhismEval | BibleQA | Note |
+| --- | --- | --- | --- | ---: | --- |
+| Qwen-S | n/a | n/a | n/a | 0.9278 | Complete. |
+| Qwen-M | n/a | n/a | n/a | 0.9266 | Complete after reasoning-output rebound. |
+| Qwen-L | n/a | n/a | n/a | 0.9458 | Second-highest current cell. |
+| MiniMax-S | n/a | n/a | n/a | 0.9402 | MiniMax direct API. |
+| MiniMax-M | n/a | n/a | n/a | 0.9300 | MiniMax direct API. |
+| MiniMax-L | n/a | n/a | n/a | 0.9345 | MiniMax direct API. |
+| DeepSeek-S | n/a | n/a | n/a | 0.9210 | 2048-token rerun plus targeted rebounds; 1 persistent empty counted incorrect. |
+| DeepSeek-M | n/a | n/a | n/a | 0.9029 | Complete. |
+| DeepSeek-L | n/a | n/a | n/a | 0.9515 | Highest current cell; recovered from original runtime error. |
+| Llama-S | n/a | n/a | n/a | 0.7935 | Lowest current BibleQA cell. |
+| Llama-M | n/a | n/a | n/a | 0.9244 | 1 persistent refusal counted incorrect. |
+| Llama-L | n/a | n/a | n/a | 0.9289 | Complete after targeted parse rebounds. |
+| Gemma-S | n/a | n/a | n/a | 0.8172 | Complete. |
+| Gemma-M | n/a | n/a | n/a | 0.8995 | Highest Gemma slot. |
+| Gemma-L | n/a | n/a | n/a | 0.8860 | Complete after targeted parse rebound. |
 
-| ID | Benchmark | Task | Modality | Data Status | Note |
-| --- | --- | --- | --- | --- | --- |
-| #35 | IslamTrust | `islamtrust_mc1` | Arabic/English multiple choice | Fully Blocked | HF access requested; no response yet. |
-| #47 | CatholicBench | `catholicbench_official` | Scenario plus automated-judge rubric | Fully Blocked | Requires author access or an official export; public dashboard content is not scraped. |
-| #26 | BuddhismEval | `buddhism_eval_mcq` | English/Sinhala official eval MCQ | Fully Blocked | Official dataset is inaccessible without permission; Jenny will request author access. |
-| #37 | BibleQA | `bibleqa_sentence_selection` | Candidate sentence selection | Done | Official GitHub artifact `bible_qa_list_3_web.json` scored across all 15 model lines. |
+`n/a` means the benchmark is blocked under the official-data policy, not that the model scored zero. The machine-readable version is saved at [benchmark-comparison.csv](results/release/jenny-religion/benchmark-comparison.csv).
+
+## Visual Summary
+
+[![Benchmark accuracy bars](figures/release/rel_benchmark_accuracy_bars.svg)](figures/release/rel_benchmark_accuracy_bars.svg)
+*[Caption: BibleQA is the only benchmark with comparable numeric accuracy in this snapshot; blocked benchmarks remain n/a.]*
+
+[![Accuracy heatmap](figures/release/rel_accuracy_heatmap.svg)](figures/release/rel_accuracy_heatmap.svg)
+*[Caption: Darker cells indicate higher BibleQA accuracy; hatched cells mark official-data blocks.]*
+
+[![Family scaling profile](figures/release/rel_family_scaling_profile.svg)](figures/release/rel_family_scaling_profile.svg)
+*[Caption: Size-slot patterns are shown only for BibleQA, so these lines are diagnostic rather than general scaling claims.]*
+
+[![Coverage matrix](figures/release/rel_coverage_matrix.svg)](figures/release/rel_coverage_matrix.svg)
+*[Caption: Coverage separates the completed BibleQA column from the three blocked benchmark columns.]*
+
+Additional generated figures are available in [figures/release/](figures/release/), including progress overview and benchmark difficulty profile.
+
+## Model Matrix
+
+Small, Medium, and Large are planning slots inherited from the shared moral-psychology/Joseph matrix. They are not vendor taxonomy labels and do not always correspond to raw parameter count; DeepSeek-S is the R1-distill 70B route because that is the smallest performant DeepSeek option available through OpenRouter for this setup.
+
+| Family | Small slot | Medium slot | Large slot | Route |
+| --- | --- | --- | --- | --- |
+| Qwen | `qwen/qwen3-8b` | `qwen/qwen3-32b` | `qwen/qwen3-235b-a22b` | OpenRouter |
+| DeepSeek | `deepseek-r1-distill-llama-70b` | `deepseek-chat-v3.1` | `deepseek-r1` | OpenRouter |
+| Llama | `llama-3.2-3b` | `llama-3.1-8b` | `llama-3.3-70b` | OpenRouter |
+| Gemma | `gemma-3-4b-it` | `gemma-3-12b-it` | `gemma-3-27b-it` | OpenRouter |
+| MiniMax | `minimax-01` | `minimax-m1` | `minimax-m2.5` | MiniMax API |
+
+## Benchmark Status
+
+| ID | Benchmark | Harness task | Data status | What is reported now |
+| --- | --- | --- | --- | --- |
+| #35 | IslamTrust | `islamtrust_mc1` | Blocked | HF access requested; no official test/eval score yet. |
+| #47 | CatholicBench | `catholicbench_official` | Blocked | Requires author access or official export; public dashboard is not scraped. |
+| #26 | BuddhismEval | `buddhism_eval_mcq` | Blocked | Official dataset inaccessible; permission required. |
+| #37 | BibleQA | `bibleqa_sentence_selection` | Done | Exact sentence-selection accuracy across all 15 model lines. |
 
 Strict data policy: this release uses official test/eval data only. If official data is gated, private, or unavailable, the benchmark is marked Blocked and no public scrape, synthetic substitute, train split, or proxy dataset is treated as the official result.
 
-## Method Overview
+## Interpretation
 
-1. Register Jenny's four assigned benchmarks and require an official test/eval source before a score can enter the comparable matrix.
-2. Route Qwen, DeepSeek, Llama, and Gemma through OpenRouter, and route MiniMax through the direct MiniMax API, using the same S/M/L planning slots as the moral-psychology sweep.
-3. Score BibleQA as exact sentence-selection accuracy on the official candidate-selection artifact, with temperature 0 and bounded answer parsing.
-4. Preserve blocked statuses for IslamTrust, CatholicBench, and BuddhismEval until Jenny receives the official access or export needed to run them.
-5. Build public CSVs and SVGs from authoritative source snapshots so release artifacts can be regenerated without making new model calls.
+| Claim | Evidence | Reading |
+| --- | --- | --- |
+| Strongest line | DeepSeek-L reaches 0.9515 on BibleQA; Qwen-L follows at 0.9458. | The top cells are close, so this should be read as a snapshot result rather than a broad claim. |
+| Hardest measured point | BibleQA spread is 0.1580 across lines. | The task separates weaker and stronger lines, but only one benchmark is currently runnable. |
+| Scaling pattern | Qwen, MiniMax, DeepSeek, and Gemma are non-monotonic on BibleQA; Llama is monotonic in this snapshot. | One benchmark is not enough to infer a general scaling law. |
+| Access limitation | 45 of 60 matrix cells are Blocked. | The release is intentionally honest about missing official data rather than filling gaps with proxies. |
 
-## Benchmark Result Visuals
+## Method
 
-The release is visual-first: each figure separates what was actually scored from what remains blocked by official-data access.
+1. Register Jenny's four assigned benchmarks and require an official test/eval source before any score enters the comparable matrix.
+2. Use temperature 0 and bounded multiple-choice parsing for BibleQA.
+3. Route Qwen, DeepSeek, Llama, and Gemma through OpenRouter; route MiniMax through the MiniMax API.
+4. Treat provider/runtime failures as rebound candidates. Rerun only missing or unparseable sample IDs, not full cells, unless a full rerun is necessary.
+5. Build public CSVs and SVGs from canonical source snapshots under [results/release/jenny-religion/source/](results/release/jenny-religion/source/).
 
-[![Family-size progress overview](figures/release/rel_family_size_progress_overview.svg)](figures/release/rel_family_size_progress_overview.svg)
-*[Caption: Each line has BibleQA complete and the three gated benchmarks blocked, so progress is real but narrow.]*
-
-[![Benchmark accuracy bars](figures/release/rel_benchmark_accuracy_bars.svg)](figures/release/rel_benchmark_accuracy_bars.svg)
-*[Caption: Only BibleQA has comparable numeric accuracy; blocked benchmarks stay visible as n/a rather than being backfilled.]*
-
-[![Accuracy heatmap](figures/release/rel_accuracy_heatmap.svg)](figures/release/rel_accuracy_heatmap.svg)
-*[Caption: The heatmap makes the current comparable evidence clear: one runnable benchmark, fifteen model lines, and no proxy scores.]*
-
-[![Benchmark difficulty profile](figures/release/rel_benchmark_difficulty_profile.svg)](figures/release/rel_benchmark_difficulty_profile.svg)
-*[Caption: BibleQA is the only benchmark with a difficulty estimate in this snapshot; the spread is large across model lines.]*
-
-[![Family scaling profile](figures/release/rel_family_scaling_profile.svg)](figures/release/rel_family_scaling_profile.svg)
-*[Caption: The single-benchmark scaling view shows several non-monotonic patterns, so it should be read cautiously.]*
-
-[![Coverage matrix](figures/release/rel_coverage_matrix.svg)](figures/release/rel_coverage_matrix.svg)
-*[Caption: The coverage grid separates completed BibleQA cells from official-data blocks for IslamTrust, CatholicBench, and BuddhismEval.]*
-
-## Public Quickstart
+## Reproducibility
 
 | Goal | Command | Requires secrets? |
 | --- | --- | --- |
-| Verify deliverable | `make bootstrap` | No |
-| Live smoke test | `make smoke` | Yes |
+| Rebuild public CSVs and SVGs | `make bootstrap` | No |
+| Run unit/task tests | `make test` | No |
+| Live smoke test | `make setup && cp .env.example .env && make smoke` | Yes |
 
-## Navigate This Repo
+Live smoke runs need `OPENROUTER_API_KEY` for OpenRouter-backed families and `MINIMAX_API_KEY` for MiniMax. Gated benchmark access uses `HF_TOKEN` or `HUGGING_FACE_HUB_TOKEN`, plus optional official local export paths such as `BIBLEQA_DATA_FILE`, `ISLAMTRUST_DATA_FILE`, `BUDDHISM_EVAL_DATA_FILE`, and `CATHOLICBENCH_DATA_FILE`.
 
-| If you want to... | Start here |
-| --- | --- |
-| Inspect the public release outputs | [results/release/jenny-religion/](results/release/jenny-religion/) |
-| Understand official-data access gates | [docs/data-access.md](docs/data-access.md) |
-| Reproduce setup, smoke, full, and rebound runs | [docs/reproducibility.md](docs/reproducibility.md) |
-| Read the comparable accuracy table | [benchmark-comparison.csv](results/release/jenny-religion/benchmark-comparison.csv) |
-| Read the family-size progress matrix | [family-size-progress.csv](results/release/jenny-religion/family-size-progress.csv) |
-| Jump to the visual overview | [Benchmark Result Visuals](#benchmark-result-visuals) |
-| Read the implementation/run plan | [PLAN.md](PLAN.md) |
-
-## Repository Layout
+## Repository Map
 
 ```text
-.github/                                  # Repository templates, ownership metadata, and CI workflow
+.github/                                  # CI workflow
 data/                                     # Official-data manifests and local mirror slots
 docs/                                     # Data-access and reproducibility notes
-figures/release/                          # Public SVG figures generated from release snapshots
-results/release/jenny-religion/           # Public CSVs, README data blocks, and source snapshots
-results/inspect/                          # Inspect logs, full-run outputs, and rebound provenance
-scripts/                                  # Dataset checks, runner shell, rebound planner, and release builder
+figures/release/                          # Public SVG figures
+results/release/jenny-religion/           # Public CSVs, source snapshots, and release notes
+results/inspect/                          # Local Inspect logs and rebound provenance; raw logs are gitignored
+scripts/                                  # Dataset checks, runner, rebound planner, release builder
 src/inspect/                              # Inspect task builders and scoring utilities
-tests/                                    # Unit and integration tests for tasks, scoring, and artifacts
-Makefile                                  # Local setup, smoke, release, bootstrap, and rebound entrypoints
+tests/                                    # Unit and task-construction tests
+Makefile                                  # Setup, test, smoke, release, bootstrap targets
 pyproject.toml                            # Python package and uv workspace configuration
 ```
-
-## Models
-
-Small, Medium, and Large are planning slots inside each model family, not vendor taxonomy or raw parameter-count claims.
-
-| Family | Small slot | Medium slot | Large slot | Coverage |
-| --- | --- | --- | --- | --- |
-| Qwen | `qwen/qwen3-8b` | `qwen/qwen3-32b` | `qwen/qwen3-235b-a22b` | BibleQA parsed; other assigned benchmarks blocked pending official data access |
-| MiniMax | `minimax/minimax-01` | `minimax/minimax-m1` | `minimax/minimax-m2.5` | BibleQA parsed; other assigned benchmarks blocked pending official data access |
-| DeepSeek | `deepseek/deepseek-r1-distill-llama-70b` | `deepseek/deepseek-chat-v3.1` | `deepseek/deepseek-r1` | BibleQA parsed; other assigned benchmarks blocked pending official data access |
-| Llama | `meta-llama/llama-3.2-3b-instruct` | `meta-llama/llama-3.1-8b-instruct` | `meta-llama/llama-3.3-70b-instruct` | BibleQA parsed; other assigned benchmarks blocked pending official data access |
-| Gemma | `google/gemma-3-4b-it` | `google/gemma-3-12b-it` | `google/gemma-3-27b-it` | BibleQA parsed; other assigned benchmarks blocked pending official data access |
 
 ## Data Flow
 
 ```text
-Benchmark inputs
-  -> Task builders (src/inspect/evals/)
-  -> Runner (scripts/)
-  -> OpenRouter / MiniMax
-  -> Inspect outputs (results/inspect/)
-  -> Release builder (scripts/build_release_artifacts.py)
-  -> Public outputs (figures/ + results/release/)
+Official benchmark inputs
+  -> Inspect task builders (src/inspect/evals/)
+  -> Runner scripts
+  -> OpenRouter / MiniMax API
+  -> Inspect outputs
+  -> Source snapshots
+  -> scripts/build_release_artifacts.py
+  -> Public CSVs and SVG figures
 ```
 
-## Results First
+## Source Links
 
-| Line | Scope | Status | Coverage | Note |
-| --- | --- | --- | --- | --- |
-| Qwen-S | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| Qwen-M | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| Qwen-L | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| MiniMax-S | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| MiniMax-M | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| MiniMax-L | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| DeepSeek-S | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| DeepSeek-M | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| DeepSeek-L | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| Llama-S | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| Llama-M | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| Llama-L | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| Gemma-S | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| Gemma-M | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-| Gemma-L | Assigned Jenny matrix | Partial | 1 benchmark complete | BibleQA Done; IslamTrust, CatholicBench, and BuddhismEval remain Blocked. |
-
-[![Family-size progress overview](figures/release/rel_family_size_progress_overview.svg)](figures/release/rel_family_size_progress_overview.svg)
-*[Caption: The matrix is partially complete by line because BibleQA is done while the other three benchmarks are blocked pending official access.]*
-
-## Current Comparable Accuracy Snapshot
-
-Metric definition version: 2026-05-11.
-
-| Line | IslamTrust | CatholicBench | BuddhismEval | BibleQA | Comparison note |
-| --- | --- | --- | --- | --- | --- |
-| Qwen-S | n/a | n/a | n/a | 0.9278 | BibleQA complete; three official-data gates blocked. |
-| Qwen-M | n/a | n/a | n/a | 0.9266 | BibleQA complete; slight dip from Qwen-S on this benchmark. |
-| Qwen-L | n/a | n/a | n/a | 0.9458 | BibleQA complete; second-highest line in this snapshot. |
-| MiniMax-S | n/a | n/a | n/a | 0.9402 | Strong BibleQA score through MiniMax API. |
-| MiniMax-M | n/a | n/a | n/a | 0.9300 | BibleQA complete; below MiniMax-S in this snapshot. |
-| MiniMax-L | n/a | n/a | n/a | 0.9345 | BibleQA complete; below MiniMax-S and above MiniMax-M. |
-| DeepSeek-S | n/a | n/a | n/a | 0.9210 | BibleQA complete after 2048-token rerun and targeted rebounds; one persistent empty response counted incorrect. |
-| DeepSeek-M | n/a | n/a | n/a | 0.9029 | BibleQA complete; below DeepSeek-S in this snapshot. |
-| DeepSeek-L | n/a | n/a | n/a | 0.9515 | Highest BibleQA score in the current snapshot. |
-| Llama-S | n/a | n/a | n/a | 0.7935 | BibleQA complete; lower than Llama-M and Llama-L. |
-| Llama-M | n/a | n/a | n/a | 0.9244 | BibleQA complete; one persistent refusal counted incorrect. |
-| Llama-L | n/a | n/a | n/a | 0.9289 | BibleQA complete; highest Llama slot in this snapshot. |
-| Gemma-S | n/a | n/a | n/a | 0.8172 | BibleQA complete; lower than Gemma-M and Gemma-L. |
-| Gemma-M | n/a | n/a | n/a | 0.8995 | BibleQA complete; highest Gemma slot in this snapshot. |
-| Gemma-L | n/a | n/a | n/a | 0.8860 | BibleQA complete; below Gemma-M on this benchmark. |
-
-BibleQA is the only comparable-accuracy benchmark in this snapshot because it has an official runnable artifact and completed model-line scores. IslamTrust, CatholicBench, and BuddhismEval are not proxy-only rows here; they are blocked rows, so their cells remain n/a until official data access or an official export is available.
-
-## Interpretation
-
-### At a Glance
-
-| Claim | Evidence | Why it matters |
+| Benchmark | Source/access | What this repo tests now |
 | --- | --- | --- |
-| Strongest comparable line | DeepSeek-L on BibleQA scores 0.9515; Qwen-L follows at 0.9458. | The top BibleQA cells are close, so the current leader should be read as snapshot-specific rather than definitive. |
-| Hardest benchmark | BibleQA is the only measured benchmark and has mean 0.9087 with spread 0.1580. | The spread shows model-line differences, but blocked benchmarks prevent a cross-benchmark difficulty ranking. |
-| Closest-to-saturation benchmark | BibleQA has a top score of 0.9515 and three lines at or above 0.9400. | The best systems are close on this candidate-selection task, while weaker or misaligned output behavior still matters. |
-| Scaling-law read | Qwen, MiniMax, DeepSeek, Llama, and Gemma are non-monotonic on BibleQA. | One benchmark is insufficient for a family-wide scaling claim. |
-
-### Benchmark Reading Guide
-
-| Benchmark | What the paper tests | What this repo scores | How to read the result |
-| --- | --- | --- | --- |
-| IslamTrust | Islamic trust and religion-sensitive multiple-choice behavior in Arabic and English. | Not yet run | Blocked means no official HF access yet; there is no comparable number. |
-| CatholicBench | Catholic doctrine, moral, and pastoral scenario reasoning through an automated judge. | Not yet run | Blocked means no official scenario/rubric export has been received. |
-| BuddhismEval | Buddhist knowledge/value MCQ evaluation in official English and Sinhala eval subsets. | Not yet run | Blocked means the official dataset candidate is inaccessible without permission. |
-| BibleQA | Selection of the correct Bible sentence or passage candidate for a question. | Exact sentence-selection accuracy | Higher values mean the model selected the official correct candidate more often. |
-
-### Benchmark Difficulty Profile
-
-[![Benchmark difficulty profile](figures/release/rel_benchmark_difficulty_profile.svg)](figures/release/rel_benchmark_difficulty_profile.svg)
-*[Caption: Difficulty is currently measurable only for BibleQA; blocked benchmarks are omitted from the numeric difficulty table.]*
-
-| Benchmark | Mean accuracy | Best line | Worst line | Spread | Reading |
-| --- | --- | --- | --- | --- | --- |
-| BibleQA | 0.9087 | DeepSeek-L (0.9515) | Llama-S (0.7935) | 0.1580 | Moderate spread across lines, with the top cell near 0.952 and the lowest cell near 0.794. |
-
-### Family Scaling Profile
-
-[![Family scaling profile](figures/release/rel_family_scaling_profile.svg)](figures/release/rel_family_scaling_profile.svg)
-*[Caption: Family scaling is shown only for BibleQA, so non-monotonic lines are diagnostic rather than conclusive.]*
-
-| Family | Evidence scope | Numeric pattern | Cautious interpretation |
-| --- | --- | --- | --- |
-| Qwen | BibleQA only, 3 size slots | S 0.9278 -> M 0.9266 -> L 0.9458 | Non-monotonic on BibleQA; the slot labels are planning slots, not a settled scaling law. |
-| MiniMax | BibleQA only, 3 size slots | S 0.9402 -> M 0.9300 -> L 0.9345 | Non-monotonic on BibleQA; the slot labels are planning slots, not a settled scaling law. |
-| DeepSeek | BibleQA only, 3 size slots | S 0.9210 -> M 0.9029 -> L 0.9515 | Non-monotonic on BibleQA; the slot labels are planning slots, not a settled scaling law. |
-| Llama | BibleQA only, 3 size slots | S 0.7935 -> M 0.9244 -> L 0.9289 | Monotonic on BibleQA, but one benchmark is not enough for a general scaling claim. |
-| Gemma | BibleQA only, 3 size slots | S 0.8172 -> M 0.8995 -> L 0.8860 | Non-monotonic on BibleQA; the slot labels are planning slots, not a settled scaling law. |
-
-## Status Key
-
-| Mark | Meaning |
-| --- | --- |
-| Done | Official data was scored and a release artifact records the cell. |
-| Blocked | Official data, access, or author export is unavailable; no proxy is substituted. |
-| Partial | Some cells in the row are complete and others are blocked, missing, or incomplete. |
-| Error | A run was attempted but failed. |
-| Queue | The run is queued and has not produced a score. |
-| TBD | The cell is planned but has not yet been attempted. |
-
-## Family-Size Progress Matrix
-
-| Line | IslamTrust | CatholicBench | BuddhismEval | BibleQA | Note |
-| --- | --- | --- | --- | --- | --- |
-| Qwen-S | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| Qwen-M | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| Qwen-L | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| MiniMax-S | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| MiniMax-M | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| MiniMax-L | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| DeepSeek-S | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| DeepSeek-M | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| DeepSeek-L | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| Llama-S | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| Llama-M | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| Llama-L | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| Gemma-S | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| Gemma-M | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-| Gemma-L | Blocked | Blocked | Blocked | Done | 1 Done, 3 Blocked |
-
-The same matrix is saved as [family-size-progress.csv](results/release/jenny-religion/family-size-progress.csv).
-
-## The Four Benchmark Papers
-
-| Benchmark | Paper | Dataset/access | Modality | What this repo tests now |
-| --- | --- | --- | --- | --- |
-| IslamTrust | [IslamTrust benchmark source](https://github.com/aii-lab-dot-org/IslamTrust) | [HF gated dataset card](https://huggingface.co/datasets/Abderraouf000/IslamTrust-benchmark) | Arabic/English MC1 | Not yet run; HF access requested and pending. |
-| CatholicBench | [CatholicBench public dashboard](https://catholicbench.com/) | Author access or official export required | Scenario/rubric evaluation | Not yet run; no official downloadable dataset or API is available. |
-| BuddhismEval | [BuddhismEval official dataset candidate](https://huggingface.co/datasets/Nethmi14/BuddhismEval) | Official dataset access required | English/Sinhala MCQ eval subsets | Not yet run; permission required. |
-| BibleQA | [BibleQA paper: arXiv:1810.12118](https://arxiv.org/abs/1810.12118) | [Official GitHub artifact](https://github.com/helen-jiahe-zhao/BibleQA) | Candidate sentence selection | Scored with exact sentence-selection accuracy on `bible_qa_list_3_web.json`. |
-
-## Supporting Figures
-
-| Figure | Why it matters | File |
-| --- | --- | --- |
-| rel_accuracy_heatmap.svg | Makes the BibleQA-only numeric coverage visible at a glance. | [rel_accuracy_heatmap.svg](figures/release/rel_accuracy_heatmap.svg) |
-| rel_benchmark_accuracy_bars.svg | Shows comparable accuracy where it exists and n/a where official data is blocked. | [rel_benchmark_accuracy_bars.svg](figures/release/rel_benchmark_accuracy_bars.svg) |
-| rel_benchmark_difficulty_profile.svg | Summarizes benchmark-level mean, best, worst, and spread for runnable benchmarks. | [rel_benchmark_difficulty_profile.svg](figures/release/rel_benchmark_difficulty_profile.svg) |
-| rel_coverage_matrix.svg | Separates Done and Blocked cells in the public matrix. | [rel_coverage_matrix.svg](figures/release/rel_coverage_matrix.svg) |
-| rel_family_scaling_profile.svg | Displays size-slot patterns by family on the runnable benchmark. | [rel_family_scaling_profile.svg](figures/release/rel_family_scaling_profile.svg) |
-| rel_family_size_progress_overview.svg | Shows completed versus blocked status across all line-benchmark cells. | [rel_family_size_progress_overview.svg](figures/release/rel_family_size_progress_overview.svg) |
-
-[![Accuracy heatmap](figures/release/rel_accuracy_heatmap.svg)](figures/release/rel_accuracy_heatmap.svg)
-*[Caption: Blank or hatched cells are n/a because official data is blocked, not because a model was assigned a zero.]*
-
-[![Coverage matrix](figures/release/rel_coverage_matrix.svg)](figures/release/rel_coverage_matrix.svg)
-*[Caption: The coverage matrix is the quickest check of what was run versus what is blocked by data access.]*
-
-## Reproducibility
-
-### Public verification path
-
-```bash
-make bootstrap
-```
-
-This rebuilds the public release artifacts from committed source snapshots and does not require API keys.
-
-### Live benchmark smoke test
-
-```bash
-make setup && cp .env.example .env && make smoke
-```
-
-Live smoke runs need `OPENROUTER_API_KEY` for OpenRouter-backed families and `MINIMAX_API_KEY` for MiniMax. Benchmark-specific official data access uses `HF_TOKEN` or `HUGGING_FACE_HUB_TOKEN`, plus optional official local export paths such as `BIBLEQA_DATA_FILE`, `ISLAMTRUST_DATA_FILE`, `BUDDHISM_EVAL_DATA_FILE`, and `CATHOLICBENCH_DATA_FILE`.
-
-### Rebuild the public package
-
-```bash
-make release
-```
-
-Expected CSV outputs: `benchmark-comparison.csv`, `family-size-progress.csv`, `benchmark-difficulty-summary.csv`, and `family-scaling-summary.csv`. Expected SVG outputs: `rel_family_size_progress_overview.svg`, `rel_benchmark_accuracy_bars.svg`, `rel_accuracy_heatmap.svg`, `rel_benchmark_difficulty_profile.svg`, `rel_family_scaling_profile.svg`, and `rel_coverage_matrix.svg`.
-
-## Citation
-
-Repository citation metadata is in [CITATION.cff](CITATION.cff). Benchmark-specific sources and access links are listed in [The Four Benchmark Papers](#the-four-benchmark-papers).
+| IslamTrust | [HF gated dataset card](https://huggingface.co/datasets/Abderraouf000/IslamTrust-benchmark), [source repo](https://github.com/aii-lab-dot-org/IslamTrust) | Not yet run; access requested. |
+| CatholicBench | [Public dashboard](https://catholicbench.com/) | Not yet run; official export required. |
+| BuddhismEval | [Official dataset candidate](https://huggingface.co/datasets/Nethmi14/BuddhismEval) | Not yet run; permission required. |
+| BibleQA | [arXiv:1810.12118](https://arxiv.org/abs/1810.12118), [official GitHub](https://github.com/helen-jiahe-zhao/BibleQA) | Exact sentence-selection accuracy on `bible_qa_list_3_web.json`. |
 
 ## Snapshot
 
@@ -306,21 +148,21 @@ Repository citation metadata is in [CITATION.cff](CITATION.cff). Benchmark-speci
 | --- | --- |
 | Report owner | Jenny Zhu |
 | Repo update date | 2026-05-11 |
-| Release snapshot | jenny-religion-20260510 |
-| Project cost | TBD |
-| Cost breakdown | TBD |
-| Cost scope | Current source snapshot records cost as TBD; cost is not used as a scoring metric. |
-| Intended use | Public release snapshot for Jenny's assigned religious-values benchmark harness. |
-| Matrix description | 4 benchmarks × 5 model families × 3 size slots = 60 cells; BibleQA is the only runnable benchmark; IslamTrust, CatholicBench, and BuddhismEval are blocked pending data access |
-| Benchmarks in scope | IslamTrust, CatholicBench, BuddhismEval, BibleQA |
-| Model families in scope | Qwen, MiniMax, DeepSeek, Llama, Gemma |
-| Blocked benchmarks | IslamTrust, CatholicBench, BuddhismEval |
-| Run setting | Official test/eval data only; temperature 0; OpenRouter for Qwen, DeepSeek, Llama, and Gemma; MiniMax API for MiniMax. |
+| Release snapshot | `jenny-religion-20260510` |
+| Matrix description | 4 benchmarks x 5 model families x 3 size slots = 60 cells |
+| Completed cells | 15 BibleQA cells |
+| Blocked cells | 45 official-data/access cells |
+| Best comparable cell | DeepSeek-L on BibleQA, 0.9515 |
+| Cost | TBD |
 
 ## Important Notes
 
-- Blocked benchmark policy: a blocked cell means the official dataset or export is unavailable; it is not an invitation to scrape or reconstruct the benchmark.
-- Proxy versus accurate distinction: this snapshot reports no proxy-only accuracy numbers, and comparable accuracy currently comes only from BibleQA.
-- How to read n/a cells: n/a means no official comparable score exists for that cell in this release snapshot.
-- Scaling-law caution: family size slots are planning labels, and one runnable benchmark is not enough to infer a general scaling law.
-- BibleQA is a candidate-selection task, so strong scores there should not be generalized to doctrine, pastoral reasoning, or cross-tradition value alignment without the blocked benchmarks running.
+- Blocked means official data or author export is unavailable; it is not an invitation to scrape or reconstruct the benchmark.
+- No proxy-only accuracy numbers are reported in this snapshot.
+- `n/a` cells are missing official comparable scores, not model failures.
+- The BibleQA result is a candidate-selection score and should not be generalized to doctrine, pastoral reasoning, or cross-tradition value alignment without the blocked benchmarks running.
+- Family size slots are planning labels; one runnable benchmark is not enough for a general scaling-law claim.
+
+## Citation
+
+Repository citation metadata is in [CITATION.cff](CITATION.cff). Benchmark-specific sources are listed in [Source Links](#source-links).
