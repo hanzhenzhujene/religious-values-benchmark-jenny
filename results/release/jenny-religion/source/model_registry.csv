@@ -1,0 +1,16 @@
+family,size_slot,model_id,route,has_vision,coverage_note
+Qwen,S,qwen/qwen3-8b,OpenRouter,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+Qwen,M,qwen/qwen3-32b,OpenRouter,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+Qwen,L,qwen/qwen3-235b-a22b,OpenRouter,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+MiniMax,S,minimax/minimax-01,MiniMax API,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+MiniMax,M,minimax/minimax-m1,MiniMax API,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+MiniMax,L,minimax/minimax-m2.5,MiniMax API,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+DeepSeek,S,deepseek/deepseek-r1-distill-llama-70b,OpenRouter,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+DeepSeek,M,deepseek/deepseek-chat-v3.1,OpenRouter,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+DeepSeek,L,deepseek/deepseek-r1,OpenRouter,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+Llama,S,meta-llama/llama-3.2-3b-instruct,OpenRouter,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+Llama,M,meta-llama/llama-3.1-8b-instruct,OpenRouter,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+Llama,L,meta-llama/llama-3.3-70b-instruct,OpenRouter,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+Gemma,S,google/gemma-3-4b-it,OpenRouter,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+Gemma,M,google/gemma-3-12b-it,OpenRouter,false,BibleQA parsed; other assigned benchmarks blocked pending official data access
+Gemma,L,google/gemma-3-27b-it,OpenRouter,false,BibleQA parsed; other assigned benchmarks blocked pending official data access

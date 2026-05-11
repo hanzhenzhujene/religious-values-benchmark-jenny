@@ -1,0 +1,8 @@
+{
+  "report_owner": "Jenny Zhu",
+  "release_date": "2026-05-11",
+  "snapshot_label": "jenny-religion-20260510",
+  "project_cost": "TBD",
+  "cost_breakdown": "TBD",
+  "matrix_description": "4 benchmarks × 5 model families × 3 size slots = 60 cells; BibleQA is the only runnable benchmark; IslamTrust, CatholicBench, and BuddhismEval are blocked pending data access"
+}

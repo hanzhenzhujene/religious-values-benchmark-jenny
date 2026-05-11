@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img">
+<title>Family-Size Progress Overview</title>
+<style>
+        text { font-family: system-ui, sans-serif; fill: #222; }
+        .title { font-size: 14px; font-weight: 700; }
+        .axis { font-size: 11px; }
+        .small { font-size: 9px; }
+        .tiny { font-size: 8px; }
+        .grid { stroke: #dddddd; stroke-width: 1; }
+        .axis-line { stroke: #333333; stroke-width: 1; }
+        .outline { stroke: #ffffff; stroke-width: 1; }
+    </style>
+
+<text x="450.0" y="24.0" class="title" text-anchor="middle" >Family-Size Progress Overview</text>
+<text x="128.0" y="42.0" class="axis" text-anchor="end" >Model line</text>
+<text x="287.5" y="42.0" class="tiny" text-anchor="middle" >IslamTrust</text>
+<text x="422.5" y="42.0" class="tiny" text-anchor="middle" >CatholicBenc</text>
+<text x="557.5" y="42.0" class="tiny" text-anchor="middle" >BuddhismEval</text>
+<text x="692.5" y="42.0" class="tiny" text-anchor="middle" >BibleQA</text>
+<text x="128.0" y="65.0" class="axis" text-anchor="end" >Qwen-S</text>
+<rect x="220.0" y="52.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="52.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="52.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="52.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="88.0" class="axis" text-anchor="end" >Qwen-M</text>
+<rect x="220.0" y="75.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="75.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="75.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="75.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="111.0" class="axis" text-anchor="end" >Qwen-L</text>
+<rect x="220.0" y="98.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="98.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="98.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="98.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="134.0" class="axis" text-anchor="end" >MiniMax-S</text>
+<rect x="220.0" y="121.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="121.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="121.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="121.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="157.0" class="axis" text-anchor="end" >MiniMax-M</text>
+<rect x="220.0" y="144.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="144.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="144.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="144.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="180.0" class="axis" text-anchor="end" >MiniMax-L</text>
+<rect x="220.0" y="167.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="167.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="167.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="167.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="203.0" class="axis" text-anchor="end" >DeepSeek-S</text>
+<rect x="220.0" y="190.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="190.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="190.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="190.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="226.0" class="axis" text-anchor="end" >DeepSeek-M</text>
+<rect x="220.0" y="213.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="213.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="213.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="213.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="249.0" class="axis" text-anchor="end" >DeepSeek-L</text>
+<rect x="220.0" y="236.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="236.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="236.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="236.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="272.0" class="axis" text-anchor="end" >Llama-S</text>
+<rect x="220.0" y="259.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="259.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="259.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="259.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="295.0" class="axis" text-anchor="end" >Llama-M</text>
+<rect x="220.0" y="282.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="282.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="282.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="282.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="318.0" class="axis" text-anchor="end" >Llama-L</text>
+<rect x="220.0" y="305.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="305.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="305.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="305.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="341.0" class="axis" text-anchor="end" >Gemma-S</text>
+<rect x="220.0" y="328.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="328.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="328.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="328.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="364.0" class="axis" text-anchor="end" >Gemma-M</text>
+<rect x="220.0" y="351.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="351.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="351.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="351.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<text x="128.0" y="387.0" class="axis" text-anchor="end" >Gemma-L</text>
+<rect x="220.0" y="374.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="355.0" y="374.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="490.0" y="374.0" width="134.0" height="16.0" fill="#C44E52" class="outline" />
+<rect x="625.0" y="374.0" width="134.0" height="16.0" fill="#55A868" class="outline" />
+<rect x="160.0" y="434.0" width="12.0" height="12.0" fill="#55A868" />
+<text x="177.0" y="445.0" class="small" text-anchor="start" >Done</text>
+<rect x="252.0" y="434.0" width="12.0" height="12.0" fill="#4C72B0" />
+<text x="269.0" y="445.0" class="small" text-anchor="start" >Partial</text>
+<rect x="344.0" y="434.0" width="12.0" height="12.0" fill="#C44E52" />
+<text x="361.0" y="445.0" class="small" text-anchor="start" >Blocked</text>
+<rect x="436.0" y="434.0" width="12.0" height="12.0" fill="#C44E52" />
+<text x="453.0" y="445.0" class="small" text-anchor="start" >Error</text>
+<rect x="528.0" y="434.0" width="12.0" height="12.0" fill="#8172B2" />
+<text x="545.0" y="445.0" class="small" text-anchor="start" >Queue</text>
+<rect x="620.0" y="434.0" width="12.0" height="12.0" fill="#999999" />
+<text x="637.0" y="445.0" class="small" text-anchor="start" >TBD</text>
+</svg>

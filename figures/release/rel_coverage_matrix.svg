@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img">
+<title>Coverage Matrix</title>
+<style>
+        text { font-family: system-ui, sans-serif; fill: #222; }
+        .title { font-size: 14px; font-weight: 700; }
+        .axis { font-size: 11px; }
+        .small { font-size: 9px; }
+        .tiny { font-size: 8px; }
+        .grid { stroke: #dddddd; stroke-width: 1; }
+        .axis-line { stroke: #333333; stroke-width: 1; }
+        .outline { stroke: #ffffff; stroke-width: 1; }
+    </style>
+
+<text x="450.0" y="24.0" class="title" text-anchor="middle" >Coverage Matrix</text>
+<text x="157.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 157.5 68)">Qwen-S</text>
+<text x="202.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 202.5 68)">Qwen-M</text>
+<text x="247.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 247.5 68)">Qwen-L</text>
+<text x="292.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 292.5 68)">MiniMax-S</text>
+<text x="337.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 337.5 68)">MiniMax-M</text>
+<text x="382.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 382.5 68)">MiniMax-L</text>
+<text x="427.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 427.5 68)">DeepSeek-S</text>
+<text x="472.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 472.5 68)">DeepSeek-M</text>
+<text x="517.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 517.5 68)">DeepSeek-L</text>
+<text x="562.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 562.5 68)">Llama-S</text>
+<text x="607.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 607.5 68)">Llama-M</text>
+<text x="652.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 652.5 68)">Llama-L</text>
+<text x="697.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 697.5 68)">Gemma-S</text>
+<text x="742.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 742.5 68)">Gemma-M</text>
+<text x="787.5" y="68.0" class="tiny" text-anchor="middle" transform="rotate(-45 787.5 68)">Gemma-L</text>
+<text x="127.0" y="105.0" class="axis" text-anchor="end" >IslamTrust</text>
+<rect x="135.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="156.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="180.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="201.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="225.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="246.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="270.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="291.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="315.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="336.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="360.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="381.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="405.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="426.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="450.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="471.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="495.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="516.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="540.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="561.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="585.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="606.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="630.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="651.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="675.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="696.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="720.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="741.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<rect x="765.0" y="80.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="786.5" y="104.0" class="axis" text-anchor="middle" >B</text>
+<text x="127.0" y="147.0" class="axis" text-anchor="end" >CatholicBench</text>
+<rect x="135.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="156.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="180.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="201.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="225.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="246.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="270.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="291.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="315.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="336.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="360.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="381.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="405.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="426.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="450.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="471.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="495.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="516.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="540.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="561.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="585.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="606.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="630.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="651.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="675.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="696.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="720.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="741.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<rect x="765.0" y="122.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="786.5" y="146.0" class="axis" text-anchor="middle" >B</text>
+<text x="127.0" y="189.0" class="axis" text-anchor="end" >BuddhismEval</text>
+<rect x="135.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="156.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="180.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="201.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="225.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="246.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="270.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="291.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="315.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="336.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="360.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="381.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="405.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="426.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="450.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="471.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="495.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="516.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="540.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="561.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="585.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="606.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="630.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="651.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="675.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="696.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="720.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="741.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<rect x="765.0" y="164.0" width="43.0" height="39.0" fill="#C44E52" />
+<text x="786.5" y="188.0" class="axis" text-anchor="middle" >B</text>
+<text x="127.0" y="231.0" class="axis" text-anchor="end" >BibleQA</text>
+<rect x="135.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="156.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="180.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="201.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="225.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="246.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="270.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="291.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="315.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="336.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="360.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="381.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="405.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="426.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="450.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="471.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="495.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="516.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="540.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="561.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="585.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="606.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="630.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="651.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="675.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="696.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="720.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="741.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="765.0" y="206.0" width="43.0" height="39.0" fill="#55A868" />
+<text x="786.5" y="230.0" class="axis" text-anchor="middle" >D</text>
+<rect x="95.0" y="424.0" width="12.0" height="12.0" fill="#55A868" />
+<text x="112.0" y="435.0" class="small" text-anchor="start" >Done</text>
+<rect x="187.0" y="424.0" width="12.0" height="12.0" fill="#4C72B0" />
+<text x="204.0" y="435.0" class="small" text-anchor="start" >Partial</text>
+<rect x="279.0" y="424.0" width="12.0" height="12.0" fill="#C44E52" />
+<text x="296.0" y="435.0" class="small" text-anchor="start" >Blocked</text>
+<rect x="371.0" y="424.0" width="12.0" height="12.0" fill="#C44E52" />
+<text x="388.0" y="435.0" class="small" text-anchor="start" >Error</text>
+<rect x="463.0" y="424.0" width="12.0" height="12.0" fill="#8172B2" />
+<text x="480.0" y="435.0" class="small" text-anchor="start" >Queue</text>
+<rect x="555.0" y="424.0" width="12.0" height="12.0" fill="#999999" />
+<text x="572.0" y="435.0" class="small" text-anchor="start" >TBD</text>
+<rect x="647.0" y="424.0" width="12.0" height="12.0" fill="#DD8452" />
+<text x="664.0" y="435.0" class="small" text-anchor="start" >Proxy</text>
+</svg>

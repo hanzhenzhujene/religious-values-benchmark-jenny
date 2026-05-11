@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img">
+<title>Benchmark Accuracy Bars</title>
+<style>
+        text { font-family: system-ui, sans-serif; fill: #222; }
+        .title { font-size: 14px; font-weight: 700; }
+        .axis { font-size: 11px; }
+        .small { font-size: 9px; }
+        .tiny { font-size: 8px; }
+        .grid { stroke: #dddddd; stroke-width: 1; }
+        .axis-line { stroke: #333333; stroke-width: 1; }
+        .outline { stroke: #ffffff; stroke-width: 1; }
+    </style>
+
+<text x="450.0" y="24.0" class="title" text-anchor="middle" >Benchmark Accuracy Bars</text>
+<line x1="238.0" y1="42.0" x2="238.0" y2="430.0" class="grid" />
+<text x="238.0" y="444.0" class="small" text-anchor="middle" >0.00</text>
+<line x1="368.5" y1="42.0" x2="368.5" y2="430.0" class="grid" />
+<text x="368.5" y="444.0" class="small" text-anchor="middle" >0.25</text>
+<line x1="499.0" y1="42.0" x2="499.0" y2="430.0" class="grid" />
+<text x="499.0" y="444.0" class="small" text-anchor="middle" >0.50</text>
+<line x1="629.5" y1="42.0" x2="629.5" y2="430.0" class="grid" />
+<text x="629.5" y="444.0" class="small" text-anchor="middle" >0.75</text>
+<line x1="760.0" y1="42.0" x2="760.0" y2="430.0" class="grid" />
+<text x="760.0" y="444.0" class="small" text-anchor="middle" >1.00</text>
+<text x="499.0" y="465.0" class="axis" text-anchor="middle" >Accuracy</text>
+<text x="20.0" y="58.0" class="axis" text-anchor="start" >IslamTrust</text>
+<text x="150.0" y="54.8" class="tiny" text-anchor="end" >Qwen-S</text>
+<rect x="238.0" y="50.0" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="54.8" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="60.6" class="tiny" text-anchor="end" >Qwen-M</text>
+<rect x="238.0" y="55.8" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="60.6" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="66.3" class="tiny" text-anchor="end" >Qwen-L</text>
+<rect x="238.0" y="61.6" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="66.3" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="72.1" class="tiny" text-anchor="end" >MiniMax-S</text>
+<rect x="238.0" y="67.3" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="72.1" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="77.9" class="tiny" text-anchor="end" >MiniMax-M</text>
+<rect x="238.0" y="73.1" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="77.9" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="83.7" class="tiny" text-anchor="end" >MiniMax-L</text>
+<rect x="238.0" y="78.9" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="83.7" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="89.5" class="tiny" text-anchor="end" >DeepSeek-S</text>
+<rect x="238.0" y="84.7" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="89.5" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="95.2" class="tiny" text-anchor="end" >DeepSeek-M</text>
+<rect x="238.0" y="90.5" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="95.2" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="101.0" class="tiny" text-anchor="end" >DeepSeek-L</text>
+<rect x="238.0" y="96.2" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="101.0" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="106.8" class="tiny" text-anchor="end" >Llama-S</text>
+<rect x="238.0" y="102.0" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="106.8" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="112.6" class="tiny" text-anchor="end" >Llama-M</text>
+<rect x="238.0" y="107.8" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="112.6" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="118.4" class="tiny" text-anchor="end" >Llama-L</text>
+<rect x="238.0" y="113.6" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="118.4" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="124.2" class="tiny" text-anchor="end" >Gemma-S</text>
+<rect x="238.0" y="119.4" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="124.2" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="129.9" class="tiny" text-anchor="end" >Gemma-M</text>
+<rect x="238.0" y="125.2" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="129.9" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="135.7" class="tiny" text-anchor="end" >Gemma-L</text>
+<rect x="238.0" y="130.9" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="135.7" class="tiny" text-anchor="start" >n/a</text>
+<text x="20.0" y="148.8" class="axis" text-anchor="start" >CatholicBench</text>
+<text x="150.0" y="145.5" class="tiny" text-anchor="end" >Qwen-S</text>
+<rect x="238.0" y="140.8" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="145.5" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="151.3" class="tiny" text-anchor="end" >Qwen-M</text>
+<rect x="238.0" y="146.5" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="151.3" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="157.1" class="tiny" text-anchor="end" >Qwen-L</text>
+<rect x="238.0" y="152.3" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="157.1" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="162.9" class="tiny" text-anchor="end" >MiniMax-S</text>
+<rect x="238.0" y="158.1" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="162.9" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="168.7" class="tiny" text-anchor="end" >MiniMax-M</text>
+<rect x="238.0" y="163.9" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="168.7" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="174.5" class="tiny" text-anchor="end" >MiniMax-L</text>
+<rect x="238.0" y="169.7" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="174.5" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="180.2" class="tiny" text-anchor="end" >DeepSeek-S</text>
+<rect x="238.0" y="175.5" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="180.2" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="186.0" class="tiny" text-anchor="end" >DeepSeek-M</text>
+<rect x="238.0" y="181.2" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="186.0" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="191.8" class="tiny" text-anchor="end" >DeepSeek-L</text>
+<rect x="238.0" y="187.0" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="191.8" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="197.6" class="tiny" text-anchor="end" >Llama-S</text>
+<rect x="238.0" y="192.8" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="197.6" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="203.4" class="tiny" text-anchor="end" >Llama-M</text>
+<rect x="238.0" y="198.6" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="203.4" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="209.1" class="tiny" text-anchor="end" >Llama-L</text>
+<rect x="238.0" y="204.4" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="209.1" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="214.9" class="tiny" text-anchor="end" >Gemma-S</text>
+<rect x="238.0" y="210.1" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="214.9" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="220.7" class="tiny" text-anchor="end" >Gemma-M</text>
+<rect x="238.0" y="215.9" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="220.7" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="226.5" class="tiny" text-anchor="end" >Gemma-L</text>
+<rect x="238.0" y="221.7" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="226.5" class="tiny" text-anchor="start" >n/a</text>
+<text x="20.0" y="239.5" class="axis" text-anchor="start" >BuddhismEval</text>
+<text x="150.0" y="236.3" class="tiny" text-anchor="end" >Qwen-S</text>
+<rect x="238.0" y="231.5" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="236.3" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="242.1" class="tiny" text-anchor="end" >Qwen-M</text>
+<rect x="238.0" y="237.3" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="242.1" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="247.9" class="tiny" text-anchor="end" >Qwen-L</text>
+<rect x="238.0" y="243.1" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="247.9" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="253.7" class="tiny" text-anchor="end" >MiniMax-S</text>
+<rect x="238.0" y="248.9" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="253.7" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="259.4" class="tiny" text-anchor="end" >MiniMax-M</text>
+<rect x="238.0" y="254.7" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="259.4" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="265.2" class="tiny" text-anchor="end" >MiniMax-L</text>
+<rect x="238.0" y="260.4" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="265.2" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="271.0" class="tiny" text-anchor="end" >DeepSeek-S</text>
+<rect x="238.0" y="266.2" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="271.0" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="276.8" class="tiny" text-anchor="end" >DeepSeek-M</text>
+<rect x="238.0" y="272.0" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="276.8" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="282.6" class="tiny" text-anchor="end" >DeepSeek-L</text>
+<rect x="238.0" y="277.8" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="282.6" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="288.3" class="tiny" text-anchor="end" >Llama-S</text>
+<rect x="238.0" y="283.6" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="288.3" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="294.1" class="tiny" text-anchor="end" >Llama-M</text>
+<rect x="238.0" y="289.3" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="294.1" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="299.9" class="tiny" text-anchor="end" >Llama-L</text>
+<rect x="238.0" y="295.1" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="299.9" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="305.7" class="tiny" text-anchor="end" >Gemma-S</text>
+<rect x="238.0" y="300.9" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="305.7" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="311.5" class="tiny" text-anchor="end" >Gemma-M</text>
+<rect x="238.0" y="306.7" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="311.5" class="tiny" text-anchor="start" >n/a</text>
+<text x="150.0" y="317.2" class="tiny" text-anchor="end" >Gemma-L</text>
+<rect x="238.0" y="312.5" width="9.0" height="4.8" fill="#dddddd" />
+<text x="251.0" y="317.2" class="tiny" text-anchor="start" >n/a</text>
+<text x="20.0" y="330.3" class="axis" text-anchor="start" >BibleQA</text>
+<text x="150.0" y="327.1" class="tiny" text-anchor="end" >Qwen-S</text>
+<rect x="238.0" y="322.3" width="484.8" height="4.8" fill="#4C72B0" />
+<text x="726.8" y="327.1" class="tiny" text-anchor="start" >0.93</text>
+<text x="150.0" y="332.9" class="tiny" text-anchor="end" >Qwen-M</text>
+<rect x="238.0" y="328.1" width="483.7" height="4.8" fill="#4C72B0" />
+<text x="725.7" y="332.9" class="tiny" text-anchor="start" >0.93</text>
+<text x="150.0" y="338.6" class="tiny" text-anchor="end" >Qwen-L</text>
+<rect x="238.0" y="333.9" width="493.1" height="4.8" fill="#4C72B0" />
+<text x="735.1" y="338.6" class="tiny" text-anchor="start" >0.94</text>
+<text x="150.0" y="344.4" class="tiny" text-anchor="end" >MiniMax-S</text>
+<rect x="238.0" y="339.6" width="490.8" height="4.8" fill="#DD8452" />
+<text x="732.8" y="344.4" class="tiny" text-anchor="start" >0.94</text>
+<text x="150.0" y="350.2" class="tiny" text-anchor="end" >MiniMax-M</text>
+<rect x="238.0" y="345.4" width="485.5" height="4.8" fill="#DD8452" />
+<text x="727.5" y="350.2" class="tiny" text-anchor="start" >0.93</text>
+<text x="150.0" y="356.0" class="tiny" text-anchor="end" >MiniMax-L</text>
+<rect x="238.0" y="351.2" width="487.8" height="4.8" fill="#DD8452" />
+<text x="729.8" y="356.0" class="tiny" text-anchor="start" >0.93</text>
+<text x="150.0" y="361.8" class="tiny" text-anchor="end" >DeepSeek-S</text>
+<rect x="238.0" y="357.0" width="2.0" height="4.8" fill="#55A868" />
+<text x="244.0" y="361.8" class="tiny" text-anchor="start" >0.00</text>
+<text x="150.0" y="367.5" class="tiny" text-anchor="end" >DeepSeek-M</text>
+<rect x="238.0" y="362.8" width="471.3" height="4.8" fill="#55A868" />
+<text x="713.3" y="367.5" class="tiny" text-anchor="start" >0.90</text>
+<text x="150.0" y="373.3" class="tiny" text-anchor="end" >DeepSeek-L</text>
+<rect x="238.0" y="368.5" width="492.9" height="4.8" fill="#55A868" />
+<text x="734.9" y="373.3" class="tiny" text-anchor="start" >0.94</text>
+<text x="150.0" y="379.1" class="tiny" text-anchor="end" >Llama-S</text>
+<rect x="238.0" y="374.3" width="414.2" height="4.8" fill="#C44E52" />
+<text x="656.2" y="379.1" class="tiny" text-anchor="start" >0.79</text>
+<text x="150.0" y="384.9" class="tiny" text-anchor="end" >Llama-M</text>
+<rect x="238.0" y="380.1" width="482.5" height="4.8" fill="#C44E52" />
+<text x="724.5" y="384.9" class="tiny" text-anchor="start" >0.92</text>
+<text x="150.0" y="390.7" class="tiny" text-anchor="end" >Llama-L</text>
+<rect x="238.0" y="385.9" width="473.1" height="4.8" fill="#C44E52" />
+<text x="715.1" y="390.7" class="tiny" text-anchor="start" >0.91</text>
+<text x="150.0" y="396.5" class="tiny" text-anchor="end" >Gemma-S</text>
+<rect x="238.0" y="391.7" width="426.6" height="4.8" fill="#8172B2" />
+<text x="668.6" y="396.5" class="tiny" text-anchor="start" >0.82</text>
+<text x="150.0" y="402.2" class="tiny" text-anchor="end" >Gemma-M</text>
+<rect x="238.0" y="397.5" width="469.5" height="4.8" fill="#8172B2" />
+<text x="711.5" y="402.2" class="tiny" text-anchor="start" >0.90</text>
+<text x="150.0" y="408.0" class="tiny" text-anchor="end" >Gemma-L</text>
+<rect x="238.0" y="403.2" width="461.9" height="4.8" fill="#8172B2" />
+<text x="703.9" y="408.0" class="tiny" text-anchor="start" >0.88</text>
+</svg>

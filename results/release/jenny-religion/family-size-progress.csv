@@ -1,0 +1,16 @@
+line,IslamTrust,CatholicBench,BuddhismEval,BibleQA
+Qwen-S,Blocked,Blocked,Blocked,Done
+Qwen-M,Blocked,Blocked,Blocked,Done
+Qwen-L,Blocked,Blocked,Blocked,Done
+MiniMax-S,Blocked,Blocked,Blocked,Done
+MiniMax-M,Blocked,Blocked,Blocked,Done
+MiniMax-L,Blocked,Blocked,Blocked,Done
+DeepSeek-S,Blocked,Blocked,Blocked,Done
+DeepSeek-M,Blocked,Blocked,Blocked,Done
+DeepSeek-L,Blocked,Blocked,Blocked,Done
+Llama-S,Blocked,Blocked,Blocked,Done
+Llama-M,Blocked,Blocked,Blocked,Done
+Llama-L,Blocked,Blocked,Blocked,Done
+Gemma-S,Blocked,Blocked,Blocked,Done
+Gemma-M,Blocked,Blocked,Blocked,Done
+Gemma-L,Blocked,Blocked,Blocked,Done

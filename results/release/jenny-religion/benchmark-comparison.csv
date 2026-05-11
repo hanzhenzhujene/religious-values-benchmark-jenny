@@ -1,0 +1,16 @@
+line,IslamTrust,CatholicBench,BuddhismEval,BibleQA
+Qwen-S,,,,0.9287
+Qwen-M,,,,0.9266
+Qwen-L,,,,0.9447
+MiniMax-S,,,,0.9402
+MiniMax-M,,,,0.93
+MiniMax-L,,,,0.9345
+DeepSeek-S,,,,0.0
+DeepSeek-M,,,,0.9029
+DeepSeek-L,,,,0.9443
+Llama-S,,,,0.7935
+Llama-M,,,,0.9244
+Llama-L,,,,0.9063
+Gemma-S,,,,0.8172
+Gemma-M,,,,0.8995
+Gemma-L,,,,0.8849

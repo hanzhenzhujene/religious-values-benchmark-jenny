@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this release snapshot, cite this repository and the underlying benchmark sources."
+title: "Jenny Religious Values Benchmark Suite"
+version: "jenny-religion-20260510"
+date-released: "2026-05-11"
+authors:
+  - family-names: Zhu
+    given-names: Jenny
+repository-code: "https://github.com/hanzhenzhujene/religious-values-benchmark-jenny"

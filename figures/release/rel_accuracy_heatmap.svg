@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img">
+<title>Accuracy Heatmap</title>
+<style>
+        text { font-family: system-ui, sans-serif; fill: #222; }
+        .title { font-size: 14px; font-weight: 700; }
+        .axis { font-size: 11px; }
+        .small { font-size: 9px; }
+        .tiny { font-size: 8px; }
+        .grid { stroke: #dddddd; stroke-width: 1; }
+        .axis-line { stroke: #333333; stroke-width: 1; }
+        .outline { stroke: #ffffff; stroke-width: 1; }
+    </style>
+<defs>
+        <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="8" height="8">
+            <path d="M-2,2 l4,-4 M0,8 l8,-8 M6,10 l4,-4" stroke="#bbbbbb" stroke-width="1"/>
+        </pattern>
+        <linearGradient id="heatLegend" x1="0%" x2="100%" y1="0%" y2="0%">
+            <stop offset="0%" stop-color="#f7fbff"/>
+            <stop offset="100%" stop-color="#08519c"/>
+        </linearGradient>
+    </defs>
+<text x="450.0" y="24.0" class="title" text-anchor="middle" >Accuracy Heatmap</text>
+<text x="230.0" y="50.0" class="axis" text-anchor="middle" >IslamTrust</text>
+<text x="370.0" y="50.0" class="axis" text-anchor="middle" >CatholicBench</text>
+<text x="510.0" y="50.0" class="axis" text-anchor="middle" >BuddhismEval</text>
+<text x="650.0" y="50.0" class="axis" text-anchor="middle" >BibleQA</text>
+<text x="152.0" y="76.1" class="axis" text-anchor="end" >Qwen-S</text>
+<rect x="160.0" y="62.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="62.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="76.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="62.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="62.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="76.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="62.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="62.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="76.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="62.0" width="139.0" height="19.7" fill="#195da3" />
+<text x="650.0" y="76.1" class="tiny" text-anchor="middle" >0.93</text>
+<text x="152.0" y="96.7" class="axis" text-anchor="end" >Qwen-M</text>
+<rect x="160.0" y="82.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="82.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="96.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="82.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="82.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="96.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="82.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="82.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="96.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="82.7" width="139.0" height="19.7" fill="#1a5da3" />
+<text x="650.0" y="96.7" class="tiny" text-anchor="middle" >0.93</text>
+<text x="152.0" y="117.4" class="axis" text-anchor="end" >Qwen-L</text>
+<rect x="160.0" y="103.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="103.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="117.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="103.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="103.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="117.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="103.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="103.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="117.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="103.3" width="139.0" height="19.7" fill="#155aa1" />
+<text x="650.0" y="117.4" class="tiny" text-anchor="middle" >0.94</text>
+<text x="152.0" y="138.1" class="axis" text-anchor="end" >MiniMax-S</text>
+<rect x="160.0" y="124.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="124.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="138.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="124.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="124.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="138.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="124.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="124.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="138.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="124.0" width="139.0" height="19.7" fill="#165ba2" />
+<text x="650.0" y="138.1" class="tiny" text-anchor="middle" >0.94</text>
+<text x="152.0" y="158.7" class="axis" text-anchor="end" >MiniMax-M</text>
+<rect x="160.0" y="144.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="144.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="158.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="144.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="144.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="158.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="144.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="144.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="158.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="144.7" width="139.0" height="19.7" fill="#195da3" />
+<text x="650.0" y="158.7" class="tiny" text-anchor="middle" >0.93</text>
+<text x="152.0" y="179.4" class="axis" text-anchor="end" >MiniMax-L</text>
+<rect x="160.0" y="165.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="165.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="179.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="165.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="165.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="179.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="165.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="165.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="179.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="165.3" width="139.0" height="19.7" fill="#185ca2" />
+<text x="650.0" y="179.4" class="tiny" text-anchor="middle" >0.93</text>
+<text x="152.0" y="200.1" class="axis" text-anchor="end" >DeepSeek-S</text>
+<rect x="160.0" y="186.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="186.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="200.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="186.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="186.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="200.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="186.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="186.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="200.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="186.0" width="139.0" height="19.7" fill="#f7fbff" />
+<text x="650.0" y="200.1" class="tiny" text-anchor="middle" >0.00</text>
+<text x="152.0" y="220.7" class="axis" text-anchor="end" >DeepSeek-M</text>
+<rect x="160.0" y="206.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="206.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="220.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="206.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="206.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="220.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="206.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="206.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="220.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="206.7" width="139.0" height="19.7" fill="#1f62a6" />
+<text x="650.0" y="220.7" class="tiny" text-anchor="middle" >0.90</text>
+<text x="152.0" y="241.4" class="axis" text-anchor="end" >DeepSeek-L</text>
+<rect x="160.0" y="227.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="227.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="241.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="227.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="227.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="241.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="227.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="227.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="241.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="227.3" width="139.0" height="19.7" fill="#155aa2" />
+<text x="650.0" y="241.4" class="tiny" text-anchor="middle" >0.94</text>
+<text x="152.0" y="262.1" class="axis" text-anchor="end" >Llama-S</text>
+<rect x="160.0" y="248.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="248.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="262.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="248.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="248.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="262.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="248.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="248.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="262.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="248.0" width="139.0" height="19.7" fill="#3974b0" />
+<text x="650.0" y="262.1" class="tiny" text-anchor="middle" >0.79</text>
+<text x="152.0" y="282.7" class="axis" text-anchor="end" >Llama-M</text>
+<rect x="160.0" y="268.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="268.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="282.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="268.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="268.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="282.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="268.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="268.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="282.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="268.7" width="139.0" height="19.7" fill="#1a5ea3" />
+<text x="650.0" y="282.7" class="tiny" text-anchor="middle" >0.92</text>
+<text x="152.0" y="303.4" class="axis" text-anchor="end" >Llama-L</text>
+<rect x="160.0" y="289.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="289.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="303.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="289.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="289.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="303.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="289.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="289.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="303.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="289.3" width="139.0" height="19.7" fill="#1e61a5" />
+<text x="650.0" y="303.4" class="tiny" text-anchor="middle" >0.91</text>
+<text x="152.0" y="324.1" class="axis" text-anchor="end" >Gemma-S</text>
+<rect x="160.0" y="310.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="310.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="324.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="310.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="310.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="324.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="310.0" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="310.0" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="324.1" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="310.0" width="139.0" height="19.7" fill="#3470ae" />
+<text x="650.0" y="324.1" class="tiny" text-anchor="middle" >0.82</text>
+<text x="152.0" y="344.7" class="axis" text-anchor="end" >Gemma-M</text>
+<rect x="160.0" y="330.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="330.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="344.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="330.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="330.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="344.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="330.7" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="330.7" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="344.7" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="330.7" width="139.0" height="19.7" fill="#2062a6" />
+<text x="650.0" y="344.7" class="tiny" text-anchor="middle" >0.90</text>
+<text x="152.0" y="365.4" class="axis" text-anchor="end" >Gemma-L</text>
+<rect x="160.0" y="351.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="160.0" y="351.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="230.0" y="365.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="300.0" y="351.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="300.0" y="351.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="370.0" y="365.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="440.0" y="351.3" width="139.0" height="19.7" fill="#eeeeee" />
+<rect x="440.0" y="351.3" width="139.0" height="19.7" fill="url(#diagonalHatch)" />
+<text x="510.0" y="365.4" class="tiny" text-anchor="middle" >n/a</text>
+<rect x="580.0" y="351.3" width="139.0" height="19.7" fill="#2465a7" />
+<text x="650.0" y="365.4" class="tiny" text-anchor="middle" >0.88</text>
+<rect x="750.0" y="100.0" width="24.0" height="180.0" fill="url(#heatLegend)" transform="rotate(90 762 190)"/>
+<text x="790.0" y="104.0" class="small" text-anchor="start" >1.0</text>
+<text x="790.0" y="282.0" class="small" text-anchor="start" >0.0</text>
+<text x="762.0" y="315.0" class="axis" text-anchor="middle" >Accuracy</text>
+</svg>

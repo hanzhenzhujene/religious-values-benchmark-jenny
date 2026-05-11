@@ -1,4 +1,4 @@
-.PHONY: help setup test access smoke release rebound-plan
+.PHONY: help setup test access smoke release bootstrap rebound-plan
 
 UV ?= $(shell command -v uv 2>/dev/null || if [ -x "$$HOME/Library/Python/3.9/bin/uv" ]; then echo "$$HOME/Library/Python/3.9/bin/uv"; fi)
 VENV_PYTHON ?= .venv/bin/python
@@ -22,6 +22,7 @@ help:
 	@echo "  make access     Check official dataset accessibility"
 	@echo "  make smoke      Run a 2-sample smoke on accessible Jenny tasks"
 	@echo "  make release    Build release summary artifacts"
+	@echo "  make bootstrap  Rebuild public release artifacts from committed snapshots"
 	@echo "  make rebound-plan RUN_ID=<id>  Plan targeted failed/parse reruns without model calls"
 
 setup:
@@ -38,6 +39,8 @@ smoke:
 
 release:
 	$(RUN_PYTHON) scripts/build_release_artifacts.py
+
+bootstrap: release
 
 rebound-plan:
 	@test -n "$(RUN_ID)" || (echo "Set RUN_ID=<inspect-run-id>" >&2; exit 1)
