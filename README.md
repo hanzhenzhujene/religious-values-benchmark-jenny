@@ -59,6 +59,16 @@ Machine-readable results are in [benchmark-comparison.csv](results/release/jenny
 [![Coverage matrix](figures/release/rel_coverage_matrix.svg)](figures/release/rel_coverage_matrix.svg)
 *[Caption: Coverage separates completed measured cells from blocked official-data cells and MiniMax IslamTrust TBD cells.]*
 
+## Interpretation
+
+IslamTrust is clearly harder than BibleQA: IslamTrust mean accuracy is about 0.725, while BibleQA mean accuracy is about 0.909. IslamTrust also has the wider spread, from Llama-S at 0.4852 to DeepSeek-L at 0.8313, which means it separates model capability more strongly.
+
+IslamTrust has a clean scaling pattern: Qwen, DeepSeek, Llama, and Gemma all move upward from S to M to L. This looks more like a real scaling signal than BibleQA.
+
+BibleQA is more non-monotonic: Qwen-M is slightly below Qwen-S, DeepSeek-M is below DeepSeek-S, Gemma-L is below Gemma-M, and MiniMax is also not monotonic. This suggests BibleQA may be closer to saturation, or more sensitive to model and format specifics.
+
+The most interesting result is that DeepSeek-L is the top line on both completed benchmarks, with 0.8313 on IslamTrust and 0.9515 on BibleQA. But DeepSeek-R1 was also the most operationally difficult line and needed targeted 2048-token hard batches to produce stable parseable answers.
+
 ## Model Matrix
 
 Small, Medium, and Large are planning slots inherited from the shared CEI model matrix. They are not vendor taxonomy labels and do not always correspond to raw parameter count.
