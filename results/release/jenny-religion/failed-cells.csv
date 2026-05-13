@@ -1,3 +1,5 @@
 task,family,size,model,provider,status,completed_samples,total_samples,error_message,log_path
 bibleqa_sentence_selection,Qwen,S,qwen/qwen3-8b,OpenRouter,recovered_by_rebound,886,886,Original full run JSONDecodeError; recovered by targeted rebounds,see results/inspect/logs rebound run ids and source/benchmark_scores.csv
 bibleqa_sentence_selection,DeepSeek,L,deepseek/deepseek-r1,OpenRouter,recovered_by_rebound,886,886,Original full run TypeError('NoneType' object is not iterable); recovered by targeted rebounds,see results/inspect/logs rebound run ids and source/benchmark_scores.csv
+islamtrust_mc1,DeepSeek,S,deepseek/deepseek-r1-distill-llama-70b,OpenRouter,recovered_by_rebound,812,812,Original stream stalled and timeout samples were recovered by targeted 360s rebounds,see merged IslamTrust logs and result-summary.csv
+islamtrust_mc1,DeepSeek,L,deepseek/deepseek-r1,OpenRouter,recovered_by_hard_batches,812,812,R1 required 2048-token targeted hard batches and duplicate-equivalent rescoring,"see hard batch run ids under results/inspect/logs (local, gitignored)"

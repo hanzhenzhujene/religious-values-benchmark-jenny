@@ -19,106 +19,121 @@
 <rect x="0" y="0" width="900" height="480" fill="#F8FAFC"/>
 <rect x="28.0" y="40.0" width="844.0" height="380.0" fill="#FFFFFF" class="panel" />
 <text x="450.0" y="24.0" class="title" text-anchor="middle" >Benchmark Accuracy Bars</text>
-<text x="450.0" y="44.0" class="subtitle" text-anchor="middle" >Comparable accuracy bars only; blocked benchmarks are summarized as n/a.</text>
-<line x1="210.0" y1="58.0" x2="210.0" y2="370.0" class="grid" />
-<text x="210.0" y="389.0" class="small" text-anchor="middle" >0.00</text>
-<line x1="347.5" y1="58.0" x2="347.5" y2="370.0" class="grid" />
-<text x="347.5" y="389.0" class="small" text-anchor="middle" >0.25</text>
-<line x1="485.0" y1="58.0" x2="485.0" y2="370.0" class="grid" />
-<text x="485.0" y="389.0" class="small" text-anchor="middle" >0.50</text>
-<line x1="622.5" y1="58.0" x2="622.5" y2="370.0" class="grid" />
-<text x="622.5" y="389.0" class="small" text-anchor="middle" >0.75</text>
-<line x1="760.0" y1="58.0" x2="760.0" y2="370.0" class="grid" />
-<text x="760.0" y="389.0" class="small" text-anchor="middle" >1.00</text>
-<text x="485.0" y="414.0" class="axis" text-anchor="middle" >BibleQA sentence-selection accuracy</text>
-<rect x="40.0" y="59.0" width="780.0" height="20.0" fill="#FFFFFF" />
-<text x="148.0" y="72.0" class="axis" text-anchor="end" >DeepSeek-L</text>
-<text x="155.0" y="72.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="62.0" width="523.3" height="13.0" fill="#059669" />
-<text x="739.3" y="72.0" class="value" text-anchor="start" >0.952</text>
-<rect x="40.0" y="79.0" width="780.0" height="20.0" fill="#F3F4F6" />
-<text x="148.0" y="92.0" class="axis" text-anchor="end" >Qwen-L</text>
-<text x="155.0" y="92.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="82.0" width="520.2" height="13.0" fill="#2563EB" />
-<text x="736.2" y="92.0" class="value" text-anchor="start" >0.946</text>
-<rect x="40.0" y="99.0" width="780.0" height="20.0" fill="#FFFFFF" />
-<text x="148.0" y="112.0" class="axis" text-anchor="end" >MiniMax-S</text>
-<text x="155.0" y="112.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="102.0" width="517.1" height="13.0" fill="#F97316" />
-<text x="733.1" y="112.0" class="value" text-anchor="start" >0.940</text>
-<rect x="40.0" y="119.0" width="780.0" height="20.0" fill="#F3F4F6" />
-<text x="148.0" y="132.0" class="axis" text-anchor="end" >MiniMax-L</text>
-<text x="155.0" y="132.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="122.0" width="514.0" height="13.0" fill="#F97316" />
-<text x="730.0" y="132.0" class="value" text-anchor="start" >0.934</text>
-<rect x="40.0" y="139.0" width="780.0" height="20.0" fill="#FFFFFF" />
-<text x="148.0" y="152.0" class="axis" text-anchor="end" >MiniMax-M</text>
-<text x="155.0" y="152.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="142.0" width="511.5" height="13.0" fill="#F97316" />
-<text x="727.5" y="152.0" class="value" text-anchor="start" >0.930</text>
-<rect x="40.0" y="159.0" width="780.0" height="20.0" fill="#F3F4F6" />
-<text x="148.0" y="172.0" class="axis" text-anchor="end" >Llama-L</text>
-<text x="155.0" y="172.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="162.0" width="510.9" height="13.0" fill="#DC2626" />
-<text x="726.9" y="172.0" class="value" text-anchor="start" >0.929</text>
-<rect x="40.0" y="179.0" width="780.0" height="20.0" fill="#FFFFFF" />
-<text x="148.0" y="192.0" class="axis" text-anchor="end" >Qwen-S</text>
-<text x="155.0" y="192.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="182.0" width="510.3" height="13.0" fill="#2563EB" />
-<text x="726.3" y="192.0" class="value" text-anchor="start" >0.928</text>
-<rect x="40.0" y="199.0" width="780.0" height="20.0" fill="#F3F4F6" />
-<text x="148.0" y="212.0" class="axis" text-anchor="end" >Qwen-M</text>
-<text x="155.0" y="212.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="202.0" width="509.6" height="13.0" fill="#2563EB" />
-<text x="725.6" y="212.0" class="value" text-anchor="start" >0.927</text>
-<rect x="40.0" y="219.0" width="780.0" height="20.0" fill="#FFFFFF" />
-<text x="148.0" y="232.0" class="axis" text-anchor="end" >Llama-M</text>
-<text x="155.0" y="232.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="222.0" width="508.4" height="13.0" fill="#DC2626" />
-<text x="724.4" y="232.0" class="value" text-anchor="start" >0.924</text>
-<rect x="40.0" y="239.0" width="780.0" height="20.0" fill="#F3F4F6" />
-<text x="148.0" y="252.0" class="axis" text-anchor="end" >DeepSeek-S</text>
-<text x="155.0" y="252.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="242.0" width="506.6" height="13.0" fill="#059669" />
-<text x="722.5" y="252.0" class="value" text-anchor="start" >0.921</text>
-<rect x="40.0" y="259.0" width="780.0" height="20.0" fill="#FFFFFF" />
-<text x="148.0" y="272.0" class="axis" text-anchor="end" >DeepSeek-M</text>
-<text x="155.0" y="272.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="262.0" width="496.6" height="13.0" fill="#059669" />
-<text x="712.6" y="272.0" class="value" text-anchor="start" >0.903</text>
-<rect x="40.0" y="279.0" width="780.0" height="20.0" fill="#F3F4F6" />
-<text x="148.0" y="292.0" class="axis" text-anchor="end" >Gemma-M</text>
-<text x="155.0" y="292.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="282.0" width="494.7" height="13.0" fill="#7C3AED" />
-<text x="710.7" y="292.0" class="value" text-anchor="start" >0.899</text>
-<rect x="40.0" y="299.0" width="780.0" height="20.0" fill="#FFFFFF" />
-<text x="148.0" y="312.0" class="axis" text-anchor="end" >Gemma-L</text>
-<text x="155.0" y="312.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="302.0" width="487.3" height="13.0" fill="#7C3AED" />
-<text x="703.3" y="312.0" class="value" text-anchor="start" >0.886</text>
-<rect x="40.0" y="319.0" width="780.0" height="20.0" fill="#F3F4F6" />
-<text x="148.0" y="332.0" class="axis" text-anchor="end" >Gemma-S</text>
-<text x="155.0" y="332.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="322.0" width="449.5" height="13.0" fill="#7C3AED" />
-<text x="665.5" y="332.0" class="value" text-anchor="start" >0.817</text>
-<rect x="40.0" y="339.0" width="780.0" height="20.0" fill="#FFFFFF" />
-<text x="148.0" y="352.0" class="axis" text-anchor="end" >Llama-S</text>
-<text x="155.0" y="352.0" class="tiny" text-anchor="start" >BibleQA</text>
-<rect x="210.0" y="342.0" width="436.4" height="13.0" fill="#DC2626" />
-<text x="652.4" y="352.0" class="value" text-anchor="start" >0.793</text>
-<rect x="780.0" y="58.0" width="72.0" height="86.0" fill="#F9FAFB" class="panel" />
-<text x="816.0" y="76.0" class="value" text-anchor="middle" >n/a</text>
-<text x="816.0" y="97.0" class="tiny" text-anchor="middle" >IslamTrust</text>
-<text x="816.0" y="113.0" class="tiny" text-anchor="middle" >CatholicBench</text>
-<text x="816.0" y="129.0" class="tiny" text-anchor="middle" >BuddhismEval</text>
+<text x="450.0" y="44.0" class="subtitle" text-anchor="middle" >Grouped by benchmark; n/a stubs mark lines without comparable accuracy.</text>
+<line x1="210.0" y1="62.0" x2="210.0" y2="392.0" class="grid" />
+<text x="210.0" y="411.0" class="small" text-anchor="middle" >0.00</text>
+<line x1="332.5" y1="62.0" x2="332.5" y2="392.0" class="grid" />
+<text x="332.5" y="411.0" class="small" text-anchor="middle" >0.25</text>
+<line x1="455.0" y1="62.0" x2="455.0" y2="392.0" class="grid" />
+<text x="455.0" y="411.0" class="small" text-anchor="middle" >0.50</text>
+<line x1="577.5" y1="62.0" x2="577.5" y2="392.0" class="grid" />
+<text x="577.5" y="411.0" class="small" text-anchor="middle" >0.75</text>
+<line x1="700.0" y1="62.0" x2="700.0" y2="392.0" class="grid" />
+<text x="700.0" y="411.0" class="small" text-anchor="middle" >1.00</text>
+<text x="455.0" y="438.0" class="axis" text-anchor="middle" >Accuracy</text>
+<text x="112.0" y="82.0" class="value" text-anchor="end" >IslamTrust</text>
+<text x="190.0" y="81.7" class="tiny" text-anchor="end" >Qwen-S</text>
+<rect x="210.0" y="74.0" width="348.8" height="7.7" fill="#2563EB" />
+<text x="563.8" y="81.7" class="tiny" text-anchor="start" >0.712</text>
+<text x="190.0" y="92.3" class="tiny" text-anchor="end" >Qwen-M</text>
+<rect x="210.0" y="84.7" width="374.1" height="7.7" fill="#2563EB" />
+<text x="589.1" y="92.3" class="tiny" text-anchor="start" >0.763</text>
+<text x="190.0" y="103.0" class="tiny" text-anchor="end" >Qwen-L</text>
+<rect x="210.0" y="95.3" width="387.4" height="7.7" fill="#2563EB" />
+<text x="602.4" y="103.0" class="tiny" text-anchor="start" >0.791</text>
+<text x="190.0" y="113.7" class="tiny" text-anchor="end" >DeepSeek-S</text>
+<rect x="210.0" y="106.0" width="398.3" height="7.7" fill="#F97316" />
+<text x="613.3" y="113.7" class="tiny" text-anchor="start" >0.813</text>
+<text x="190.0" y="124.3" class="tiny" text-anchor="end" >DeepSeek-M</text>
+<rect x="210.0" y="116.7" width="399.5" height="7.7" fill="#F97316" />
+<text x="614.5" y="124.3" class="tiny" text-anchor="start" >0.815</text>
+<text x="190.0" y="135.0" class="tiny" text-anchor="end" >DeepSeek-L</text>
+<rect x="210.0" y="127.3" width="407.3" height="7.7" fill="#F97316" />
+<text x="622.3" y="135.0" class="tiny" text-anchor="start" >0.831</text>
+<text x="190.0" y="145.7" class="tiny" text-anchor="end" >Llama-S</text>
+<rect x="210.0" y="138.0" width="237.7" height="7.7" fill="#059669" />
+<text x="452.7" y="145.7" class="tiny" text-anchor="start" >0.485</text>
+<text x="190.0" y="156.3" class="tiny" text-anchor="end" >Llama-M</text>
+<rect x="210.0" y="148.7" width="283.6" height="7.7" fill="#059669" />
+<text x="498.6" y="156.3" class="tiny" text-anchor="start" >0.579</text>
+<text x="190.0" y="167.0" class="tiny" text-anchor="end" >Llama-L</text>
+<rect x="210.0" y="159.3" width="358.4" height="7.7" fill="#059669" />
+<text x="573.4" y="167.0" class="tiny" text-anchor="start" >0.732</text>
+<text x="190.0" y="177.7" class="tiny" text-anchor="end" >Gemma-S</text>
+<rect x="210.0" y="170.0" width="327.7" height="7.7" fill="#DC2626" />
+<text x="542.7" y="177.7" class="tiny" text-anchor="start" >0.669</text>
+<text x="190.0" y="188.3" class="tiny" text-anchor="end" >Gemma-M</text>
+<rect x="210.0" y="180.7" width="365.7" height="7.7" fill="#DC2626" />
+<text x="580.7" y="188.3" class="tiny" text-anchor="start" >0.746</text>
+<text x="190.0" y="199.0" class="tiny" text-anchor="end" >Gemma-L</text>
+<rect x="210.0" y="191.3" width="376.6" height="7.7" fill="#DC2626" />
+<text x="591.6" y="199.0" class="tiny" text-anchor="start" >0.768</text>
+<text x="190.0" y="209.7" class="tiny" text-anchor="end" >MiniMax-S</text>
+<rect x="210.0" y="202.0" width="8.0" height="7.7" fill="#D1D5DB" />
+<text x="224.0" y="209.7" class="tiny" text-anchor="start" >n/a</text>
+<text x="190.0" y="220.3" class="tiny" text-anchor="end" >MiniMax-M</text>
+<rect x="210.0" y="212.7" width="8.0" height="7.7" fill="#D1D5DB" />
+<text x="224.0" y="220.3" class="tiny" text-anchor="start" >n/a</text>
+<text x="190.0" y="231.0" class="tiny" text-anchor="end" >MiniMax-L</text>
+<rect x="210.0" y="223.3" width="8.0" height="7.7" fill="#D1D5DB" />
+<text x="224.0" y="231.0" class="tiny" text-anchor="start" >n/a</text>
+<text x="112.0" y="260.0" class="value" text-anchor="end" >BibleQA</text>
+<text x="190.0" y="259.7" class="tiny" text-anchor="end" >Qwen-S</text>
+<rect x="210.0" y="252.0" width="454.6" height="7.7" fill="#2563EB" />
+<text x="669.6" y="259.7" class="tiny" text-anchor="start" >0.928</text>
+<text x="190.0" y="270.3" class="tiny" text-anchor="end" >Qwen-M</text>
+<rect x="210.0" y="262.7" width="454.0" height="7.7" fill="#2563EB" />
+<text x="669.0" y="270.3" class="tiny" text-anchor="start" >0.927</text>
+<text x="190.0" y="281.0" class="tiny" text-anchor="end" >Qwen-L</text>
+<rect x="210.0" y="273.3" width="463.4" height="7.7" fill="#2563EB" />
+<text x="678.4" y="281.0" class="tiny" text-anchor="start" >0.946</text>
+<text x="190.0" y="291.7" class="tiny" text-anchor="end" >DeepSeek-S</text>
+<rect x="210.0" y="284.0" width="451.3" height="7.7" fill="#F97316" />
+<text x="666.3" y="291.7" class="tiny" text-anchor="start" >0.921</text>
+<text x="190.0" y="302.3" class="tiny" text-anchor="end" >DeepSeek-M</text>
+<rect x="210.0" y="294.7" width="442.4" height="7.7" fill="#F97316" />
+<text x="657.4" y="302.3" class="tiny" text-anchor="start" >0.903</text>
+<text x="190.0" y="313.0" class="tiny" text-anchor="end" >DeepSeek-L</text>
+<rect x="210.0" y="305.3" width="466.2" height="7.7" fill="#F97316" />
+<text x="681.2" y="313.0" class="tiny" text-anchor="start" >0.952</text>
+<text x="190.0" y="323.7" class="tiny" text-anchor="end" >Llama-S</text>
+<rect x="210.0" y="316.0" width="388.8" height="7.7" fill="#059669" />
+<text x="603.8" y="323.7" class="tiny" text-anchor="start" >0.793</text>
+<text x="190.0" y="334.3" class="tiny" text-anchor="end" >Llama-M</text>
+<rect x="210.0" y="326.7" width="453.0" height="7.7" fill="#059669" />
+<text x="668.0" y="334.3" class="tiny" text-anchor="start" >0.924</text>
+<text x="190.0" y="345.0" class="tiny" text-anchor="end" >Llama-L</text>
+<rect x="210.0" y="337.3" width="455.2" height="7.7" fill="#059669" />
+<text x="670.2" y="345.0" class="tiny" text-anchor="start" >0.929</text>
+<text x="190.0" y="355.7" class="tiny" text-anchor="end" >Gemma-S</text>
+<rect x="210.0" y="348.0" width="400.4" height="7.7" fill="#DC2626" />
+<text x="615.4" y="355.7" class="tiny" text-anchor="start" >0.817</text>
+<text x="190.0" y="366.3" class="tiny" text-anchor="end" >Gemma-M</text>
+<rect x="210.0" y="358.7" width="440.8" height="7.7" fill="#DC2626" />
+<text x="655.8" y="366.3" class="tiny" text-anchor="start" >0.899</text>
+<text x="190.0" y="377.0" class="tiny" text-anchor="end" >Gemma-L</text>
+<rect x="210.0" y="369.3" width="434.1" height="7.7" fill="#DC2626" />
+<text x="649.1" y="377.0" class="tiny" text-anchor="start" >0.886</text>
+<text x="190.0" y="387.7" class="tiny" text-anchor="end" >MiniMax-S</text>
+<rect x="210.0" y="380.0" width="460.7" height="7.7" fill="#7C3AED" />
+<text x="675.7" y="387.7" class="tiny" text-anchor="start" >0.940</text>
+<text x="190.0" y="398.3" class="tiny" text-anchor="end" >MiniMax-M</text>
+<rect x="210.0" y="390.7" width="455.7" height="7.7" fill="#7C3AED" />
+<text x="670.7" y="398.3" class="tiny" text-anchor="start" >0.930</text>
+<text x="190.0" y="409.0" class="tiny" text-anchor="end" >MiniMax-L</text>
+<rect x="210.0" y="401.3" width="457.9" height="7.7" fill="#7C3AED" />
+<text x="672.9" y="409.0" class="tiny" text-anchor="start" >0.934</text>
+<text x="760.0" y="86.0" class="small" text-anchor="start" >Blocked:</text>
+<text x="760.0" y="104.0" class="tiny" text-anchor="start" >CatholicBench</text>
+<text x="760.0" y="119.0" class="tiny" text-anchor="start" >BuddhismEval</text>
 <rect x="170.0" y="443.0" width="14.0" height="14.0" fill="#2563EB" />
 <text x="189.0" y="455.0" class="small" text-anchor="start" >Qwen</text>
 <rect x="275.0" y="443.0" width="14.0" height="14.0" fill="#F97316" />
-<text x="294.0" y="455.0" class="small" text-anchor="start" >MiniMax</text>
+<text x="294.0" y="455.0" class="small" text-anchor="start" >DeepSeek</text>
 <rect x="380.0" y="443.0" width="14.0" height="14.0" fill="#059669" />
-<text x="399.0" y="455.0" class="small" text-anchor="start" >DeepSeek</text>
+<text x="399.0" y="455.0" class="small" text-anchor="start" >Llama</text>
 <rect x="485.0" y="443.0" width="14.0" height="14.0" fill="#DC2626" />
-<text x="504.0" y="455.0" class="small" text-anchor="start" >Llama</text>
+<text x="504.0" y="455.0" class="small" text-anchor="start" >Gemma</text>
 <rect x="590.0" y="443.0" width="14.0" height="14.0" fill="#7C3AED" />
-<text x="609.0" y="455.0" class="small" text-anchor="start" >Gemma</text>
+<text x="609.0" y="455.0" class="small" text-anchor="start" >MiniMax</text>
 </svg>

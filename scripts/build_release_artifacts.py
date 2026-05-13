@@ -550,51 +550,63 @@ def generate_benchmark_accuracy_bars(df: pd.DataFrame, path: Path = SVG_OUTPUTS[
     family_colors = family_color_map(df)
     lookup = {(row.line, row.benchmark): row for row in df.itertuples(index=False)}
     line_family = df.drop_duplicates("line").set_index("line")["family"].to_dict()
-
-    comparable: list[tuple[str, str, float]] = []
-    blocked_by_benchmark: dict[str, int] = {}
-    for benchmark in benchmarks:
-        blocked_by_benchmark[benchmark] = 0
-        for model_line in lines:
-            row = lookup.get((model_line, benchmark))
-            if row is None or pd.isna(row.comparable_value):
-                blocked_by_benchmark[benchmark] += 1
-                continue
-            comparable.append((model_line, benchmark, float(row.comparable_value)))
-    comparable.sort(key=lambda item: item[2], reverse=True)
+    measured_benchmarks = [
+        benchmark
+        for benchmark in benchmarks
+        if any(
+            (lookup.get((model_line, benchmark)) is not None)
+            and not pd.isna(lookup[(model_line, benchmark)].comparable_value)
+            for model_line in lines
+        )
+    ]
 
     x0 = 210
-    x1 = 760
-    top = 62
-    row_h = 20
-    bar_h = 13
+    x1 = 700
+    top = 74
+    group_gap = 18
+    available_h = 320
+    total_rows = max(len(measured_benchmarks) * len(lines), 1)
+    row_h = min(13, available_h / total_rows)
+    bar_h = max(5, row_h - 3)
     parts = [
         rect(28, 40, 844, 380, SURFACE, "panel"),
         txt(450, 24, title, "title", "middle"),
-        txt(450, 44, "Comparable accuracy bars only; blocked benchmarks are summarized as n/a.", "subtitle", "middle"),
+        txt(450, 44, "Grouped by benchmark; n/a stubs mark lines without comparable accuracy.", "subtitle", "middle"),
     ]
     for tick in [0, 0.25, 0.5, 0.75, 1.0]:
         x = x0 + tick * (x1 - x0)
-        parts.append(line(x, 58, x, 370, "grid"))
-        parts.append(txt(x, 389, f"{tick:.2f}", "small", "middle"))
-    parts.append(txt((x0 + x1) / 2, 414, "BibleQA sentence-selection accuracy", "axis", "middle"))
+        parts.append(line(x, 62, x, 392, "grid"))
+        parts.append(txt(x, 411, f"{tick:.2f}", "small", "middle"))
+    parts.append(txt((x0 + x1) / 2, 438, "Accuracy", "axis", "middle"))
 
-    for row_idx, (model_line, benchmark, value) in enumerate(comparable):
-        y = top + row_idx * row_h
-        family = line_family.get(model_line, "")
-        color = family_colors.get(family, FAMILY_PALETTE[0])
-        parts.append(rect(40, y - 3, 780, row_h, row_fill(row_idx)))
-        parts.append(txt(148, y + 10, model_line, "axis", "end"))
-        parts.append(txt(155, y + 10, benchmark, "tiny"))
-        width = max(2, value * (x1 - x0))
-        parts.append(rect(x0, y, width, bar_h, color))
-        parts.append(txt(x0 + width + 6, y + 10, f"{value:.3f}", "value"))
+    if not measured_benchmarks:
+        parts.append(txt(450, 232, "No comparable benchmark scores available in this snapshot.", "value", "middle"))
 
-    summary_y = 72
-    parts.append(rect(780, summary_y - 14, 72, 86, "#F9FAFB", "panel"))
-    parts.append(txt(816, summary_y + 4, "n/a", "value", "middle"))
-    for idx, benchmark in enumerate([bench for bench in benchmarks if blocked_by_benchmark.get(bench)]):
-        parts.append(txt(816, summary_y + 25 + idx * 16, benchmark, "tiny", "middle"))
+    row_idx = 0
+    for benchmark in measured_benchmarks:
+        group_y = top + row_idx * row_h + measured_benchmarks.index(benchmark) * group_gap
+        parts.append(txt(112, group_y + 8, benchmark, "value", "end"))
+        for model_line in lines:
+            y = top + row_idx * row_h + measured_benchmarks.index(benchmark) * group_gap
+            family = line_family.get(model_line, "")
+            color = family_colors.get(family, FAMILY_PALETTE[0])
+            row = lookup.get((model_line, benchmark))
+            value = float(row.comparable_value) if row is not None and not pd.isna(row.comparable_value) else math.nan
+            parts.append(txt(190, y + bar_h, model_line, "tiny", "end"))
+            if pd.isna(value):
+                parts.append(rect(x0, y, 8, bar_h, "#D1D5DB"))
+                parts.append(txt(x0 + 14, y + bar_h, "n/a", "tiny"))
+            else:
+                width = max(2, value * (x1 - x0))
+                parts.append(rect(x0, y, width, bar_h, color))
+                parts.append(txt(min(x0 + width + 5, 760), y + bar_h, f"{value:.3f}", "tiny"))
+            row_idx += 1
+
+    blocked_only = [benchmark for benchmark in benchmarks if benchmark not in measured_benchmarks]
+    if blocked_only:
+        parts.append(txt(760, 86, "Blocked:", "small"))
+        for idx, benchmark in enumerate(blocked_only[:4]):
+            parts.append(txt(760, 104 + idx * 15, benchmark, "tiny"))
     parts.append(render_family_legend(family_colors, 170, 455, step=105))
     svg = svg_doc(title, "\n".join(parts))
     if not dry_run:
@@ -733,53 +745,71 @@ def generate_family_scaling_profile(df: pd.DataFrame, path: Path = SVG_OUTPUTS[4
         for benchmark in benchmarks
         if df[(df["benchmark"] == benchmark) & df["comparable_value"].notna()].shape[0] > 0
     ]
-    benchmark = measured_benchmarks[0] if measured_benchmarks else benchmarks[-1]
-    left = 92
-    right = 590
-    top = 74
-    bottom = 360
+    panel_benchmarks = measured_benchmarks[:3]
+    left = 96
+    right = 620
+    first_top = 76
+    panel_gap = 18
+    panel_h = 86 if len(panel_benchmarks) >= 3 else 122
     x_positions = {"S": left + 80, "M": left + 250, "L": left + 420}
     parts = [
         rect(28, 40, 844, 380, SURFACE, "panel"),
         txt(450, 24, title, "title", "middle"),
-        txt(450, 44, f"Size-slot pattern on {benchmark}; blocked benchmarks are not used for scaling claims.", "subtitle", "middle"),
+        txt(450, 44, "One small panel per benchmark with comparable scores; open circles mark missing slots.", "subtitle", "middle"),
     ]
-    for tick in [0, 0.25, 0.5, 0.75, 1.0]:
-        y = bottom - tick * (bottom - top)
-        parts.append(line(left, y, right, y, "grid"))
-        parts.append(txt(left - 10, y + 4, f"{tick:.2f}", "small", "end"))
-    parts.append(line(left, top, left, bottom, "axis-line"))
-    parts.append(line(left, bottom, right, bottom, "axis-line"))
-    for size, x in x_positions.items():
-        parts.append(txt(x, bottom + 24, size, "axis", "middle"))
-    parts.append(txt((left + right) / 2, bottom + 52, "Size slot", "axis", "middle"))
-    parts.append(txt(left - 54, top + 120, "Accuracy", "axis", "middle", 'transform="rotate(-90 38 194)"'))
 
-    for family in families:
-        fam_df = df[(df["family"] == family) & (df["benchmark"] == benchmark)]
-        point_coords: list[tuple[float, float]] = []
-        color = family_colors[family]
-        for size in SIZE_SLOTS:
-            row = fam_df[fam_df["size_slot"] == size]
-            x = x_positions[size]
-            if row.empty or pd.isna(row.iloc[0]["comparable_value"]):
-                parts.append(circle(x, bottom - 2, 5, "#ffffff", color))
-                continue
-            value = float(row.iloc[0]["comparable_value"])
-            y = bottom - value * (bottom - top)
-            point_coords.append((x, y))
-        if len(point_coords) >= 2:
-            path_d = " ".join(("M" if idx == 0 else "L") + f"{x:.1f},{y:.1f}" for idx, (x, y) in enumerate(point_coords))
-            parts.append(f'<path d="{path_d}" fill="none" stroke="{color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>')
-        for size in SIZE_SLOTS:
-            row = fam_df[fam_df["size_slot"] == size]
-            x = x_positions[size]
-            if row.empty or pd.isna(row.iloc[0]["comparable_value"]):
-                parts.append(circle(x, bottom - 2, 5, "#ffffff", color))
-                continue
-            value = float(row.iloc[0]["comparable_value"])
-            y = bottom - value * (bottom - top)
-            parts.append(circle(x, y, 5, color, "#ffffff"))
+    if not panel_benchmarks:
+        parts.append(txt(450, 232, "No comparable benchmark scores available in this snapshot.", "value", "middle"))
+
+    for panel_idx, benchmark in enumerate(panel_benchmarks):
+        top = first_top + panel_idx * (panel_h + panel_gap)
+        bottom = top + panel_h
+        parts.append(txt(left - 18, top + 14, benchmark, "value", "end"))
+        for tick in [0, 0.5, 1.0]:
+            y = bottom - tick * (bottom - top)
+            parts.append(line(left, y, right, y, "grid"))
+            parts.append(txt(left - 10, y + 4, f"{tick:.1f}", "tiny", "end"))
+        parts.append(line(left, top, left, bottom, "axis-line"))
+        parts.append(line(left, bottom, right, bottom, "axis-line"))
+        for size, x in x_positions.items():
+            parts.append(txt(x, bottom + 12, size, "tiny", "middle"))
+
+        for family in families:
+            fam_df = df[(df["family"] == family) & (df["benchmark"] == benchmark)]
+            point_coords: list[tuple[float, float]] = []
+            color = family_colors[family]
+            for size in SIZE_SLOTS:
+                row = fam_df[fam_df["size_slot"] == size]
+                x = x_positions[size]
+                if row.empty or pd.isna(row.iloc[0]["comparable_value"]):
+                    parts.append(circle(x, bottom - 2, 4, "#ffffff", color))
+                    continue
+                value = float(row.iloc[0]["comparable_value"])
+                y = bottom - value * (bottom - top)
+                point_coords.append((x, y))
+            if len(point_coords) >= 2:
+                path_d = " ".join(
+                    ("M" if idx == 0 else "L") + f"{x:.1f},{y:.1f}"
+                    for idx, (x, y) in enumerate(point_coords)
+                )
+                parts.append(
+                    f'<path d="{path_d}" fill="none" stroke="{color}" stroke-width="2.2" '
+                    'stroke-linecap="round" stroke-linejoin="round"/>'
+                )
+            for size in SIZE_SLOTS:
+                row = fam_df[fam_df["size_slot"] == size]
+                x = x_positions[size]
+                if row.empty or pd.isna(row.iloc[0]["comparable_value"]):
+                    parts.append(circle(x, bottom - 2, 4, "#ffffff", color))
+                    continue
+                value = float(row.iloc[0]["comparable_value"])
+                y = bottom - value * (bottom - top)
+                parts.append(circle(x, y, 4, color, "#ffffff"))
+
+    if panel_benchmarks:
+        last_bottom = first_top + (len(panel_benchmarks) - 1) * (panel_h + panel_gap) + panel_h
+        parts.append(txt((left + right) / 2, min(last_bottom + 36, 414), "Size slot", "axis", "middle"))
+        parts.append(txt(46, 220, "Accuracy", "axis", "middle", 'transform="rotate(-90 46 220)"'))
 
     legend_y = 88
     for idx, family in enumerate(families):
@@ -787,8 +817,9 @@ def generate_family_scaling_profile(df: pd.DataFrame, path: Path = SVG_OUTPUTS[4
         parts.append(rect(635, y - 13, 15, 15, family_colors[family]))
         parts.append(txt(660, y, family, "small"))
     parts.append(rect(620, 232, 222, 48, "#F9FAFB", "panel"))
-    parts.append(txt(636, 256, f"Benchmark: {benchmark}", "value"))
-    parts.append(txt(636, 274, "Other benchmarks are blocked.", "small"))
+    parts.append(txt(636, 256, f"Panels: {len(panel_benchmarks)}", "value"))
+    blocked_count = max(len(benchmarks) - len(measured_benchmarks), 0)
+    parts.append(txt(636, 274, f"Blocked benchmarks: {blocked_count}", "small"))
     svg = svg_doc(title, "\n".join(parts))
     if not dry_run:
         atomic_write_text(path, svg)

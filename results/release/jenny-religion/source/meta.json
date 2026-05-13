@@ -1,8 +1,8 @@
 {
   "report_owner": "Jenny Zhu",
-  "release_date": "2026-05-11",
-  "snapshot_label": "jenny-religion-20260510",
+  "release_date": "2026-05-13",
+  "snapshot_label": "jenny-religion-20260513-islamtrust-openrouter",
   "project_cost": "TBD",
   "cost_breakdown": "TBD",
-  "matrix_description": "4 benchmarks × 5 model families × 3 size slots = 60 cells; BibleQA is the only runnable benchmark; IslamTrust, CatholicBench, and BuddhismEval are blocked pending data access"
+  "matrix_description": "4 benchmarks \u00d7 5 model families \u00d7 3 size slots = 60 cells; BibleQA is complete across all 15 lines; IslamTrust is complete for the 12 OpenRouter lines and not run for MiniMax by request; CatholicBench and BuddhismEval are blocked pending official access/export"
 }

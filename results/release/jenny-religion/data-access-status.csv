@@ -1,5 +1,5 @@
 benchmark,task,status,note
-IslamTrust,islamtrust_mc1,blocked,"gated Hugging Face dataset; access requested, waiting for response; HF token not configured"
+IslamTrust,islamtrust_mc1,accessible,HF gated dataset access accepted; official English and Arabic splits used
 BuddhismEval,buddhism_eval_mcq,blocked,official dataset inaccessible / permission required; Jenny will email the author to request access
 BibleQA,bibleqa_sentence_selection,accessible,official GitHub artifact reachable
 CatholicBench,catholicbench_official,blocked,requires author access / official export needed; public dashboard is not scraped; Jenny will email the author

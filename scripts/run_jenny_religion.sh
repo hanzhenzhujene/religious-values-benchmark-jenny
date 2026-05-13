@@ -41,6 +41,7 @@ PARALLEL_MODELS=3
 LIMIT_ARGS=()
 START_ARGS=()
 SAMPLE_IDS_ARGS=()
+TIMEOUT_ARGS=()
 MODEL_FILTER=""
 TASK_FILTER=""
 RUN_ID="jenny-religion-$(date +%Y%m%d)"
@@ -146,6 +147,7 @@ write_run_metadata() {
         echo "limit_args=${LIMIT_ARGS[*]:-}"
         echo "start_args=${START_ARGS[*]:-}"
         echo "sample_ids_args=${SAMPLE_IDS_ARGS[*]:-}"
+        echo "timeout_args=${TIMEOUT_ARGS[*]:-}"
         echo "started=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
         echo "git_commit=$(git rev-parse --short HEAD 2>/dev/null || true)"
     } > "$RUN_DIR/run-metadata.txt"
@@ -193,6 +195,21 @@ require_provider_credentials() {
 }
 
 require_provider_credentials || exit 1
+if [[ -n "${CEI_TIMEOUT:-}" ]]; then
+    TIMEOUT_ARGS+=("--timeout" "$CEI_TIMEOUT")
+fi
+if [[ -n "${CEI_MAX_RETRIES:-}" ]]; then
+    TIMEOUT_ARGS+=("--max_retries" "$CEI_MAX_RETRIES")
+fi
+if [[ -n "${CEI_ATTEMPT_TIMEOUT:-}" ]]; then
+    TIMEOUT_ARGS+=("--attempt_timeout" "$CEI_ATTEMPT_TIMEOUT")
+fi
+if [[ -n "${CEI_FAIL_ON_ERROR:-}" ]]; then
+    TIMEOUT_ARGS+=("--fail_on_error" "$CEI_FAIL_ON_ERROR")
+fi
+if [[ -n "${CEI_CONTINUE_ON_FAIL:-}" ]]; then
+    TIMEOUT_ARGS+=("--continue_on_fail" "$CEI_CONTINUE_ON_FAIL")
+fi
 write_run_metadata
 
 min_int() {
@@ -222,6 +239,9 @@ setup_model_runtime_controls() {
         deepseek/deepseek-r1-distill-llama-70b)
             export CEI_MIN_MAX_TOKENS="${CEI_DEEPSEEK_DISTILL_MAX_TOKENS:-2048}"
             ;;
+        deepseek/deepseek-r1)
+            export CEI_MIN_MAX_TOKENS="${CEI_DEEPSEEK_R1_MAX_TOKENS:-512}"
+            ;;
         *)
             unset CEI_MIN_MAX_TOKENS
             ;;
@@ -237,16 +257,30 @@ setup_model_runtime_controls() {
 
     case "$model" in
         qwen/qwen3-*|deepseek/deepseek-r1|deepseek/deepseek-r1-distill-llama-70b)
-            MODEL_MAX_CONN="$(min_int "$MODEL_MAX_CONN" 1)"
+            MODEL_MAX_CONN="$(min_int "$MODEL_MAX_CONN" "${CEI_REASONING_MAX_CONN:-1}")"
             ;;
     esac
 
     if [[ "${CEI_OPENROUTER_REASONING_MINIMAL:-1}" == "1" ]]; then
         case "$model" in
             deepseek/deepseek-r1|deepseek/deepseek-r1-distill-llama-70b)
-                EXTRA_BODY_ARGS=("--extra_body_json" '{"reasoning":{"effort":"minimal","exclude":true}}')
+                if [[ -n "${CEI_OPENROUTER_PROVIDER_SORT:-}" ]]; then
+                    EXTRA_BODY_ARGS=(
+                        "--extra_body_json"
+                        "{\"reasoning\":{\"effort\":\"minimal\",\"exclude\":true},\"provider\":{\"sort\":\"${CEI_OPENROUTER_PROVIDER_SORT}\"}}"
+                    )
+                else
+                    EXTRA_BODY_ARGS=("--extra_body_json" '{"reasoning":{"effort":"minimal","exclude":true}}')
+                fi
+                ;;
+            *)
+                if [[ -n "${CEI_OPENROUTER_PROVIDER_SORT:-}" && "$model" != minimax/* ]]; then
+                    EXTRA_BODY_ARGS=("--extra_body_json" "{\"provider\":{\"sort\":\"${CEI_OPENROUTER_PROVIDER_SORT}\"}}")
+                fi
                 ;;
         esac
+    elif [[ -n "${CEI_OPENROUTER_PROVIDER_SORT:-}" && "$model" != minimax/* ]]; then
+        EXTRA_BODY_ARGS=("--extra_body_json" "{\"provider\":{\"sort\":\"${CEI_OPENROUTER_PROVIDER_SORT}\"}}")
     fi
 }
 
@@ -275,6 +309,7 @@ run_model() {
             ${LIMIT_ARGS[@]+"${LIMIT_ARGS[@]}"} \
             ${START_ARGS[@]+"${START_ARGS[@]}"} \
             ${SAMPLE_IDS_ARGS[@]+"${SAMPLE_IDS_ARGS[@]}"} \
+            ${TIMEOUT_ARGS[@]+"${TIMEOUT_ARGS[@]}"} \
             ${EXTRA_BODY_ARGS[@]+"${EXTRA_BODY_ARGS[@]}"} \
             2>&1 | tee -a "$log"
     )

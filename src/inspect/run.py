@@ -147,6 +147,34 @@ def parse_args():
         help="Generation temperature passed to CEI task factories via CEI_TEMPERATURE",
     )
     parser.add_argument(
+        "--timeout",
+        type=int,
+        default=None,
+        help="Overall model retry timeout in seconds.",
+    )
+    parser.add_argument(
+        "--max_retries",
+        type=int,
+        default=None,
+        help="Maximum model-call retries.",
+    )
+    parser.add_argument(
+        "--attempt_timeout",
+        type=int,
+        default=None,
+        help="Timeout in seconds for a single model-call attempt.",
+    )
+    parser.add_argument(
+        "--fail_on_error",
+        default=None,
+        help="Whether Inspect should fail the eval on sample/model errors (true/false).",
+    )
+    parser.add_argument(
+        "--continue_on_fail",
+        default=None,
+        help="Whether Inspect should continue after sample/model failures (true/false).",
+    )
+    parser.add_argument(
         "--reasoning_effort",
         choices=["none", "minimal", "low", "medium", "high", "xhigh"],
         default=None,
@@ -220,6 +248,17 @@ def parse_json_object(raw_json: str = "", *, flag_name: str) -> dict:
     if not isinstance(value, dict):
         raise ValueError(f"{flag_name} must decode to a JSON object.")
     return value
+
+
+def parse_optional_bool(raw_value: str | None, *, flag_name: str) -> bool | None:
+    if raw_value is None:
+        return None
+    lowered = raw_value.strip().lower()
+    if lowered in {"1", "true", "yes", "on"}:
+        return True
+    if lowered in {"0", "false", "no", "off"}:
+        return False
+    raise ValueError(f"{flag_name} must be one of true/false, yes/no, on/off, or 1/0.")
 
 
 def parse_sample_ids(raw_ids: str = "", ids_file: str = "") -> list[str] | None:
@@ -412,6 +451,8 @@ def main():
     try:
         model_args = parse_model_args(args.model_args, args.model_args_json)
         extra_body = parse_json_object(args.extra_body_json, flag_name="--extra_body_json")
+        fail_on_error = parse_optional_bool(args.fail_on_error, flag_name="--fail_on_error")
+        continue_on_fail = parse_optional_bool(args.continue_on_fail, flag_name="--continue_on_fail")
     except ValueError as exc:
         print(str(exc), file=sys.stderr)
         sys.exit(1)
@@ -438,6 +479,16 @@ def main():
         max_connections=args.max_connections,
         max_tasks=args.max_tasks,
     )
+    if args.timeout is not None:
+        eval_kwargs["timeout"] = args.timeout
+    if args.max_retries is not None:
+        eval_kwargs["max_retries"] = args.max_retries
+    if args.attempt_timeout is not None:
+        eval_kwargs["attempt_timeout"] = args.attempt_timeout
+    if fail_on_error is not None:
+        eval_kwargs["fail_on_error"] = fail_on_error
+    if continue_on_fail is not None:
+        eval_kwargs["continue_on_fail"] = continue_on_fail
     if args.reasoning_effort is not None:
         eval_kwargs["reasoning_effort"] = args.reasoning_effort
     if args.model_base_url:

@@ -1,5 +1,5 @@
 id,benchmark,task,data_status_note
-#35,IslamTrust,islamtrust_mc1,access requested; waiting for HF gated access response
+#35,IslamTrust,islamtrust_mc1,official HF gated dataset accessible; English+Arabic prompted MC1 complete for 12 OpenRouter lines; MiniMax not run by request
 #47,CatholicBench,catholicbench_official,requires author access / official export needed
 #26,BuddhismEval,buddhism_eval_mcq,official dataset inaccessible / permission required
 #37,BibleQA,bibleqa_sentence_selection,official GitHub candidate-selection artifact

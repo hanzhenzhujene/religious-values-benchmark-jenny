@@ -31,13 +31,21 @@
 <line x1="760.0" y1="68.0" x2="760.0" y2="390.0" class="grid" />
 <text x="760.0" y="412.0" class="small" text-anchor="middle" >1.00</text>
 <text x="505.0" y="445.0" class="axis" text-anchor="middle" >Accuracy</text>
-<rect x="48.0" y="124.0" width="780.0" height="48.0" fill="#FFFFFF" />
-<text x="164.0" y="152.0" class="axis" text-anchor="end" >BibleQA</text>
-<line x1="654.7" y1="148.0" x2="735.3" y2="148.0" class="axis-line" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
-<line x1="654.7" y1="140.0" x2="654.7" y2="156.0" class="axis-line" />
-<line x1="735.3" y1="140.0" x2="735.3" y2="156.0" class="axis-line" />
-<circle cx="713.4" cy="148.0" r="5.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5" />
-<text x="723.4" y="152.0" class="value" text-anchor="start" >mean 0.909</text>
-<text x="250.0" y="170.0" class="small" text-anchor="start" >best DeepSeek-L 0.952; worst Llama-S 0.793</text>
-<text x="450.0" y="388.0" class="muted" text-anchor="middle" >Blocked benchmarks omitted: IslamTrust, CatholicBench, BuddhismEval</text>
+<rect x="48.0" y="66.0" width="780.0" height="48.0" fill="#FFFFFF" />
+<text x="164.0" y="94.0" class="axis" text-anchor="end" >IslamTrust</text>
+<line x1="497.5" y1="90.0" x2="674.0" y2="90.0" class="axis-line" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+<line x1="497.5" y1="82.0" x2="497.5" y2="98.0" class="axis-line" />
+<line x1="674.0" y1="82.0" x2="674.0" y2="98.0" class="axis-line" />
+<circle cx="619.9" cy="90.0" r="5.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5" />
+<text x="629.9" y="94.0" class="value" text-anchor="start" >mean 0.725</text>
+<text x="250.0" y="112.0" class="small" text-anchor="start" >best DeepSeek-L 0.831; worst Llama-S 0.485</text>
+<rect x="48.0" y="140.0" width="780.0" height="48.0" fill="#F3F4F6" />
+<text x="164.0" y="168.0" class="axis" text-anchor="end" >BibleQA</text>
+<line x1="654.7" y1="164.0" x2="735.3" y2="164.0" class="axis-line" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+<line x1="654.7" y1="156.0" x2="654.7" y2="172.0" class="axis-line" />
+<line x1="735.3" y1="156.0" x2="735.3" y2="172.0" class="axis-line" />
+<circle cx="713.4" cy="164.0" r="5.0" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5" />
+<text x="723.4" y="168.0" class="value" text-anchor="start" >mean 0.909</text>
+<text x="250.0" y="186.0" class="small" text-anchor="start" >best DeepSeek-L 0.952; worst Llama-S 0.793</text>
+<text x="450.0" y="388.0" class="muted" text-anchor="middle" >Blocked benchmarks omitted: CatholicBench, BuddhismEval</text>
 </svg>

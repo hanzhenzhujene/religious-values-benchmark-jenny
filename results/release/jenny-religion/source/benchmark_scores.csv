@@ -1,61 +1,61 @@
 line,benchmark,metric,value,status,note
-Qwen-S,IslamTrust,n/a,,Blocked,HF access requested; no response yet
+Qwen-S,IslamTrust,prompted_mc1_accuracy,0.7118,Done,official HF English+Arabic; deterministic option shuffle; duplicate aliases accepted; 812 samples
 Qwen-S,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Qwen-S,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
 Qwen-S,BibleQA,sentence_selection_accuracy,0.9278,Done,rebound + targeted reruns jenny-religion-20260510; 886 samples
-Qwen-M,IslamTrust,n/a,,Blocked,HF access requested; no response yet
+Qwen-M,IslamTrust,prompted_mc1_accuracy,0.7635,Done,official HF English+Arabic; deterministic option shuffle; duplicate aliases accepted; 812 samples
 Qwen-M,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Qwen-M,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
 Qwen-M,BibleQA,sentence_selection_accuracy,0.9266,Done,rebound run jenny-religion-20260510; 886 samples
-Qwen-L,IslamTrust,n/a,,Blocked,HF access requested; no response yet
+Qwen-L,IslamTrust,prompted_mc1_accuracy,0.7906,Done,official HF English+Arabic; deterministic option shuffle; duplicate aliases accepted; 812 samples
 Qwen-L,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Qwen-L,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
 Qwen-L,BibleQA,sentence_selection_accuracy,0.9458,Done,rebound + targeted reruns jenny-religion-20260510; 886 samples
-MiniMax-S,IslamTrust,n/a,,Blocked,HF access requested; no response yet
-MiniMax-S,CatholicBench,n/a,,Blocked,Requires author access / official export not received
-MiniMax-S,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
-MiniMax-S,BibleQA,sentence_selection_accuracy,0.9402,Done,rebound run jenny-religion-20260510; 886 samples
-MiniMax-M,IslamTrust,n/a,,Blocked,HF access requested; no response yet
-MiniMax-M,CatholicBench,n/a,,Blocked,Requires author access / official export not received
-MiniMax-M,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
-MiniMax-M,BibleQA,sentence_selection_accuracy,0.9300,Done,rebound run jenny-religion-20260510; 886 samples
-MiniMax-L,IslamTrust,n/a,,Blocked,HF access requested; no response yet
-MiniMax-L,CatholicBench,n/a,,Blocked,Requires author access / official export not received
-MiniMax-L,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
-MiniMax-L,BibleQA,sentence_selection_accuracy,0.9345,Done,rebound run jenny-religion-20260510; 886 samples
-DeepSeek-S,IslamTrust,n/a,,Blocked,HF access requested; no response yet
+DeepSeek-S,IslamTrust,prompted_mc1_accuracy,0.8128,Done,official HF English+Arabic; deterministic option shuffle; duplicate aliases accepted; 812 samples; recovered timeout samples with targeted rebounds
 DeepSeek-S,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 DeepSeek-S,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
 DeepSeek-S,BibleQA,sentence_selection_accuracy,0.9210,Done,2048 full rerun + targeted reruns jenny-religion-20260511; 886 samples; 1 persistent max-token empty counted incorrect
-DeepSeek-M,IslamTrust,n/a,,Blocked,HF access requested; no response yet
+DeepSeek-M,IslamTrust,prompted_mc1_accuracy,0.8153,Done,official HF English+Arabic; deterministic option shuffle; duplicate aliases accepted; 812 samples
 DeepSeek-M,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 DeepSeek-M,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
 DeepSeek-M,BibleQA,sentence_selection_accuracy,0.9029,Done,rebound run jenny-religion-20260510; 886 samples
-DeepSeek-L,IslamTrust,n/a,,Blocked,HF access requested; no response yet
+DeepSeek-L,IslamTrust,prompted_mc1_accuracy,0.8313,Done,official HF English+Arabic; deterministic option shuffle; duplicate aliases accepted; 812 samples; recovered with targeted 2048-token R1 hard batches
 DeepSeek-L,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 DeepSeek-L,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
 DeepSeek-L,BibleQA,sentence_selection_accuracy,0.9515,Done,rebound + targeted reruns jenny-religion-20260510; 886 samples
-Llama-S,IslamTrust,n/a,,Blocked,HF access requested; no response yet
+Llama-S,IslamTrust,prompted_mc1_accuracy,0.4852,Done,official HF English+Arabic; deterministic option shuffle; duplicate aliases accepted; 812 samples
 Llama-S,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Llama-S,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
 Llama-S,BibleQA,sentence_selection_accuracy,0.7935,Done,rebound run jenny-religion-20260510; 886 samples
-Llama-M,IslamTrust,n/a,,Blocked,HF access requested; no response yet
+Llama-M,IslamTrust,prompted_mc1_accuracy,0.5788,Done,official HF English+Arabic; deterministic option shuffle; duplicate aliases accepted; 812 samples
 Llama-M,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Llama-M,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
 Llama-M,BibleQA,sentence_selection_accuracy,0.9244,Done,rebound + targeted reruns jenny-religion-20260510; 886 samples; 1 persistent refusal counted incorrect
-Llama-L,IslamTrust,n/a,,Blocked,HF access requested; no response yet
+Llama-L,IslamTrust,prompted_mc1_accuracy,0.7315,Done,official HF English+Arabic; deterministic option shuffle; duplicate aliases accepted; 812 samples
 Llama-L,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Llama-L,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
 Llama-L,BibleQA,sentence_selection_accuracy,0.9289,Done,rebound + targeted reruns jenny-religion-20260510; 886 samples
-Gemma-S,IslamTrust,n/a,,Blocked,HF access requested; no response yet
+Gemma-S,IslamTrust,prompted_mc1_accuracy,0.6687,Done,official HF English+Arabic; deterministic option shuffle; duplicate aliases accepted; 812 samples
 Gemma-S,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Gemma-S,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
 Gemma-S,BibleQA,sentence_selection_accuracy,0.8172,Done,rebound run jenny-religion-20260510; 886 samples
-Gemma-M,IslamTrust,n/a,,Blocked,HF access requested; no response yet
+Gemma-M,IslamTrust,prompted_mc1_accuracy,0.7463,Done,official HF English+Arabic; deterministic option shuffle; duplicate aliases accepted; 812 samples
 Gemma-M,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Gemma-M,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
 Gemma-M,BibleQA,sentence_selection_accuracy,0.8995,Done,rebound run jenny-religion-20260510; 886 samples
-Gemma-L,IslamTrust,n/a,,Blocked,HF access requested; no response yet
+Gemma-L,IslamTrust,prompted_mc1_accuracy,0.7685,Done,official HF English+Arabic; deterministic option shuffle; duplicate aliases accepted; 812 samples
 Gemma-L,CatholicBench,n/a,,Blocked,Requires author access / official export not received
 Gemma-L,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
 Gemma-L,BibleQA,sentence_selection_accuracy,0.8860,Done,rebound + targeted reruns jenny-religion-20260510; 886 samples
+MiniMax-S,IslamTrust,prompted_mc1_accuracy,,TBD,not run by request in OpenRouter-only IslamTrust sweep
+MiniMax-S,CatholicBench,n/a,,Blocked,Requires author access / official export not received
+MiniMax-S,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
+MiniMax-S,BibleQA,sentence_selection_accuracy,0.9402,Done,rebound run jenny-religion-20260510; 886 samples
+MiniMax-M,IslamTrust,prompted_mc1_accuracy,,TBD,not run by request in OpenRouter-only IslamTrust sweep
+MiniMax-M,CatholicBench,n/a,,Blocked,Requires author access / official export not received
+MiniMax-M,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
+MiniMax-M,BibleQA,sentence_selection_accuracy,0.9300,Done,rebound run jenny-religion-20260510; 886 samples
+MiniMax-L,IslamTrust,prompted_mc1_accuracy,,TBD,not run by request in OpenRouter-only IslamTrust sweep
+MiniMax-L,CatholicBench,n/a,,Blocked,Requires author access / official export not received
+MiniMax-L,BuddhismEval,n/a,,Blocked,Official dataset inaccessible; permission required
+MiniMax-L,BibleQA,sentence_selection_accuracy,0.9345,Done,rebound run jenny-religion-20260510; 886 samples

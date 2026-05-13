@@ -27,8 +27,8 @@
 <text x="642.5" y="62.0" class="axis" text-anchor="middle" >BibleQA</text>
 <rect x="40.0" y="69.0" width="760.0" height="20.0" fill="#FFFFFF" />
 <text x="138.0" y="82.0" class="axis" text-anchor="end" >Qwen-S</text>
-<rect x="170.0" y="72.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="83.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="170.0" y="72.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
+<text x="237.5" y="83.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="305.0" y="72.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="83.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="72.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -37,8 +37,8 @@
 <text x="642.5" y="83.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="89.0" width="760.0" height="20.0" fill="#F3F4F6" />
 <text x="138.0" y="102.0" class="axis" text-anchor="end" >Qwen-M</text>
-<rect x="170.0" y="92.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="103.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="170.0" y="92.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
+<text x="237.5" y="103.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="305.0" y="92.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="103.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="92.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -47,8 +47,8 @@
 <text x="642.5" y="103.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="109.0" width="760.0" height="20.0" fill="#FFFFFF" />
 <text x="138.0" y="122.0" class="axis" text-anchor="end" >Qwen-L</text>
-<rect x="170.0" y="112.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="123.0" class="cell-label" text-anchor="middle" >B</text>
+<rect x="170.0" y="112.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
+<text x="237.5" y="123.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="305.0" y="112.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="123.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="112.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -56,9 +56,9 @@
 <rect x="575.0" y="112.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
 <text x="642.5" y="123.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="129.0" width="760.0" height="20.0" fill="#F3F4F6" />
-<text x="138.0" y="142.0" class="axis" text-anchor="end" >MiniMax-S</text>
-<rect x="170.0" y="132.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="143.0" class="cell-label" text-anchor="middle" >B</text>
+<text x="138.0" y="142.0" class="axis" text-anchor="end" >DeepSeek-S</text>
+<rect x="170.0" y="132.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
+<text x="237.5" y="143.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="305.0" y="132.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="143.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="132.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -66,9 +66,9 @@
 <rect x="575.0" y="132.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
 <text x="642.5" y="143.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="149.0" width="760.0" height="20.0" fill="#FFFFFF" />
-<text x="138.0" y="162.0" class="axis" text-anchor="end" >MiniMax-M</text>
-<rect x="170.0" y="152.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="163.0" class="cell-label" text-anchor="middle" >B</text>
+<text x="138.0" y="162.0" class="axis" text-anchor="end" >DeepSeek-M</text>
+<rect x="170.0" y="152.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
+<text x="237.5" y="163.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="305.0" y="152.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="163.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="152.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -76,9 +76,9 @@
 <rect x="575.0" y="152.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
 <text x="642.5" y="163.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="169.0" width="760.0" height="20.0" fill="#F3F4F6" />
-<text x="138.0" y="182.0" class="axis" text-anchor="end" >MiniMax-L</text>
-<rect x="170.0" y="172.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="183.0" class="cell-label" text-anchor="middle" >B</text>
+<text x="138.0" y="182.0" class="axis" text-anchor="end" >DeepSeek-L</text>
+<rect x="170.0" y="172.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
+<text x="237.5" y="183.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="305.0" y="172.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="183.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="172.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -86,9 +86,9 @@
 <rect x="575.0" y="172.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
 <text x="642.5" y="183.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="189.0" width="760.0" height="20.0" fill="#FFFFFF" />
-<text x="138.0" y="202.0" class="axis" text-anchor="end" >DeepSeek-S</text>
-<rect x="170.0" y="192.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="203.0" class="cell-label" text-anchor="middle" >B</text>
+<text x="138.0" y="202.0" class="axis" text-anchor="end" >Llama-S</text>
+<rect x="170.0" y="192.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
+<text x="237.5" y="203.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="305.0" y="192.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="203.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="192.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -96,9 +96,9 @@
 <rect x="575.0" y="192.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
 <text x="642.5" y="203.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="209.0" width="760.0" height="20.0" fill="#F3F4F6" />
-<text x="138.0" y="222.0" class="axis" text-anchor="end" >DeepSeek-M</text>
-<rect x="170.0" y="212.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="223.0" class="cell-label" text-anchor="middle" >B</text>
+<text x="138.0" y="222.0" class="axis" text-anchor="end" >Llama-M</text>
+<rect x="170.0" y="212.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
+<text x="237.5" y="223.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="305.0" y="212.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="223.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="212.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -106,9 +106,9 @@
 <rect x="575.0" y="212.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
 <text x="642.5" y="223.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="229.0" width="760.0" height="20.0" fill="#FFFFFF" />
-<text x="138.0" y="242.0" class="axis" text-anchor="end" >DeepSeek-L</text>
-<rect x="170.0" y="232.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="243.0" class="cell-label" text-anchor="middle" >B</text>
+<text x="138.0" y="242.0" class="axis" text-anchor="end" >Llama-L</text>
+<rect x="170.0" y="232.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
+<text x="237.5" y="243.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="305.0" y="232.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="243.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="232.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -116,9 +116,9 @@
 <rect x="575.0" y="232.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
 <text x="642.5" y="243.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="249.0" width="760.0" height="20.0" fill="#F3F4F6" />
-<text x="138.0" y="262.0" class="axis" text-anchor="end" >Llama-S</text>
-<rect x="170.0" y="252.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="263.0" class="cell-label" text-anchor="middle" >B</text>
+<text x="138.0" y="262.0" class="axis" text-anchor="end" >Gemma-S</text>
+<rect x="170.0" y="252.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
+<text x="237.5" y="263.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="305.0" y="252.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="263.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="252.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -126,9 +126,9 @@
 <rect x="575.0" y="252.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
 <text x="642.5" y="263.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="269.0" width="760.0" height="20.0" fill="#FFFFFF" />
-<text x="138.0" y="282.0" class="axis" text-anchor="end" >Llama-M</text>
-<rect x="170.0" y="272.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="283.0" class="cell-label" text-anchor="middle" >B</text>
+<text x="138.0" y="282.0" class="axis" text-anchor="end" >Gemma-M</text>
+<rect x="170.0" y="272.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
+<text x="237.5" y="283.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="305.0" y="272.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="283.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="272.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -136,9 +136,9 @@
 <rect x="575.0" y="272.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
 <text x="642.5" y="283.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="289.0" width="760.0" height="20.0" fill="#F3F4F6" />
-<text x="138.0" y="302.0" class="axis" text-anchor="end" >Llama-L</text>
-<rect x="170.0" y="292.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="303.0" class="cell-label" text-anchor="middle" >B</text>
+<text x="138.0" y="302.0" class="axis" text-anchor="end" >Gemma-L</text>
+<rect x="170.0" y="292.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
+<text x="237.5" y="303.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="305.0" y="292.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="303.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="292.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -146,9 +146,9 @@
 <rect x="575.0" y="292.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
 <text x="642.5" y="303.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="309.0" width="760.0" height="20.0" fill="#FFFFFF" />
-<text x="138.0" y="322.0" class="axis" text-anchor="end" >Gemma-S</text>
-<rect x="170.0" y="312.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="323.0" class="cell-label" text-anchor="middle" >B</text>
+<text x="138.0" y="322.0" class="axis" text-anchor="end" >MiniMax-S</text>
+<rect x="170.0" y="312.0" width="132.0" height="15.0" fill="#6B7280" class="outline" />
+<text x="237.5" y="323.0" class="cell-label" text-anchor="middle" >T</text>
 <rect x="305.0" y="312.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="323.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="312.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -156,9 +156,9 @@
 <rect x="575.0" y="312.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
 <text x="642.5" y="323.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="329.0" width="760.0" height="20.0" fill="#F3F4F6" />
-<text x="138.0" y="342.0" class="axis" text-anchor="end" >Gemma-M</text>
-<rect x="170.0" y="332.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="343.0" class="cell-label" text-anchor="middle" >B</text>
+<text x="138.0" y="342.0" class="axis" text-anchor="end" >MiniMax-M</text>
+<rect x="170.0" y="332.0" width="132.0" height="15.0" fill="#6B7280" class="outline" />
+<text x="237.5" y="343.0" class="cell-label" text-anchor="middle" >T</text>
 <rect x="305.0" y="332.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="343.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="332.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -166,9 +166,9 @@
 <rect x="575.0" y="332.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
 <text x="642.5" y="343.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="40.0" y="349.0" width="760.0" height="20.0" fill="#FFFFFF" />
-<text x="138.0" y="362.0" class="axis" text-anchor="end" >Gemma-L</text>
-<rect x="170.0" y="352.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
-<text x="237.5" y="363.0" class="cell-label" text-anchor="middle" >B</text>
+<text x="138.0" y="362.0" class="axis" text-anchor="end" >MiniMax-L</text>
+<rect x="170.0" y="352.0" width="132.0" height="15.0" fill="#6B7280" class="outline" />
+<text x="237.5" y="363.0" class="cell-label" text-anchor="middle" >T</text>
 <rect x="305.0" y="352.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
 <text x="372.5" y="363.0" class="cell-label" text-anchor="middle" >B</text>
 <rect x="440.0" y="352.0" width="132.0" height="15.0" fill="#B42318" class="outline" />
@@ -176,8 +176,8 @@
 <rect x="575.0" y="352.0" width="132.0" height="15.0" fill="#15803D" class="outline" />
 <text x="642.5" y="363.0" class="cell-label" text-anchor="middle" >D</text>
 <rect x="735.0" y="80.0" width="112.0" height="84.0" fill="#F9FAFB" class="panel" />
-<text x="747.0" y="104.0" class="value" text-anchor="start" >15 Done</text>
-<text x="747.0" y="126.0" class="value" text-anchor="start" >45 Blocked</text>
+<text x="747.0" y="104.0" class="value" text-anchor="start" >27 Done</text>
+<text x="747.0" y="126.0" class="value" text-anchor="start" >30 Blocked</text>
 <text x="747.0" y="148.0" class="muted" text-anchor="start" >0 Proxy</text>
 <rect x="95.0" y="433.0" width="14.0" height="14.0" fill="#15803D" />
 <text x="114.0" y="445.0" class="small" text-anchor="start" >Done</text>

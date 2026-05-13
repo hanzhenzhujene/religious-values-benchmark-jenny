@@ -24,8 +24,11 @@ def _load_env() -> None:
     load_dotenv(ROOT / ".env.local", override=True)
 
 
-def _hf_token() -> str | None:
-    return os.getenv("HF_TOKEN") or os.getenv("HUGGING_FACE_HUB_TOKEN")
+def _hf_token() -> str | bool | None:
+    explicit_token = os.getenv("HF_TOKEN") or os.getenv("HUGGING_FACE_HUB_TOKEN")
+    if explicit_token:
+        return explicit_token
+    return True if os.getenv("HF_USE_CACHED_TOKEN", "1").lower() in {"1", "true", "yes", "on"} else None
 
 
 def _ok(name: str, task: str, note: str) -> dict:
@@ -70,11 +73,11 @@ def check_islamtrust() -> dict:
         return _blocked("IslamTrust", "islamtrust_mc1", f"missing local mirror: {path}")
 
     token = _hf_token()
-    if not token:
+    if token is None:
         return _blocked(
             "IslamTrust",
             "islamtrust_mc1",
-            "gated Hugging Face dataset; access requested, waiting for response; HF token not configured",
+            "gated Hugging Face dataset; set HF_TOKEN/HUGGING_FACE_HUB_TOKEN or login with hf auth",
         )
 
     dataset = os.getenv("ISLAMTRUST_DATASET", "Abderraouf000/IslamTrust-benchmark")

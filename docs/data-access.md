@@ -4,7 +4,7 @@
 
 Official source: https://huggingface.co/datasets/Abderraouf000/IslamTrust-benchmark
 
-This dataset is gated. Jenny has requested access and is waiting for a response. After access is accepted, set `HF_TOKEN` or `HUGGING_FACE_HUB_TOKEN`. The harness evaluates the official `English` and `Arabic` splits.
+This dataset is gated, and Jenny's account currently has accepted access. Set `HF_TOKEN` or `HUGGING_FACE_HUB_TOKEN`, or run `hf auth login` and leave `HF_USE_CACHED_TOKEN=1`. The harness evaluates the official `English` and `Arabic` splits.
 
 ## BuddhismEval
 

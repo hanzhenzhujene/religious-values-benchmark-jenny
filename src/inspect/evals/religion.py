@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 from collections.abc import Sequence
 from typing import Any
 
@@ -24,6 +25,31 @@ from evals.religion_utils import (
 )
 
 
+def _stable_reordered_choices(choices: list[str], correct_choice: int, seed: str) -> tuple[list[str], int]:
+    """Deterministically shuffle options to reduce position-bias in prompted MC1 scoring."""
+    indexed_choices = list(enumerate(choices, start=1))
+    ranked = sorted(
+        indexed_choices,
+        key=lambda item: hashlib.sha256(f"{seed}:{item[0]}:{item[1]}".encode("utf-8")).hexdigest(),
+    )
+    reordered = [choice for _, choice in ranked]
+    new_correct = next(
+        position
+        for position, (original_index, _) in enumerate(ranked, start=1)
+        if original_index == correct_choice
+    )
+    return reordered, new_correct
+
+
+def _equivalent_choice_targets(choices: list[str], correct_choice: int) -> list[str]:
+    correct_text = " ".join(choices[correct_choice - 1].split())
+    return [
+        str(index)
+        for index, choice in enumerate(choices, start=1)
+        if " ".join(choice.split()) == correct_text
+    ]
+
+
 def _islamtrust_sample(index: int, row: dict[str, Any]) -> Sample:
     question_key = first_existing_key(row, "Question", "question")
     choices_key = first_existing_key(row, "Choices", "choices")
@@ -38,16 +64,23 @@ def _islamtrust_sample(index: int, row: dict[str, Any]) -> Sample:
 
     language = str(row.get("language") or row.get("Language") or "unknown")
     category = str(row.get("Type") or row.get("type") or "unknown")
+    shuffle_seed = f"islamtrust:{language}:{index + 1}"
+    prompted_choices, prompted_correct_choice = _stable_reordered_choices(choices, correct_choice, shuffle_seed)
+    accepted_targets = _equivalent_choice_targets(prompted_choices, prompted_correct_choice)
     return Sample(
         id=f"islamtrust-{language.lower()}-{index + 1:04d}",
-        input=prompt_for_mcq(str(row[question_key]), choices),
-        target=str(correct_choice),
+        input=prompt_for_mcq(str(row[question_key]), prompted_choices),
+        target=accepted_targets if len(accepted_targets) > 1 else str(prompted_correct_choice),
         metadata={
             "benchmark": "IslamTrust",
             "language": language,
             "category": category,
             "source": row.get("Source") or row.get("source") or "",
-            "num_options": len(choices),
+            "num_options": len(prompted_choices),
+            "original_correct_choice": correct_choice,
+            "prompted_correct_choice": prompted_correct_choice,
+            "accepted_correct_choices": accepted_targets,
+            "shuffle_seed": shuffle_seed,
         },
     )
 
@@ -116,12 +149,18 @@ def _select_samples(samples: list[Sample], *, start: int = 0, sample_ids: Sequen
     return samples[start:]
 
 
+def _source_limit(limit: int | None, start: int, sample_ids: Sequence[str] | None) -> int | None:
+    if sample_ids or limit is None:
+        return None
+    return start + limit
+
+
 def make_islamtrust_samples(
     limit: int | None = None,
     start: int = 0,
     sample_ids: Sequence[str] | None = None,
 ) -> list[Sample]:
-    raw_limit = None if sample_ids else limit
+    raw_limit = _source_limit(limit, start, sample_ids)
     samples = [_islamtrust_sample(index, row) for index, row in iter_limited(load_islamtrust_rows(), raw_limit)]
     selected = _select_samples(samples, start=start, sample_ids=sample_ids)
     return selected[:limit] if sample_ids and limit is not None else selected
@@ -132,7 +171,7 @@ def make_buddhism_eval_samples(
     start: int = 0,
     sample_ids: Sequence[str] | None = None,
 ) -> list[Sample]:
-    raw_limit = None if sample_ids else limit
+    raw_limit = _source_limit(limit, start, sample_ids)
     samples = [_buddhism_eval_sample(index, row) for index, row in iter_limited(load_buddhism_eval_rows(), raw_limit)]
     selected = _select_samples(samples, start=start, sample_ids=sample_ids)
     return selected[:limit] if sample_ids and limit is not None else selected
@@ -143,7 +182,7 @@ def make_bibleqa_samples(
     start: int = 0,
     sample_ids: Sequence[str] | None = None,
 ) -> list[Sample]:
-    raw_limit = None if sample_ids else limit
+    raw_limit = _source_limit(limit, start, sample_ids)
     samples = [_bibleqa_sample(index, row) for index, row in iter_limited(load_bibleqa_rows(), raw_limit)]
     selected = _select_samples(samples, start=start, sample_ids=sample_ids)
     return selected[:limit] if sample_ids and limit is not None else selected

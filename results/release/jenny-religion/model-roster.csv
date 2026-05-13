@@ -11,6 +11,6 @@ Llama,L,meta-llama/llama-3.3-70b-instruct,OpenRouter
 Gemma,S,google/gemma-3-4b-it,OpenRouter
 Gemma,M,google/gemma-3-12b-it,OpenRouter
 Gemma,L,google/gemma-3-27b-it,OpenRouter
-MiniMax,S,minimax/minimax-01,MiniMax direct API
-MiniMax,M,minimax/minimax-m1,MiniMax direct API
-MiniMax,L,minimax/minimax-m2.5,MiniMax direct API
+MiniMax,S,minimax/minimax-01,MiniMax API
+MiniMax,M,minimax/minimax-m1,MiniMax API
+MiniMax,L,minimax/minimax-m2.5,MiniMax API

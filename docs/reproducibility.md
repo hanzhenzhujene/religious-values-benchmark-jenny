@@ -13,7 +13,7 @@ Fill in:
 
 - `OPENROUTER_API_KEY` for Qwen, DeepSeek, Llama, and Gemma
 - `MINIMAX_API_KEY` for MiniMax
-- `HF_TOKEN` or `HUGGING_FACE_HUB_TOKEN` after accepting gated IslamTrust access
+- `HF_TOKEN` or `HUGGING_FACE_HUB_TOKEN` for gated IslamTrust access, or a cached token from `hf auth login` with `HF_USE_CACHED_TOKEN=1`
 
 ## Data Access Gate
 
@@ -37,7 +37,7 @@ The test suite verifies parsing, official-data adapters, task construction from 
 make smoke
 ```
 
-This runs a 2-sample smoke test on accessible official tasks only. In a fresh environment without HF access, BibleQA is usually the only accessible task.
+This runs a 2-sample smoke test on accessible official tasks only. With Jenny's current Hugging Face access, IslamTrust and BibleQA are accessible; BuddhismEval and CatholicBench remain blocked.
 
 ## Full Run
 
